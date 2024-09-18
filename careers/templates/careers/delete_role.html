@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Role</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #e74c3c;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+        .button-group button,
+        .button-group a {
+            padding: 10px 20px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 4px;
+            text-decoration: none;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .button-group button {
+            background-color: #e74c3c;
+        }
+        .button-group a {
+            background-color: #3498db;
+        }
+        .button-group button:hover {
+            background-color: #c0392b;
+        }
+        .button-group a:hover {
+            background-color: #2980b9;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Delete Role</h1>
+        <p>Are you sure you want to delete the role "{{ role.title }}"?</p>
+        <form method="post">
+            {% csrf_token %}
+            <div class="button-group">
+                <button type="submit">Yes, Delete</button>
+                <a href="{% url 'role_list' %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!-- {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Building Test</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .test-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .question .options label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-buttons {
+            text-align: center;
+        }
+        .form-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-buttons button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="test-container">
+        <h1>Career Building Test</h1>
+        <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="question">
+                    <h3>{{ field.label }}</h3>
+                    <div class="options">
+                        {% for choice in field.field.widget.choices %}
+                            <label>
+                                <input type="radio" name="{{ field.name }}" value="{{ choice.0 }}" {% if choice.0 == field.value %}checked{% endif %}>
+                                {{ choice.1 }}
+                            </label>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="form-buttons">
+                <button type="submit">Submit Answers</button>
+            </div>
+        </form>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (CaptainPrince). All rights reserved.</p>
+    </footer>
+</body>
+</html> -->
+
+
+<!-- Updated Code -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Building Test</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .test-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .test-question {
+            max-width:600px;
+            margin-left: 150px;
+            margin-right: 150px;
+            margin:40px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 5px sloid#ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .test_question form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .test_question label{
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .test_question input[type="text" ]
+
+        .test_question textarea{
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .question .options label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        .question input[type="radio"] {
+            margin-right: 10px;
+        }
+        .form-buttons {
+            text-align: center;
+        }
+        .form-buttons button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-buttons button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'profile' %}">Profile</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
+    </header>
+
+    <div class="test-container">
+        <h1>Career Analysis Test</h1>
+        <div class="test-question">
+            <form action="" method="post" novalidate class="shadow p-5" style="margin-top: 20px;"></form>
+            
+            {% if messages %}
+            {% for message in messages%}
+                    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
+            {% endfor %}
+            {% endif%}
+            {% csrf_token %}
+            {% for fm in form %}
+            <div class="form-group mb-3">
+                    {{fm.label_tag}} 
+                    <br>
+                    {{fm}}
+                    <br>
+                    <small class="text-danger">
+                        {{fm.errors|striptags}}
+                    </small>
+            </div>
+                {% endfor%}
+            <br>
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+            </form>
+        </div>
+        <form method="post">
+            {% csrf_token %}  <!--csrf= cross-site request forgery attacks -->
+            {% for field in form %}
+                <div class="question">
+                    <h3>{{ question.label }}</h3>
+                    {%for option in question %}
+                    <div class="options"></div>
+                    <input type="radio" id="{{option}}" name="question_{{question.name}}" value="{{option}}">
+                    <label for ="{{option}}">{{option}}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <div class="form-buttons">
+                <button type="submit">Submit Answers</button>
+            </div>
+        </form>
+    </div>
+    
+        
+         
+       
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram. All rights reserved.</p>
+    </footer>
+</body>
+</html>
