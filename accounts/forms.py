@@ -126,137 +126,185 @@ class RegistrationForm(UserCreationForm):
 
 
 from django.core.validators import MaxValueValidator, MinValueValidator
-YES_OR_NO = (
-    ('yes','yes'),
-    ('no','no'),
-)
-certifications = (
-    ('shell programming','shell programming'),
-    ('machine learning','machine learning'),
-    ('app development','app development'),
-    ('python','python'),
-    ('r programming','r programming'),
-    ('information security','information security'),
-    ('hadoop','hadoop'),
-    ('distro making','distro making'),
-    ('full stack','full stack'),
-)
-skills = (
-    ('poor','poor'),
-    ('medium','medium'),
-    ('excellent','excellent'),
-)
-subject = (
-    ('cloud computing','cloud computing'),
-    ('networks','networks'),
-    ('hacking','hacking'),
-    ('Computer Architecture','Computer Architecture'),
-    ('parallel computing','parallel computing'),
-    ('IOT','IOT'),
-    ('data engineering','data engineering'),
-    ('Software Engineering','Software Engineering'),
-    ('Management','Management'),
-)
-career = (
-    ('system developer','system developer'),
-    ('Business process analyst','Business process analyst'),
-    ('developer','developer'),
-    ('testing','testing'),
-    ('security','security'),
-    ('cloud computing','cloud computing'),
-)
-studies = (
-    ('higherstudies','higherstudies'),
-    ('job','job')
-)
-companies =(
-    ('Web Services','Web Services'),
-    ('SAaS services','SAaS services'),
-    ('Sales and Marketing','Sales and Marketing'),
-    ('Testing and Maintainance Services','Testing and Maintainance Services'),
-    ('product development','product development'),
-    ('BPA','BPA'),
-    ('Service Based','Service Based'),
-    ('Product based','Product based'),
-    ('Cloud Services','Cloud Services'),
-    ('Finance','Finance'),
-)
-books = (
-    ('Prayer books','Prayer books'),
-    ('Childrens','Childrens'),
-    ('Travel','Travel'),
-    ('Romance','Romance'),
-    ('Cookbooks','Cookbooks'),
-    ('Self help','Self help'),
-    ('Drama','Drama'),
-    ('Math','Math'),
-    ('Religion-Spiritality','Religion-Spiritality'),
-    ('Anthology','Anthology'),
-    ('Trilogy','Trilogy'),
-    ('Autobiographies','Autobiographies'),
-    ('Mystery','Mystery'),
-    ('Diaries','Diaries'),
-    ('Journals','Journals'),
-    ('History','History'),
-    ('Art','Art'),
-    ('Dictionaries','Dictionaries'),
-    ('Horror','Horror'),
-    ('Encyclopedias','Encyclopedias'),
-    ('Action and Adventure','Action and Adventure'),
-    ('Fantasy','Fantasy'),
-    ('Comics','Comics'),
-    ('Science fiction','Science fiction'),
-    ('Series','Series'),
-    ('Guide','Guide'),
-    ('Biographies','Biographies'),
-    ('Health','Health'),
-    ('Satire','Satire'),
+subjects = (
+    ('--Select--','--Select--'),
     ('Science','Science'),
-    ('Poetry','Poetry'),
-    
+    ('Mathematics','Mathematics'),
+    ('Literature','Literature'),
+    ('Arts','Arts'),
+    ('History','History'),
+    ('Technology','Technology'),
+    ('Busniness','Busniness'),
 )
-behaviour = (
-    ('stubborn','stubborn'),
-    ('gentle','gentle'),
+hobbies = (
+    ('--Select--','--Select--'),
+    ('painting', 'Painting'),
+    ('writing', 'Writing'),
+    ('playing_sports', 'Playing sports'),
+    ('gaming', 'Gaming'),
+    ('cooking', 'Cooking'),
+    ('volunteering', 'Volunteering'),
+    ('crafting', 'Crafting'),
 )
-management_technical = (
-    ('Technical','Technical'),
-    ('Management','Management'),
+
+work_preference = (
+    ('--Select--','--Select--'),
+    ('team', 'In a team'),
+    ('independently', 'Independently'),
+    ('mix', 'A mix of both'),
 )
-worker = (
-    ('smart worker','smart worker'),
-    ('hard worker','hard worker'),
+
+environment = (
+    ('--Select--','--Select--'),
+    ('office', 'Office'),
+    ('outdoors', 'Outdoors'),
+    ('remote', 'Remote'),
+    ('laboratory', 'Laboratory'),
+    ('classroom', 'Classroom'),
+)
+
+skills = (
+    ('--Select--','--Select--'),
+    ('communication', 'Communication'),
+    ('analytical_thinking', 'Analytical thinking'),
+    ('creativity', 'Creativity'),
+    ('leadership', 'Leadership'),
+    ('technical_skills', 'Technical skills'),
+)
+
+technology_comfort = (
+    ('--Select--','--Select--'),
+    ('very_comfortable', 'Very comfortable'),
+    ('somewhat_comfortable', 'Somewhat comfortable'),
+    ('not_comfortable', 'Not comfortable'),
+)
+
+creativity_importance = (
+    ('--Select--','--Select--'),
+    ('very_important', 'Very important'),
+    ('somewhat_important', 'Somewhat important'),
+    ('not_important', 'Not important'),
+)
+
+career_importance = (
+    ('--Select--','--Select--'),
+    ('job_security', 'Job security'),
+    ('high_salary', 'High salary'),
+    ('creativity', 'Creativity'),
+    ('helping_others', 'Helping others'),
+    ('work_life_balance', 'Work-life balance'),
+)
+
+age_group = (
+    ('--Select--','--Select--'),
+    ('children', 'Children'),
+    ('teenagers', 'Teenagers'),
+    ('adults', 'Adults'),
+    ('all_ages', 'All ages'),
+)
+
+healthcare_interest = (
+    ('--Select--','--Select--'),
+    ('yes', 'Yes'),
+    ('no', 'No'),
+    ('somewhat', 'Somewhat'),
+)
+
+public_speaking = (
+    ('--Select--','--Select--'),
+    ('enjoy_it', 'I enjoy it'),
+    ('can_manage', 'I can manage'),
+    ('prefer_to_avoid', 'I prefer to avoid it'),
+)
+
+business_interest = (
+    ('--Select--','--Select--'),
+    ('management', 'Management'),
+    ('finance', 'Finance'),
+    ('marketing', 'Marketing'),
+    ('entrepreneurship', 'Entrepreneurship'),
+    ('human_resources', 'Human Resources'),
+)
+
+environmental_interest = (
+    ('--Select--','--Select--'),
+    ('yes', 'Yes'),
+    ('no', 'No'),
+    ('somewhat', 'Somewhat'),
+)
+
+it_interest = (
+    ('--Select--','--Select--'),
+    ('cybersecurity', 'Cybersecurity'),
+    ('software_development', 'Software Development'),
+    ('networking', 'Networking'),
+    ('database_management', 'Database Management'),
+    ('web_development', 'Web Development'),
+)
+
+financial_decisions = (
+    ('--Select--','--Select--'),
+    ('analytical_calculated', 'Analytical and calculated'),
+    ('gut_feeling', 'Gut feeling'),
+    ('mix', 'A mix of both'),
+)
+
+hands_on_work = (
+    ('--Select--','--Select--'),
+    ('yes', 'Yes'),
+    ('no', 'No'),
+    ('sometimes', 'Sometimes'),
+)
+
+arts_interest = (
+    ('--Select--','--Select--'),
+    ('visual_arts', 'Visual arts'),
+    ('music', 'Music'),
+    ('literature', 'Literature'),
+    ('theater', 'Theater'),
+    ('dance', 'Dance'),
+)
+
+research_interest = (
+    ('--Select--','--Select--'),
+    ('love_it', 'I love it'),
+    ('can_manage', 'I can manage'),
+    ('prefer_practical', 'I prefer practical work'),
+)
+
+entrepreneurship_interest = (
+    ('--Select--','--Select--'),
+    ('yes', 'Yes'),
+    ('no', 'No'),
+    ('maybe', 'Maybe'),
+)
+
+learning_style = (
+    ('--Select--','--Select--'),
+    ('hands_on', 'Hands-on'),
+    ('visual', 'Visual'),
+    ('auditory', 'Auditory'),
+    ('reading_writing', 'Reading/Writing'),
 )
 
 class Test(forms.Form):
-    academic_percentage_in_operating_system = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_algorithm = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_programming_concepts = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_software_engineering = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_computer_networks = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_electronics_subjects = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_computer_architecture = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_mathematics = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    percentage_in_communication_skills = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    how_many_hours_in_a_day_you_can_work = forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(24)])
-    Rate_your_logical_quotient=forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
-    How_may_hackathon_have_you_participated=forms.IntegerField()
-    Rate_your_coding_skills=forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
-    Rate_your_public_speaking=forms.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(100)])
-    can_work_long_time_before_system = forms.ChoiceField(choices = YES_OR_NO)
-    self_learning_capability = forms.ChoiceField(choices=YES_OR_NO)
-    which_certifications_do_you_prefer = forms.ChoiceField(choices=certifications)
-    any_talenttests_taken= forms.ChoiceField(choices=YES_OR_NO)
-    scale_your_reading_and_writing_skills = forms.ChoiceField(choices=skills)
-    scale_your_memory_capability_score = forms.ChoiceField(choices=skills)
-    Interested_subjects = forms.ChoiceField(choices=subject)
-    interested_career_area = forms.ChoiceField(choices=career)
-    what_do_you_prefer_job_or_higher_studies = forms.ChoiceField(choices=studies)
-    type_of_company_you_prefer = forms.ChoiceField(choices=companies)
-    intereaction_with_seniors = forms.ChoiceField(choices=YES_OR_NO)
-    do_you_love_games = forms.ChoiceField(choices=YES_OR_NO)
-    type_of_books_you_prefer = forms.ChoiceField(choices=books)
-    most_likely_behaviour = forms.ChoiceField(choices=behaviour)
-    what_you_prefer_managemet_or_technical = forms.ChoiceField(choices= management_technical)
-    have_you_ever_worked_with_teams = forms.ChoiceField(choices=YES_OR_NO)
-    Are_you_an_Introvert= forms.ChoiceField(choices=YES_OR_NO) 
+    Which_subjects_did_you_enjoy_most_in_school = forms.ChoiceField(choices=subjects)
+    What_hobbies_do_you_spend_the_most_time_on = forms.ChoiceField(choices=hobbies)
+    How_do_you_prefer_to_work = forms.ChoiceField(choices=work_preference)
+    What_type_of_environment_do_you_thrive_in = forms.ChoiceField(choices=environment)
+    Which_of_the_following_skills_do_you_consider_your_strongest = forms.ChoiceField(choices=skills)
+    How_comfortable_are_you_with_technology = forms.ChoiceField(choices=technology_comfort)
+    How_important_is_creativity_in_your_career_choice = forms.ChoiceField(choices=creativity_importance)
+    What_is_most_important_to_you_in_a_career = forms.ChoiceField(choices=career_importance)
+    Which_age_group_do_you_prefer_to_work_with = forms.ChoiceField(choices=age_group)
+    Are_you_interested_in_healthcare_or_helping_others = forms.ChoiceField(choices=healthcare_interest)
+    How_do_you_feel_about_public_speaking = forms.ChoiceField(choices=public_speaking)
+    What_aspect_of_business_interests_you_the_most = forms.ChoiceField(choices=business_interest)
+    Are_you_passionate_about_environmental_issues = forms.ChoiceField(choices=environmental_interest)
+    Which_area_of_IT_interests_you_the_most = forms.ChoiceField(choices=it_interest)
+    How_do_you_approach_financial_decisions = forms.ChoiceField(choices=financial_decisions)
+    Do_you_enjoy_hands_on_work = forms.ChoiceField(choices=hands_on_work)
+    Which_area_of_arts_and_culture_fascinates_you = forms.ChoiceField(choices=arts_interest)
+    How_do_you_feel_about_research_and_analysis = forms.ChoiceField(choices=research_interest)
+    Are_you_interested_in_entrepreneurship = forms.ChoiceField(choices=entrepreneurship_interest)
+    Which_of_the_following_best_describes_your_learning_style = forms.ChoiceField(choices=learning_style) 

@@ -137,56 +137,43 @@
     <div class="test-container">
         <h1>Career Analysis Test</h1>
         <div class="test-question">
-            <form action="" method="post" novalidate class="shadow p-5" style="margin-top: 20px;"></form>
-            
-            {% if messages %}
-            {% for message in messages%}
-                    <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5" {% endif %}>{{message}}</p>
-            {% endfor %}
-            {% endif%}
-            {% csrf_token %}
-            {% for fm in form %}
-            <div class="form-group mb-3">
-                    {{fm.label_tag}} 
-                    <br>
-                    {{fm}}
-                    <br>
-                    <small class="text-danger">
-                        {{fm.errors|striptags}}
-                    </small>
-            </div>
-                {% endfor%}
-            <br>
-            {% if form.non_field_errors %}
-            {% for error in form.non_field_errors %}
-            <p class="alert alert-danger my-3">{{error}}</p>
-            {% endfor %}
-            {% endif %}
+            <form action="" method="post" novalidate class="shadow p-5" style="margin-top: 20px;">
+    
+                {% if messages %}
+                    {% for message in messages %}
+                        <p {% if message.tags %} class="alert alert-{{ message.tags }} mb-5" {% endif %}>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}
+    
+                {% csrf_token %}
+                {% for fm in form %}
+                    <div class="form-group mb-4">  <!-- Increased spacing -->
+                        <label>{{ forloop.counter }}.) {{ fm.label }}?</label>  <!-- Numbering and question mark -->
+                        <br>
+                        {{ fm }}  <!-- Render the input field -->
+                        <br>
+                        <br>
+                        <br>
+                        <small class="text-danger">
+                            {{ fm.errors|striptags }}
+                        </small>
+                    </div>
+                {% endfor %}
+    
+                <br>
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <p class="alert alert-danger my-3">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+    
+                <div class="form-buttons">
+                    <button type="submit">Submit Answers</button>
+                </div>
             </form>
         </div>
-        <form method="post">
-            {% csrf_token %}  <!--csrf= cross-site request forgery attacks -->
-            {% for field in form %}
-                <div class="question">
-                    <h3>{{ question.label }}</h3>
-                    {%for option in question %}
-                    <div class="options"></div>
-                    <input type="radio" id="{{option}}" name="question_{{question.name}}" value="{{option}}">
-                    <label for ="{{option}}">{{option}}</label>
-                    </div>
-                    {% endfor %}
-                </div>
-            {% endfor %}
-            <div class="form-buttons">
-                <button type="submit">Submit Answers</button>
-            </div>
-        </form>
     </div>
     
-        
-         
-       
-
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
     </footer>

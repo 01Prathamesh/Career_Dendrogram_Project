@@ -157,58 +157,30 @@ def logout_view(request):
     return redirect('home')
 
 def start_test(request):
-    # question= TestQuestion.objects.all()
-    # if request.method == 'POST':
-    #     form = TestForm(request.POST, questions=TestQuestion.objects.all())
-    #     if form.is_valid():
-    #         for question in TestQuestion.objects.all():
-    #             selected_option = form.cleaned_data.get(f'question_{question.id}')
-    #             if selected_option:
-    #                 UserTestResponse.objects.create(
-    #                     user=request.user,
-    #                     question=question,
-    #                     selected_option=selected_option
-    #                 )
-    #         return redirect('test_results')
-    # else:
-    #     questions = TestQuestion.objects.all()
-    #     form = TestForm(questions=questions)
-    # return render(request, 'start_test.html', {'form': form})
     form = Test()
     x={}
     if request.method == 'POST':
             form = Test(request.POST)
-            x['academic_percentage_in_operating_system']= request.POST.get('academic_percentage_in_operating_system')
-            x['percentage_in_algorithm']=request.POST.get('percentage_in_algorithm')		
-            x['percentage_in_programming_concepts']=request.POST.get('percentage_in_programming_concepts')		
-            x['percentage_in_software_engineering']=request.POST.get('percentage_in_software_engineering')		
-            x['percentage_in_computer_networks']=request.POST.get('percentage_in_computer_networks')		
-            x['percentage_in_electronics_subjects']=request.POST.get('percentage_in_electronics_subjects')		
-            x['percentage_in_computer_architecture']=request.POST.get('percentage_in_computer_architecture')		
-            x['percentage_in_mathematics']=request.POST.get('percentage_in_mathematics')		
-            x['percentage_in_communication_skills']=request.POST.get('percentage_in_communication_skills')		
-            x['how_many_hours_in_a_day_you_can_work']=request.POST.get('how_many_hours_in_a_day_you_can_work')		
-            x['Rate_your_logical_quotient']=request.POST.get('Rate_your_logical_quotient')		
-            x['How_may_hackathon_have_you_participated']=request.POST.get('How_may_hackathon_have_you_participated')		
-            x['Rate_your_coding_skills']=request.POST.get('Rate_your_coding_skills')		
-            x['Rate_your_public_speaking']=request.POST.get('Rate_your_public_speaking')		
-            x['can_work_long_time_before_system']=request.POST.get('can_work_long_time_before_system')
-            x['self_learning_capability']=request.POST.get('self_learning_capability')
-            x['which_certifications_do_you_prefer']=request.POST.get('which_certifications_do_you_prefer')
-            x['any_talenttests_taken']=request.POST.get('any_talenttests_taken')
-            x['scale_your_reading_and_writing_skills']= request.POST.get('scale_your_reading_and_writing_skills')
-            x['scale_your_memory_capability_score'] = request.POST.get('scale_your_memory_capability_score')
-            x['Interested_subjects'] = request.POST.get('Interested_subjects')
-            x['interested_career_area'] = request.POST.get('interested_career_area')
-            x['what_do_you_prefer_job_or_higher_studies'] = request.POST.get('what_do_you_prefer_job_or_higher_studies')
-            x['type_of_company_you_prefer'] = request.POST.get('type_of_company_you_prefer')
-            x['intereaction_with_seniors'] = request.POST.get('intereaction_with_seniors')
-            x['do_you_love_games'] = request.POST.get('do_you_love_games')
-            x['type_of_books_you_prefer'] = request.POST.get('type_of_books_you_prefer')
-            x['most_likely_behaviour'] = request.POST.get('most_likely_behaviour')
-            x['what_you_prefer_managemet_or_technical'] = request.POST.get('what_you_prefer_managemet_or_technical')
-            x['have_you_ever_worked_with_teams'] = request.POST.get('have_you_ever_worked_with_teams')
-            x['Are_you_an_Introvert']= request.POST.get('Are_you_an_Introvert') 
+            x['1) Which subjects did you enjoy most in school?'] = request.POST.get('Which_subjects_did_you_enjoy_most_in_school')
+            x['2) What hobbies do you spend the most time on?'] = request.POST.get('What_hobbies_do_you_spend_the_most_time_on')
+            x['3) How do you prefer to work?'] = request.POST.get('How_do_you_prefer_to_work')
+            x['4) What type of environment do you thrive in?'] = request.POST.get('What_type_of_environment_do_you_thrive_in')
+            x['5) Which of the following skills do you consider your strongest?'] = request.POST.get('Which_of_the_following_skills_do_you_consider_your_strongest')
+            x['6) How comfortable are you with technology?'] = request.POST.get('How_comfortable_are_you_with_technology')
+            x['7) How important is creativity in your career choice?'] = request.POST.get('How_important_is_creativity_in_your_career_choice')
+            x['8) What is most important to you in a career?'] = request.POST.get('What_is_most_important_to_you_in_a_career')
+            x['9) Which age group do you prefer to work with?'] = request.POST.get('Which_age_group_do_you_prefer_to_work_with')
+            x['10) Are you interested in healthcare or helping others?'] = request.POST.get('Are_you_interested_in_healthcare_or_helping_others')
+            x['11) How do you feel about public speaking?'] = request.POST.get('How_do_you_feel_about_public_speaking')
+            x['12) What aspect of business interests you the most?'] = request.POST.get('What_aspect_of_business_interests_you_the_most')
+            x['13) Are you passionate about environmental issues?'] = request.POST.get('Are_you_passionate_about_environmental_issues')
+            x['14) Which area of IT interests you the most?'] = request.POST.get('Which_area_of_IT_interests_you_the_most')
+            x['15) How do you approach financial decisions?'] = request.POST.get('How_do_you_approach_financial_decisions')
+            x['16) Do you enjoy hands-on work?'] = request.POST.get('Do_you_enjoy_hands_on_work')
+            x['17) Which area of arts and culture fascinates you?'] = request.POST.get('Which_area_of_arts_and_culture_fascinates_you')
+            x['18) How do you feel about research and analysis?'] = request.POST.get('How_do_you_feel_about_research_and_analysis')
+            x['19) Are you interested in entrepreneurship?'] = request.POST.get('Are_you_interested_in_entrepreneurship')
+            x['20) Which of the following best describes your learning style?'] = request.POST.get('Which_of_the_following_best_describes_your_learning_style')
 		
             print(x)
             career = fun(x)
