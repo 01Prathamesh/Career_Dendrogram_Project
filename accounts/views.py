@@ -1,57 +1,17 @@
-# # accounts/views.py
-
-# from django.shortcuts import render, redirect
-# from django.contrib.auth.decorators import login_required
-# from django.contrib.auth.forms import UserCreationForm
-# from .forms import CustomUserCreationForm
-# from .forms import UserProfileForm
-# from .models import UserProfile
-
-# @login_required
-# def profile(request):
-#     return render(request, 'accounts/profile.html')
-
-# def register(request):
-#     if request.method == 'POST':
-#         form = CustomUserCreationForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('login')
-#     else:
-#         form = CustomUserCreationForm()
-#     return render(request, 'registration/register.html', {'form': form})
-
-# @login_required
-# def profile_view(request):
-#     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-#     if request.method == 'POST':
-#         form = UserProfileForm(request.POST, request.FILES, instance=user_profile, user=request.user)
-#         if form.is_valid():
-#             # Update the user profile and save
-#             form.save()
-#             # Optionally update the username
-#             if form.cleaned_data['username']:
-#                 request.user.username = form.cleaned_data['username']
-#                 request.user.save()
-#             return redirect('profile')
-#     else:
-#         form = UserProfileForm(instance=user_profile, user=request.user)
-    
-#     return render(request, 'accounts/profile.html', {'form': form})
-
-
-
 # Updated Code
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
-from .forms import CustomUserCreationForm, UserProfileForm, CareerPathForm, RoleForm, TestForm, RegistrationForm, Test
-from .models import UserProfile, TestQuestion, UserTestResponse
+from .forms import CustomUserCreationForm, UserProfileForm, CareerPathForm, RoleForm, RegistrationForm
+from .questions import Test
+from .models import UserProfile
 from .models import CareerPath
 from .models import Role
 from django.http import JsonResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
+from django.http import HttpResponseBadRequest
 
 def home(request):
     return render(request, 'accounts/home.html')
@@ -158,43 +118,141 @@ def logout_view(request):
 
 def start_test(request):
     form = Test()
-    x={}
     if request.method == 'POST':
-            form = Test(request.POST)
-            x['1) Which subjects did you enjoy most in school?'] = request.POST.get('Which_subjects_did_you_enjoy_most_in_school')
-            x['2) What hobbies do you spend the most time on?'] = request.POST.get('What_hobbies_do_you_spend_the_most_time_on')
-            x['3) How do you prefer to work?'] = request.POST.get('How_do_you_prefer_to_work')
-            x['4) What type of environment do you thrive in?'] = request.POST.get('What_type_of_environment_do_you_thrive_in')
-            x['5) Which of the following skills do you consider your strongest?'] = request.POST.get('Which_of_the_following_skills_do_you_consider_your_strongest')
-            x['6) How comfortable are you with technology?'] = request.POST.get('How_comfortable_are_you_with_technology')
-            x['7) How important is creativity in your career choice?'] = request.POST.get('How_important_is_creativity_in_your_career_choice')
-            x['8) What is most important to you in a career?'] = request.POST.get('What_is_most_important_to_you_in_a_career')
-            x['9) Which age group do you prefer to work with?'] = request.POST.get('Which_age_group_do_you_prefer_to_work_with')
-            x['10) Are you interested in healthcare or helping others?'] = request.POST.get('Are_you_interested_in_healthcare_or_helping_others')
-            x['11) How do you feel about public speaking?'] = request.POST.get('How_do_you_feel_about_public_speaking')
-            x['12) What aspect of business interests you the most?'] = request.POST.get('What_aspect_of_business_interests_you_the_most')
-            x['13) Are you passionate about environmental issues?'] = request.POST.get('Are_you_passionate_about_environmental_issues')
-            x['14) Which area of IT interests you the most?'] = request.POST.get('Which_area_of_IT_interests_you_the_most')
-            x['15) How do you approach financial decisions?'] = request.POST.get('How_do_you_approach_financial_decisions')
-            x['16) Do you enjoy hands-on work?'] = request.POST.get('Do_you_enjoy_hands_on_work')
-            x['17) Which area of arts and culture fascinates you?'] = request.POST.get('Which_area_of_arts_and_culture_fascinates_you')
-            x['18) How do you feel about research and analysis?'] = request.POST.get('How_do_you_feel_about_research_and_analysis')
-            x['19) Are you interested in entrepreneurship?'] = request.POST.get('Are_you_interested_in_entrepreneurship')
-            x['20) Which of the following best describes your learning style?'] = request.POST.get('Which_of_the_following_best_describes_your_learning_style')
-		
-            print(x)
-            career = fun(x)
-            context= {'career':career}
-            return render(request,'test_results.html',context)
-    context = {'form':form}
-    return render(request,'start_test.html',context)
+        form = Test(request.POST)
+        if form.is_valid():
+            # Collecting the user's answers from the form
+            user_answer = {
+                'How_do_you_prefer_to_work': form.cleaned_data['How_do_you_prefer_to_work'],
+                'Which_subjects_did_you_enjoy_most_in_school': form.cleaned_data['Which_subjects_did_you_enjoy_most_in_school'],
+                'What_hobbies_do_you_spend_the_most_time_on': form.cleaned_data['What_hobbies_do_you_spend_the_most_time_on'],
+                'What_type_of_environment_do_you_thrive_in': form.cleaned_data['What_type_of_environment_do_you_thrive_in'],
+                'Which_of_the_following_skills_do_you_consider_your_strongest': form.cleaned_data['Which_of_the_following_skills_do_you_consider_your_strongest'],
+                'How_comfortable_are_you_with_technology': form.cleaned_data['How_comfortable_are_you_with_technology'],
+                'How_important_is_creativity_in_your_career_choice': form.cleaned_data['How_important_is_creativity_in_your_career_choice'],
+                'What_is_most_important_to_you_in_a_career': form.cleaned_data['What_is_most_important_to_you_in_a_career'],
+                'Which_age_group_do_you_prefer_to_work_with': form.cleaned_data['Which_age_group_do_you_prefer_to_work_with'],
+                'Are_you_interested_in_healthcare_or_helping_others': form.cleaned_data['Are_you_interested_in_healthcare_or_helping_others'],
+                'How_do_you_feel_about_public_speaking': form.cleaned_data['How_do_you_feel_about_public_speaking'],
+                'What_aspect_of_business_interests_you_the_most': form.cleaned_data['What_aspect_of_business_interests_you_the_most'],
+                'Are_you_passionate_about_environmental_issues': form.cleaned_data['Are_you_passionate_about_environmental_issues'],
+                'Which_area_of_IT_interests_you_the_most': form.cleaned_data['Which_area_of_IT_interests_you_the_most'],
+                'How_do_you_approach_financial_decisions': form.cleaned_data['How_do_you_approach_financial_decisions'],
+                'Do_you_enjoy_hands_on_work': form.cleaned_data['Do_you_enjoy_hands_on_work'],
+                'Which_area_of_arts_and_culture_fascinates_you': form.cleaned_data['Which_area_of_arts_and_culture_fascinates_you'],
+                'How_do_you_feel_about_research_and_analysis': form.cleaned_data['How_do_you_feel_about_research_and_analysis'],
+                'Are_you_interested_in_entrepreneurship': form.cleaned_data['Are_you_interested_in_entrepreneurship'],
+                'Which_of_the_following_best_describes_your_learning_style': form.cleaned_data['Which_of_the_following_best_describes_your_learning_style'],
+            }
 
-def fun(dict1):
-	return "Complete Function fun(dict1) in views.py in app folder to predict the proper career from roo_data.csv in line 82 "
+            request.session['user_answers'] = user_answer
+            print("Session User Answers Set:", request.session.get('user_answers'))
+            return redirect('test_results')
+        else:
+            print("Form errors:", form.errors)  # Print errors if the form is invalid
+            messages.error(request, "Please correct the errors below.")
+    
+    return render(request, 'start_test.html', {'form': form})
+
 
 def test_results(request):
-    # Implement logic to handle and display test results
-    return render(request, 'test_results.html')
+    user_answers = request.session.get('user_answers')
+    if user_answers is None:
+        return redirect('start_test')
+    
+    print("User Answers from Session:", user_answers)
+
+    suggested_career_paths = determine_career_paths(user_answers)
+
+    return render(request, 'test_results.html', {
+        'user_answers': user_answers,
+        'suggested_career_paths': suggested_career_paths,
+    })
+
+def determine_career_paths(user_answers):
+    print("User Answers:", user_answers)
+    suggested_paths = []
+
+    # Define career paths based on user inputs
+    paths_mapping = {
+        'How_do_you_prefer_to_work': {
+            'In a team': 'Project Manager',
+            'Independently': 'Freelancer',
+        },
+        'Which_subjects_did_you_enjoy_most_in_school': {
+            'Science': 'Engineer',
+            'Mathematics': 'Data Analyst',
+            'Literature': 'Author',
+            'Arts': 'Graphic Designer',
+            'Technology': 'Software Developer',
+        },
+        'What_hobbies_do_you_spend_the_most_time_on': {
+            'Painting': 'Art Teacher',
+            'Writing': 'Content Creator',
+            'Playing sports': 'Sports Coach',
+        },
+        'What_type_of_environment_do_you_thrive_in': {
+            'Office': 'Corporate Employee',
+            'Outdoors': 'Environmental Scientist',
+        },
+        'Which_of_the_following_skills_do_you_consider_your_strongest': {
+            'Communication': 'Public Relations Specialist',
+        },
+        'How_comfortable_are_you_with_technology': {
+            'Very Comfortable': 'Software Developer',
+        },
+        'How_important_is_creativity_in_your_career_choice': {
+            'Very Important': 'Creative Director',
+        },
+        'What_is_most_important_to_you_in_a_career': {
+            'Work-life balance': 'Remote Worker',
+        },
+        'Are_you_interested_in_healthcare_or_helping_others': {
+            'Yes': 'Healthcare Professional',
+        },
+        'How_do_you_feel_about_public_speaking': {
+            'I enjoy it': 'Public Speaker',
+        },
+        'What_aspect_of_business_interests_you_the_most': {
+            'Management': 'Manager',
+        },
+        'Are_you_passionate_about_environmental_issues': {
+            'Yes': 'Conservationist',
+        },
+        'Which_area_of_IT_interests_you_the_most': {
+            'Cybersecurity': 'Cybersecurity Analyst',
+        },
+        'How_do_you_approach_financial_decisions': {
+            'Analytical and calculated': 'Financial Analyst',
+        },
+        'Do_you_enjoy_hands_on_work': {
+            'Yes': 'Mechanic',
+        },
+        'Which_area_of_arts_and_culture_fascinates_you': {
+            'Visual Arts': 'Artist',
+        },
+        'How_do_you_feel_about_research_and_analysis': {
+            'I love it': 'Research Scientist',
+        },
+        'Are_you_interested_in_entrepreneurship': {
+            'Yes': 'Startup Founder',
+        },
+        'Which_of_the_following_best_describes_your_learning_style': {
+            'Hands-On': 'Workshop Instructor',
+        },
+        'Which_age_group_do_you_prefer_to_work_with': {
+            'Children': 'Child Psychologist',
+        },
+    }
+
+    for key, mapping in paths_mapping.items():
+        suggested_paths.append(mapping.get(user_answers.get(key)))
+
+    suggested_paths = list(filter(None, suggested_paths))
+    print("Final Suggested Paths:", suggested_paths)
+    return list(set(suggested_paths))  # Return unique paths
+
+
 
 def register(request):
     if request.method == 'POST':

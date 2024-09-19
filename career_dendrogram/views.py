@@ -1,10 +1,3 @@
-# from django.http import JsonResponse
-# from .models import CareerPath  # Assuming you have a model for CareerPaths
-
-# def career_paths_api(request):
-#     data = list(CareerPath.objects.values())  # Convert queryset to list of dicts
-#     return JsonResponse(data, safe=False)
-
 
 # Updated Code
 from django.http import JsonResponse

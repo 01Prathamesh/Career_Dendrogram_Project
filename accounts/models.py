@@ -1,35 +1,3 @@
-# # accounts/models.py
-
-# from django.db import models
-# from django.contrib.auth.models import User
-
-# # class UserProfile(models.Model):
-# #     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='account_profile')
-# #     bio = models.TextField(blank=True)
-# #     location = models.CharField(max_length=100, blank=True)
-
-# #     def __str__(self):
-# #         return self.user.username
-
-# # class UserProfile(models.Model):
-# #     user = models.OneToOneField(User, on_delete=models.CASCADE)
-# #     photo = models.ImageField(upload_to='profile_photos/', default='profile_photos/default-profile.png')
-# #     date_of_birth = models.DateField(null=True, blank=True)
-# #     location = models.CharField(max_length=100, blank=True)
-# #     education = models.TextField(blank=True)  # Use TextField for qualifications
-    
-# #     def __str__(self):
-# #         return self.user.username
-
-# class UserProfile(models.Model):
-#     user = models.OneToOneField(User, on_delete=models.CASCADE)
-#     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
-#     date_of_birth = models.DateField(blank=True, null=True)
-#     location = models.CharField(max_length=100, blank=True)
-#     qualification = models.CharField(max_length=100, blank=True)
-
-#     def __str__(self):
-#         return self.user.username
 
 # Updated Code
 from django.db import models

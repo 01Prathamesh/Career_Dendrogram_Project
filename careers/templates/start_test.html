@@ -1,11 +1,10 @@
-<!-- Updated Code -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Building Test</title>
+    <title>Career Analysis Test</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
@@ -50,36 +49,32 @@
             text-align: center;
         }
         .test-question {
-            max-width:600px;
-            margin-left: 150px;
-            margin-right: 150px;
-            margin:40px auto;
+            max-width: 600px;
+            margin: 40px auto;
             padding: 20px;
             background-color: #f9f9f9;
-            border: 5px sloid#ddd;
+            border: 5px solid #ddd;  /* Fixed typo here */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .test_question form{
+        .test-question form {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: left;
         }
-        .test_question label{
+        .test-question label {
             margin-bottom: 10px;
             font-weight: bold;
             font-size: 16px;
         }
-        .test_question input[type="text" ]
-
-        .test_question textarea{
+        .test-question input[type="text"],
+        .test-question textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border: 5px solid #ccc;
             border-radius: 5px;
         }
-
         .question {
             margin-bottom: 20px;
         }
@@ -110,6 +105,11 @@
         .form-buttons button:hover {
             background-color: #0056b3;
         }
+        .text-danger {
+            color: red; 
+            font-weight: bold;
+        }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -137,8 +137,7 @@
     <div class="test-container">
         <h1>Career Analysis Test</h1>
         <div class="test-question">
-            <form action="" method="post" novalidate class="shadow p-5" style="margin-top: 20px;">
-    
+            <form action="{% url 'start_test' %}" method="post">
                 {% if messages %}
                     {% for message in messages %}
                         <p {% if message.tags %} class="alert alert-{{ message.tags }} mb-5" {% endif %}>{{ message }}</p>
@@ -147,17 +146,14 @@
     
                 {% csrf_token %}
                 {% for fm in form %}
-                    <div class="form-group mb-4">  <!-- Increased spacing -->
-                        <label>{{ forloop.counter }}.) {{ fm.label }}?</label>  <!-- Numbering and question mark -->
+                    <div class="form-group mb-4">  
+                        <label>{{ forloop.counter }}.) {{ fm.label }}?</label>  
                         <br>
-                        {{ fm }}  <!-- Render the input field -->
+                        {{ fm }}  
                         <br>
-                        <br>
-                        <br>
-                        <small class="text-danger">
-                            {{ fm.errors|striptags }}
-                        </small>
+                        <small class="text-danger">{{ fm.errors|striptags }}</small>
                     </div>
+                    <br>
                 {% endfor %}
     
                 <br>
@@ -175,145 +171,9 @@
     </div>
     
     <footer>
-        <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-
-
-<!-- Old Code OutDated -->
-<!-- {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Career Building Test</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        .navbar {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            align-items: center;
-            padding: 0 20px;
-            flex-wrap: wrap;
-        }
-        .navbar a {
-            color: #fff;
-            text-decoration: none;
-            padding: 14px 20px;
-        }
-        .navbar a:hover {
-            background-color: #575757;
-        }
-        .test-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin: 20px auto;
-            max-width: 800px;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .question {
-            margin-bottom: 20px;
-        }
-        .question h3 {
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .question .options label {
-            display: block;
-            margin-bottom: 8px;
-        }
-        .question input[type="radio"] {
-            margin-right: 10px;
-        }
-        .form-buttons {
-            text-align: center;
-        }
-        .form-buttons button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .form-buttons button:hover {
-            background-color: #0056b3;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav class="navbar">
-            <a href="{% url 'home' %}">Home</a>
-            {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">Profile</a>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register' %}">Register</a>
-            {% endif %}
-        </nav>
-    </header>
-
-    <div class="test-container">
-        <h1>Career Building Test</h1>
-        <form method="post">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="question">
-                    <h3>{{ field.label }}</h3>
-                    <div class="options">
-                        {% for choice in field.field.widget.choices %}
-                            <label>
-                                <input type="radio" name="{{ field.name }}" value="{{ choice.0 }}" {% if choice.0 == field.value %}checked{% endif %}>
-                                {{ choice.1 }}
-                            </label>
-                        {% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-            <div class="form-buttons">
-                <button type="submit">Submit Answers</button>
-            </div>
-        </form>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Career Dendrogram (CaptainPrince). All rights reserved.</p>
-    </footer>
-</body>
-</html> -->
 
 
