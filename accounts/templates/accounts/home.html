@@ -1,4 +1,3 @@
-<!-- Updated Code -->
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +20,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
         }
         .header-title {
             font-size: 24px;
@@ -58,18 +56,28 @@
             font-size: 24px;
             margin-bottom: 20px;
         }
-        .links {
-            margin: 20px 0;
-        }
-        .links a {
+        .button {
             display: inline-block;
-            text-decoration: none;
-            color: #007bff;
+            padding: 15px 30px;
             font-size: 18px;
-            margin: 0 10px;
+            color: #fff;
+            background-color: #007bff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px;
+            transition: background-color 0.3s;
+            flex: 1 1 calc(45% - 20px); /* Adjusts button width to fit two in a row */
+            max-width: 300px; /* Optional: set a max width for the buttons */
         }
-        .links a:hover {
-            text-decoration: underline;
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px 0; /* Space between the buttons and content */
         }
         footer {
             background-color: #333;
@@ -80,33 +88,14 @@
             width: 100%;
             bottom: 0;
         }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 10px;
-            margin-top: 60px;
-        }
-        .button:hover {
-            background-color: #0056b3;
-        }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-title">
-            Home
-        </div>
+        <div class="header-title">Home</div>
         <nav class="navbar">
-            <!-- <a href="{% url 'career_list' %}">Career List</a>
-            <a href="{% url 'dendrogram' %}">Career Visualization</a> -->
             {% if user.is_authenticated %}
                 <span class="user-info">Welcome, {{ user.username }}!</span>
-                <a href="{% url 'profile' %}">Profile</a>
                 <form action="{% url 'logout' %}" method="post" style="display:inline;">
                     {% csrf_token %}
                     <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; font-weight: bold;">Logout</button>
@@ -124,18 +113,19 @@
             <p>Explore career paths, visualize career opportunities, and manage your career planning efficiently.</p>
         </div>
 
+        <div class="button-container">
             <a href="{% url 'career_list' %}" class="button">View Career List</a>
             <a href="{% url 'dendrogram' %}" class="button">View Career Visualization</a>
 
             {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="button">Your Profile</a>
-                <!-- <a href="{% url 'profile' %}">Your Profile</a> -->
+                <a href="{% url 'start_test' %}" class="button">Start Test</a>
             {% endif %}
+        </div>
     </div>
 
     <footer>
-        <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 </body>
 </html>
-

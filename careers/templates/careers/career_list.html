@@ -45,6 +45,12 @@
             max-width: 1200px;
             margin: 0 auto;
         }
+        .user-info {
+            color: #fff;
+            font-weight: bold;
+            margin-top: 15px;
+            margin-right: 20px;
+        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -108,8 +114,7 @@
             <a href="{% url 'role_list' %}">Role List</a>
             {% if user.is_authenticated %}
                 <span class="user-info">Welcome, {{ user.username }}!</span>
-                <a href="{% url 'profile' %}">Profile</a>
-                <a href="{% url 'logout' %}">Logout</a>
+                <a href="{% url 'profile' %}">Back</a>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}">Register</a>

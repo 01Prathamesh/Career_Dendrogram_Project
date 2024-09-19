@@ -17,7 +17,14 @@
             background-color: #333;
             color: #fff;
             padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .header-title {
+            font-size: 24px;
+            margin-left: 20px;
         }
         .navbar {
             display: flex;
@@ -123,10 +130,13 @@
 </head>
 <body>
     <header>
+        <div class="header-title">
+            TEST
+        </div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">Profile</a>
+                <a href="{% url 'profile' %}">Back</a>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}">Register</a>

@@ -121,7 +121,6 @@
             <a href="{% url 'career_list' %}">Career List</a>
             <a href="{% url 'dendrogram' %}">Career Visualization</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">Profile</a>
                 <a href="{% url 'start_test' %}">Start Test</a>
                 <form method="post" action="{% url 'logout' %}" style="display:inline;">
                     {% csrf_token %}
