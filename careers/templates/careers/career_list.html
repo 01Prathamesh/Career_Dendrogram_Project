@@ -8,37 +8,36 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e8f5e9;
         }
         header {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
-            padding: 10px 0;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            border-bottom: 5px dotted #ffd54f;
         }
         .header-title {
-            font-size: 24px;
-            margin-left: 20px;
+            font-size: 28px;
         }
         .navbar {
             display: flex;
-            justify-content: center;
             gap: 20px;
         }
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 14px 20px;
-            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
         }
         .navbar a:hover {
-            background-color: #575757;
+            background-color: #ffd54f;
         }
         main {
             padding: 20px;
@@ -48,8 +47,7 @@
         .user-info {
             color: #fff;
             font-weight: bold;
-            margin-top: 15px;
-            margin-right: 20px;
+            margin-top: 10px;
         }
         table {
             width: 100%;
@@ -58,7 +56,7 @@
             background-color: #fff;
             border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         th, td {
             padding: 12px;
@@ -75,18 +73,17 @@
             text-decoration: none;
             color: #007bff;
             margin-right: 10px;
+            transition: color 0.3s;
         }
         .actions a:hover {
-            text-decoration: underline;
+            color: #0056b3;
         }
         footer {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
+            margin-top: auto;
         }
         .button {
             display: inline-block;
@@ -98,6 +95,7 @@
             text-decoration: none;
             border-radius: 5px;
             margin-top: 20px;
+            transition: background-color 0.3s;
         }
         .button:hover {
             background-color: #0056b3;
@@ -106,9 +104,7 @@
 </head>
 <body>
     <header>
-        <div class="header-title">
-            Career List
-        </div>
+        <div class="header-title">Career List</div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'role_list' %}">Role List</a>
@@ -152,7 +148,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 </body>
 </html>
