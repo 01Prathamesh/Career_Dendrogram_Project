@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e3f2fd;
             margin: 0;
             padding: 0;
         }
         header {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            border-bottom: 5px dashed #ffd54f;
         }
         .header-title {
             font-size: 24px;
@@ -30,28 +30,27 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            align-items: center;
             padding: 0 20px;
-            flex-wrap: wrap;
         }
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 14px 20px;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
         }
         .navbar a:hover {
-            background-color: #575757;
+            background-color: #ffd54f;
         }
         .test-container {
             background-color: #ffffff;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             margin: 20px auto;
             max-width: 800px;
         }
         h1 {
-            color: #333;
+            color: #ff5722;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -60,14 +59,13 @@
             margin: 40px auto;
             padding: 20px;
             background-color: #f9f9f9;
-            border: 5px solid #ddd;  /* Fixed typo here */
+            border: 5px solid #ddd;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .test-question form {
             display: flex;
             flex-direction: column;
-            align-items: left;
         }
         .test-question label {
             margin-bottom: 10px;
@@ -116,9 +114,8 @@
             color: red; 
             font-weight: bold;
         }
-
         footer {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -130,9 +127,7 @@
 </head>
 <body>
     <header>
-        <div class="header-title">
-            TEST
-        </div>
+        <div class="header-title">Career Test</div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
             {% if user.is_authenticated %}
@@ -145,12 +140,12 @@
     </header>
 
     <div class="test-container">
-        <h1>Career Analysis Test</h1>
+        <h1>🎓 Career Analysis Test</h1>
         <div class="test-question">
             <form action="{% url 'start_test' %}" method="post">
                 {% if messages %}
                     {% for message in messages %}
-                        <p {% if message.tags %} class="alert alert-{{ message.tags }} mb-5" {% endif %}>{{ message }}</p>
+                        <p class="alert alert-{{ message.tags }}">{{ message }}</p>
                     {% endfor %}
                 {% endif %}
     
@@ -163,7 +158,6 @@
                         <br>
                         <small class="text-danger">{{ fm.errors|striptags }}</small>
                     </div>
-                    <br>
                 {% endfor %}
     
                 <br>
@@ -174,7 +168,7 @@
                 {% endif %}
     
                 <div class="form-buttons">
-                    <button type="submit">Submit Answers</button>
+                    <button type="submit">✅ Submit Answers</button>
                 </div>
             </form>
         </div>
@@ -185,5 +179,3 @@
     </footer>
 </body>
 </html>
-
-
