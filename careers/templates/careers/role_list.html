@@ -1,52 +1,78 @@
-<!-- careers/templates/careers/role_list.html -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roles List</title>
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e3f2fd;
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
-            padding: 10px 20px;
-            text-align: center;
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 5px dashed #ffd54f;
+        }
+        .header-title {
+            font-size: 28px;
+            margin-left: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        .navbar a:hover {
+            background-color: #ffd54f;
+            border-radius: 5px;
+            color: #333;
         }
         main {
-            max-width: 1200px;
-            margin: 20px auto;
+            flex: 1;
+            max-width: 100%; /* Allow full width */
+            margin: 20px 0;
             padding: 20px;
             background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         }
         h1 {
             margin-top: 0;
-            font-size: 28px;
-        }
-        a {
-            text-decoration: none;
-            color: #007bff;
-        }
-        a:hover {
-            text-decoration: underline;
+            font-size: 26px;
+            text-align: center;
+            color: #ff5722;
         }
         table {
-            width: 100%;
+            width: 100%; /* Full width */
             border-collapse: collapse;
             margin-bottom: 20px;
         }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
         th, td {
+            border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
@@ -54,13 +80,13 @@
             background-color: #f4f4f4;
             color: #333;
         }
-        .actions {
-            display: flex;
-            gap: 10px;
+        tr:hover {
+            background-color: #f1f1f1;
         }
         .actions a {
             color: #007bff;
             font-weight: bold;
+            margin-right: 10px;
         }
         .actions a:hover {
             color: #0056b3;
@@ -80,28 +106,39 @@
             border-radius: 4px;
             font-size: 16px;
             text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
         }
         .button:hover {
             background-color: #0056b3;
         }
         footer {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            position: absolute;
             width: 100%;
-            bottom: 0;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Roles List</h1>
+        <div class="header-title">Roles List</div>
+        <nav class="navbar">
+            <a href="{% url 'home' %}">Home</a>
+            <a href="{% url 'career_list' %}">Career List</a>
+            {% if user.is_authenticated %}
+                <span class="user-info">Welcome, {{ user.username }}!</span>
+                <a href="{% url 'profile' %}">Back</a>
+            {% else %}
+                <a href="{% url 'login' %}">Login</a>
+                <a href="{% url 'register' %}">Register</a>
+            {% endif %}
+        </nav>
     </header>
 
     <main>
-        
+        <h1>Roles List</h1>
         <a href="{% url 'career_list' %}" class="button">Back</a>
         <a href="{% url 'add_role' %}" class="button">Add New Role</a>
         <table>
@@ -121,7 +158,7 @@
                         <td>{{ role.description }}</td>
                         <td class="actions">
                             <a href="{% url 'edit_role' role.id %}">Edit</a>
-                            <a href="{% url 'delete_role' role.id %}" >Delete</a>
+                            <a href="{% url 'delete_role' role.id %}">Delete</a>
                         </td>
                     </tr>
                 {% empty %}
@@ -132,8 +169,9 @@
             </tbody>
         </table>
     </main>
+    
     <footer>
-        <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 </body>
 </html>
