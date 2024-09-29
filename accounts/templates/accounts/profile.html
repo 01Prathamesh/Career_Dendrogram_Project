@@ -103,7 +103,7 @@
                 <a href="{% url 'start_test' %}">Start Test</a>
                 <form method="post" action="{% url 'logout' %}" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" style="background:none; border:none; color:#fff; cursor:pointer;">Logout</button>
+                    <button type="submit" style="background-color: #3f51b5; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px;">Logout</button>
                 </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
