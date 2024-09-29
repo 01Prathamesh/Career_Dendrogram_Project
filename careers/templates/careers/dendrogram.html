@@ -8,19 +8,19 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #e3f2fd;
         }
         header {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
+            border-bottom: 5px dashed #ffd54f;
         }
         .user-info {
             color: #fff;
@@ -35,17 +35,17 @@
             display: flex;
             justify-content: center;
             gap: 20px;
-            align-items: center;
             padding: 0 20px;
         }
         .navbar a {
             color: #fff;
             text-decoration: none;
-            padding: 14px 20px;
+            padding: 10px 20px;
             display: block;
+            transition: background-color 0.3s;
         }
         .navbar a:hover {
-            background-color: #575757;
+            background-color: #ffd54f;
         }
         .content {
             padding: 20px;
@@ -58,12 +58,14 @@
             width: 100%;
             height: 600px; /* Adjust height as needed */
             margin-top: 20px;
-            border: 1px solid #ddd;
+            border: 5px solid #ddd;
             background-color: #fff;
             overflow: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         footer {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
             text-align: center;
             padding: 10px 0;
@@ -74,14 +76,9 @@
 </head>
 <body>
     <header>
-        <header>
-            <div class="header-title">
-                Career Dendrogram Visualization
-            </div>
-        </header>
+        <div class="header-title">Career Dendrogram Visualization</div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
-            <!-- <a href="{% url 'dendrogram' %}">Career Visualization</a> -->
             {% if user.is_authenticated %}
                 <span class="user-info">Welcome, {{ user.username }}!</span>
                 <a href="{% url 'profile' %}">Profile</a>
@@ -97,7 +94,7 @@
     </header>
 
     <div class="content">
-        <h1>Career Dendrogram Visualization</h1>
+        <h1>📊 Career Dendrogram Visualization</h1>
         <p>Explore the career paths and their relationships through this interactive visualization.</p>
         
         <div class="dendrogram-container">
@@ -107,7 +104,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 
     <!-- Include D3.js library (Requires Internet Connection to Display Dendrogram) -->
