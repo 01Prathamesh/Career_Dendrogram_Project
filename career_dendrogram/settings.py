@@ -120,3 +120,5 @@ AUTHENTICATION_BACKENDS = [
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
 # Optional: Add any other settings or configurations specific to your project here.
+photo_dir = os.path.join(settings.MEDIA_ROOT, 'photo')
+print(os.listdir(photo_dir))
