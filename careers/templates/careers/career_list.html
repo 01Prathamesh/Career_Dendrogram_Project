@@ -113,7 +113,7 @@
             <a href="{% url 'role_list' %}">Role List</a>
             {% if user.is_authenticated %}
                 <span class="user-info">Welcome, {{ user.username }}!</span>
-                <a href="{% url 'profile' %}">Back</a>
+                <a href="{% url 'home' %}">Back</a>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}">Register</a>
