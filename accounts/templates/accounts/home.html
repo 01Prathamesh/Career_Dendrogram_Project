@@ -7,23 +7,28 @@
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        html, body {
+            height: 100%; /* Ensure the body takes full height */
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #e3f2fd;
+            color: #333;
         }
         header {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
-            padding: 10px 0;
+            padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 5px dashed #ffd54f;
         }
         .header-title {
-            font-size: 24px;
+            font-size: 28px;
             margin-left: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         .navbar {
             display: flex;
@@ -37,68 +42,78 @@
             text-decoration: none;
             padding: 14px 20px;
             display: block;
+            border: 2px solid transparent;
+            transition: all 0.3s;
         }
         .navbar a:hover {
-            background-color: #575757;
+            background-color: #ffd54f;
+            border-radius: 5px;
+            color: #333;
         }
         .user-info {
             color: #fff;
             font-weight: bold;
             margin-right: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .content {
+            flex: 1; /* Take up remaining space */
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            background: linear-gradient(white, #ffecb3);
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .welcome-message {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 20px;
+            color: #ff5722;
         }
         .button {
             display: inline-block;
             padding: 15px 30px;
-            font-size: 18px;
+            font-size: 20px;
             color: #fff;
-            background-color: #007bff;
+            background-color: #3f51b5;
             text-align: center;
             text-decoration: none;
             border-radius: 5px;
             margin: 10px;
-            transition: background-color 0.3s;
-            flex: 1 1 calc(45% - 20px); /* Adjusts button width to fit two in a row */
-            max-width: 300px; /* Optional: set a max width for the buttons */
+            transition: background-color 0.3s, transform 0.2s;
+            flex: 1 1 calc(45% - 20px);
+            max-width: 300px;
+            border: 2px dashed #ff6f61;
         }
         .button:hover {
-            background-color: #0056b3;
+            background-color: #303f9f;
+            transform: translateY(-3px);
         }
         .button-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin: 20px 0; /* Space between the buttons and content */
+            margin: 20px 0;
         }
         footer {
-            background-color: #333;
+            background-color: #ff6f61;
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
+            margin-top: auto; /* Push footer to the bottom */
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-title">Home</div>
+        <div class="header-title">Career Dendrogram</div>
         <nav class="navbar">
             {% if user.is_authenticated %}
                 <span class="user-info">Welcome, {{ user.username }}!</span>
                 <form action="{% url 'logout' %}" method="post" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; font-weight: bold;">Logout</button>
+                    <button type="submit" style="background-color: #3f51b5; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px;">Logout</button>
                 </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
@@ -109,17 +124,17 @@
 
     <div class="content">
         <div class="welcome-message">
-            <h1>Welcome to the Career Dendrogram</h1>
-            <p>Explore career paths, visualize career opportunities, and manage your career planning efficiently.</p>
+            <h1>🎉 Welcome to the Career Dendrogram! 🎉</h1>
+            <p>Explore career paths, visualize opportunities, and manage your career planning with flair!</p>
         </div>
 
         <div class="button-container">
-            <a href="{% url 'career_list' %}" class="button">View Career List</a>
-            <a href="{% url 'dendrogram' %}" class="button">View Career Visualization</a>
+            <a href="{% url 'career_list' %}" class="button">👔 View Career List</a>
+            <a href="{% url 'dendrogram' %}" class="button">📊 View Career Visualization</a>
 
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}" class="button">Your Profile</a>
-                <a href="{% url 'start_test' %}" class="button">Start Test</a>
+                <a href="{% url 'profile' %}" class="button">👤 Your Profile</a>
+                <a href="{% url 'start_test' %}" class="button">🧠 Start Test</a>
             {% endif %}
         </div>
     </div>
