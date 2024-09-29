@@ -70,7 +70,7 @@ Career Dendrogram is a Django web application that visualizes career paths and r
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
 
 ## Acknowledgments
