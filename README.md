@@ -19,7 +19,7 @@ Career Dendrogram is a Django web application that visualizes career paths and r
 
    ```bash
    git clone https://github.com/01Prathamesh/Career_Dendrogram_Project.git
-   cd career_dendrogram
+   cd Career_Dendrogram_Project
 
 2. **Create a virtual environment:**
 
