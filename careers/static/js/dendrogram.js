@@ -1,11 +1,8 @@
-
-// Updated Code
-
 document.addEventListener('DOMContentLoaded', function() {
     const width = 960;
     const height = 600;
 
-    // Sample data
+    // Updated data structure with all specified career options
     const treeData = {
         name: "Class 10th",
         children: [
@@ -13,21 +10,46 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: "12th Science",
                 children: [
                     { name: "Engineer" },
-                    { name: "Doctor" }
+                    { name: "Data Analyst" },
+                    { name: "Research Scientist" },
+                    { name: "Healthcare Professional" },
+                    { name: "Environmental Scientist" }
                 ]
             },
             {
                 name: "12th Commerce",
                 children: [
                     { name: "Chartered Accountant" },
-                    { name: "Bank Manager" }
+                    { name: "Financial Analyst" },
+                    { name: "Manager" },
+                    { name: "Remote Worker" },
+                    { name: "Public Relations Specialist" }
                 ]
             },
             {
                 name: "12th Arts",
                 children: [
-                    { name: "Teacher" },
-                    { name: "Philosopher" }
+                    { name: "Author" },
+                    { name: "Graphic Designer" },
+                    { name: "Content Creator" },
+                    { name: "Art Teacher" },
+                    { name: "Artist" },
+                    { name: "Public Speaker" },
+                    { name: "Child Psychologist" }
+                ]
+            },
+            {
+                name: "Vocational Courses",
+                children: [
+                    { name: "Mechanic" },
+                    { name: "Sports Coach" },
+                    { name: "Workshop Instructor" },
+                    { name: "Freelancer" },
+                    { name: "Startup Founder" },
+                    { name: "Creative Director" },
+                    { name: "Corporate Employee" },
+                    { name: "Conservationist" },
+                    { name: "Cybersecurity Analyst" }
                 ]
             }
         ]
