@@ -4,4 +4,4 @@ __pycache__/
 *.pyc
 
 # Ignore SQLite database
-db.sqlite3
+# db.sqlite3
