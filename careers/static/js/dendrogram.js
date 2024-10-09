@@ -2,54 +2,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const width = 960;
     const height = 600;
 
-    // Updated data structure with all specified career options
+    // Updated data structure with all links pointing to Wikipedia
     const treeData = {
         name: "Class 10th",
+        url: "register1.html",
         children: [
             {
                 name: "12th Science",
+                url: "https://idreamcareer.com/blog/12th-science-subjects/#:~:text=The%20Medical%20stream%20in%2012th,engineering%20and%20technology%2Drelated%20fields.",
                 children: [
-                    { name: "Engineer" },
-                    { name: "Data Analyst" },
-                    { name: "Research Scientist" },
-                    { name: "Healthcare Professional" },
-                    { name: "Environmental Scientist" }
+                    { name: "Engineer", url: "https://en.wikipedia.org/wiki/Engineer" },
+                    { name: "Data Analyst", url: "https://en.wikipedia.org/wiki/Data_analysis" },
+                    { name: "Research Scientist", url: "https://en.wikipedia.org/wiki/Research_scientist" },
+                    { name: "Healthcare Professional", url: "https://en.wikipedia.org/wiki/Health_professional" },
+                    { name: "Environmental Scientist", url: "https://en.wikipedia.org/wiki/Environment_scientist" }
                 ]
             },
             {
                 name: "12th Commerce",
+                url: "https://www.pw.live/exams/commerce/#:~:text=In%20the%20Class%2012%20curriculum,%2C%20Mathematics%2C%20and%20Informatics%20Practices.",
                 children: [
-                    { name: "Chartered Accountant" },
-                    { name: "Financial Analyst" },
-                    { name: "Manager" },
-                    { name: "Remote Worker" },
-                    { name: "Public Relations Specialist" }
+                    { name: "Chartered Accountant", url: "https://en.wikipedia.org/wiki/Chartered_accountant_(India)" },
+                    { name: "Financial Analyst", url: "https://en.wikipedia.org/wiki/Financial_analyst" },
+                    { name: "Manager", url: "https://en.wikipedia.org/wiki/Manager" },
+                    { name: "Remote Worker", url: "https://en.wikipedia.org/wiki/Remote_work" },
+                    { name: "Public Relations Specialist", url: "https://en.wikipedia.org/wiki/Public_relations" }
                 ]
             },
             {
                 name: "12th Arts",
+                url: "https://idreamcareer.com/blog/arts-subjects-in-12th/",
                 children: [
-                    { name: "Author" },
-                    { name: "Graphic Designer" },
-                    { name: "Content Creator" },
-                    { name: "Art Teacher" },
-                    { name: "Artist" },
-                    { name: "Public Speaker" },
-                    { name: "Child Psychologist" }
+                    { name: "Author", url: "https://en.wikipedia.org/wiki/Author" },
+                    { name: "Graphic Designer", url: "https://en.wikipedia.org/wiki/Graphic_designer" },
+                    { name: "Content Creator", url: "https://en.wikipedia.org/wiki/Content_creator" },
+                    { name: "Art Teacher", url: "https://en.wikipedia.org/wiki/Art_teacher" },
+                    { name: "Artist", url: "https://en.wikipedia.org/wiki/Artist" },
+                    { name: "Public Speaker", url: "https://en.wikipedia.org/wiki/Public_speaking" },
+                    { name: "Child Psychologist", url: "https://en.wikipedia.org/wiki/Child_psychologist" }
                 ]
             },
             {
                 name: "Vocational Courses",
+                url: "https://en.wikipedia.org/wiki/Vocational_education",
                 children: [
-                    { name: "Mechanic" },
-                    { name: "Sports Coach" },
-                    { name: "Workshop Instructor" },
-                    { name: "Freelancer" },
-                    { name: "Startup Founder" },
-                    { name: "Creative Director" },
-                    { name: "Corporate Employee" },
-                    { name: "Conservationist" },
-                    { name: "Cybersecurity Analyst" }
+                    { name: "Mechanic", url: "https://en.wikipedia.org/wiki/Mechanic" },
+                    { name: "Sports Coach", url: "https://en.wikipedia.org/wiki/Coach_(sport)" },
+                    { name: "Workshop Instructor", url: "https://en.wikipedia.org/wiki/Instructor" },
+                    { name: "Freelancer", url: "https://en.wikipedia.org/wiki/Freelancer" },
+                    { name: "Startup Founder", url: "https://en.wikipedia.org/wiki/Entrepreneur" },
+                    { name: "Creative Director", url: "https://en.wikipedia.org/wiki/Creative_director" },
+                    { name: "Corporate Employee", url: "https://en.wikipedia.org/wiki/Employee" },
+                    { name: "Conservationist", url: "https://en.wikipedia.org/wiki/Conservation" },
+                    { name: "Cybersecurity Analyst", url: "https://en.wikipedia.org/wiki/Cybersecurity_analyst" }
                 ]
             }
         ]
@@ -95,7 +100,13 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("r", 8)
         .style("fill", "#fff")
         .style("stroke", "#333")
-        .style("stroke-width", "2px");
+        .style("stroke-width", "2px")
+        .on("click", (event, d) => {
+            const url = d.data.url;
+            if (url) {
+                window.open(url, '_blank'); // Opens the URL in a new tab
+            }
+        });
 
     node.append("text")
         .attr("dy", 3)
@@ -105,14 +116,12 @@ document.addEventListener('DOMContentLoaded', function() {
         .style("font-size", "12px")
         .style("fill", "#333");
 
-    // Add interactivity
+    // Add interactivity for hover
     node.select("circle")
-        .on("mouseover", function(event) {
-            d3.select(this)
-                .style("fill", "#ffcc00");
+        .on("mouseover", function() {
+            d3.select(this).style("fill", "#ffcc00");
         })
-        .on("mouseout", function(event) {
-            d3.select(this)
-                .style("fill", "#fff");
+        .on("mouseout", function() {
+            d3.select(this).style("fill", "#fff");
         });
 });
