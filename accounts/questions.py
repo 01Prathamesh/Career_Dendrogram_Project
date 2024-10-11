@@ -7,7 +7,7 @@ subjects = (
     ('Arts','Arts'),
     ('History','History'),
     ('Technology','Technology'),
-    ('Busniness','Busniness'),
+    ('Business','Business'),
 )
 hobbies = (
     ('--Select--','--Select--'),
