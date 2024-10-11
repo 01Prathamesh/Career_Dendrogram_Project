@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Updated data structure with all links pointing to Wikipedia
     const treeData = {
         name: "Class 10th",
-        url: "register1.html",
         children: [
             {
                 name: "12th Science",
