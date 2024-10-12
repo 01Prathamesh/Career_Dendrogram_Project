@@ -104,7 +104,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 # Login and Logout redirects
 LOGIN_REDIRECT_URL = 'home'
-LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'
 
 # Media files
 MEDIA_URL = '/media/'
