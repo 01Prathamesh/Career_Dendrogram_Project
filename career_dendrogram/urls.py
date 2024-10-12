@@ -5,6 +5,10 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header ="Career Dendrogram Admin"
+admin.site.site_title  ="Career Dendrogram Admin Portal"
+admin.site.index_title ="Welcome!!! to Career Dendrogram Admin Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('accounts.urls')),  # Main application URLs
