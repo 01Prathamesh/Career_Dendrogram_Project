@@ -131,6 +131,7 @@
         <div class="button-container">
             <a href="{% url 'career_list' %}" class="button">👔 View Career List</a>
             <a href="{% url 'dendrogram' %}" class="button">📊 View Career Visualization</a>
+            <a href="{% url 'plagiarism' %}" class="button">📝 Plagiarism Declaration</a>
 
             {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}" class="button">👤 Your Profile</a>
