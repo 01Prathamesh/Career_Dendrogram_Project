@@ -26,5 +26,6 @@ urlpatterns = [
     path('edit-profile/', views.edit_profile, name='edit_profile'),
     path('register/', views.register, name='register'),
     path('api/career_paths/', views.career_paths_data, name='career_paths_data'),
+    path('plagiarism/', views.plagiarism, name='plagiarism'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
