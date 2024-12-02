@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 name: "12th Arts",
-                url: "https://idreamcareer.com/blog/arts-subjects-in-12th/",
+                url: "arts",
                 children: [
                     { name: "Author", url: "https://en.wikipedia.org/wiki/Author" },
                     { name: "Graphic Designer", url: "https://en.wikipedia.org/wiki/Graphic_designer" },
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 name: "Vocational Courses",
-                url: "https://en.wikipedia.org/wiki/Vocational_education",
+                url: "vocational_courses",
                 children: [
                     { name: "Mechanic", url: "https://en.wikipedia.org/wiki/Mechanic" },
                     { name: "Sports Coach", url: "https://en.wikipedia.org/wiki/Coach_(sport)" },
