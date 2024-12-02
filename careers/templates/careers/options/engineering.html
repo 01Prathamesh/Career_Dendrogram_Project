@@ -1,0 +1,61 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Engineering Careers after 12th Science</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Engineering Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#engineering-paths">Engineering Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Science Stream</h2>
+            <p>The 12th Science stream is designed for students who aspire to pursue careers in Engineering, Medicine, Research, and Technology. This stream emphasizes subjects like Physics, Chemistry, and Mathematics, laying the foundation for technical professions.</p>
+            <p>Students pursuing this stream are well-prepared to enter various engineering fields and other related domains after graduation.</p>
+        </section>
+
+        <section id="engineering-paths">
+            <h3>Engineering Career Paths after 12th Science</h3>
+            <p>After completing the 12th Science stream, students can explore various engineering disciplines. Below are some popular branches of engineering:</p>
+            <ul>
+                <li><strong>Civil Engineering:</strong> Focuses on the design, construction, and maintenance of infrastructure such as roads, bridges, and buildings.</li>
+                <li><strong>Mechanical Engineering:</strong> Involves the design and development of mechanical systems, such as engines, machines, and tools.</li>
+                <li><strong>Electrical Engineering:</strong> Focuses on electrical systems, power generation, and electronics.</li>
+                <li><strong>Computer Science Engineering:</strong> Deals with software development, computer systems, and networks.</li>
+                <li><strong>Aerospace Engineering:</strong> Involves the design and development of aircraft and spacecraft.</li>
+                <li><strong>Biotechnology Engineering:</strong> Combines engineering principles with biological sciences to develop solutions in health, agriculture, and environmental sustainability.</li>
+                <li><strong>Automobile Engineering:</strong> Focuses on the design, manufacturing, and operation of vehicles and their systems.</li>
+                <li><strong>Environmental Engineering:</strong> Works towards solving environmental challenges, focusing on water, air, and waste management.</li>
+                <li><strong>Chemical Engineering:</strong> Focuses on the design and optimization of chemical processes in industries like petrochemicals, food processing, and pharmaceuticals.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Engineering Aspirants</h3>
+            <div class="button-container">
+                <a href="https://jeemain.nta.ac.in/" class="button">JEE Main Resources</a>
+                <a href="https://gate2025.iitr.ac.in//" class="button">GATE Resources</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+                <a href="https://www.nptel.ac.in/" class="button">NPTEL Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
