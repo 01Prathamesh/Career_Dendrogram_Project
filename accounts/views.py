@@ -365,3 +365,9 @@ def science_view(request):
 
 def commerce_view(request):
     return render(request, 'careers/options/commerce.html')
+
+def arts_view(request):
+    return render(request, 'careers/options/arts.html')
+
+def vocational_courses_view(request):
+    return render(request, 'careers/options/vocational_courses.html')

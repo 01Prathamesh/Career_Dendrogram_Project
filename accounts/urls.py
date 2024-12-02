@@ -29,5 +29,7 @@ urlpatterns = [
     path('plagiarism/', views.plagiarism, name='plagiarism'),
     path('dendrogram/science/', views.science_view, name='science_view'),
     path('dendrogram/commerce/', views.commerce_view, name='commerce_view'),
+    path('dendrogram/arts/', views.arts_view, name='arts_view'),
+    path('dendrogram/vocational_courses/', views.vocational_courses_view, name='vocational_courses_view'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
