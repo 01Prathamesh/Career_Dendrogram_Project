@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 url: "science",
                 children: [
                     { name: "Engineer", url: "engineering" },
-                    { name: "Data Analyst", url: "https://en.wikipedia.org/wiki/Data_analysis" },
-                    { name: "Research Scientist", url: "https://en.wikipedia.org/wiki/Research_scientist" },
-                    { name: "Healthcare Professional", url: "https://en.wikipedia.org/wiki/Health_professional" },
-                    { name: "Environmental Scientist", url: "https://en.wikipedia.org/wiki/Environment_scientist" }
+                    { name: "Data Analyst", url: "data_analyst" },
+                    { name: "Research Scientist", url: "research_scientist" },
+                    { name: "Healthcare Professional", url: "healthcare_professional" },
+                    { name: "Environmental Scientist", url: "environmental_scientist" }
                 ]
             },
             {
