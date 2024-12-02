@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remote Worker Career Path after 12th Commerce</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Commerce Stream - Remote Worker Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#remote-worker-paths">Remote Worker Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Remote Worker Career Path</h2>
+            <p>Remote work offers flexibility and the ability to work from any location. Many companies now offer opportunities for individuals to work from home, making it an attractive career option after 12th Commerce.</p>
+        </section>
+
+        <section id="remote-worker-paths">
+            <h3>How to Become a Remote Worker after 12th Commerce</h3>
+            <p>Students can pursue careers in digital marketing, content writing, data entry, customer support, or virtual assistance. Many of these roles only require an internet connection and proficiency in digital tools.</p>
+            <ul>
+                <li><strong>Skills Required:</strong> Communication, time management, technical proficiency, self-motivation.</li>
+                <li><strong>Key Roles:</strong> Freelance Writer, Virtual Assistant, Customer Support Specialist, Online Tutor, Social Media Manager.</li>
+                <li><strong>Key Industries:</strong> IT, Content Creation, Marketing, Consulting.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Remote Workers</h3>
+            <div class="button-container">
+                <a href="https://www.upwork.com/" class="button">Freelancing Platforms</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careerindia.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

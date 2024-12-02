@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chartered Accountant Career Path after 12th Commerce</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Commerce Stream - Chartered Accountant Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#ca-paths">Chartered Accountant Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Chartered Accountant Career Path</h2>
+            <p>Chartered Accountancy (CA) is a prestigious profession that focuses on financial accounting, taxation, auditing, and consulting. A Chartered Accountant works with businesses and organizations to manage their financial operations effectively.</p>
+        </section>
+
+        <section id="ca-paths">
+            <h3>How to Become a Chartered Accountant after 12th Commerce</h3>
+            <p>After completing 12th Commerce, students can pursue the CA course offered by the Institute of Chartered Accountants of India (ICAI). The path includes clearing various stages of examinations and gaining practical experience in auditing and financial management.</p>
+            <ul>
+                <li><strong>Eligibility:</strong> Completion of 12th Commerce or an equivalent qualification.</li>
+                <li><strong>Stages of CA:</strong> Foundation, Intermediate, and Final exams.</li>
+                <li><strong>Skills Required:</strong> Strong analytical abilities, knowledge of finance, accounting principles, and taxation.</li>
+                <li><strong>Key Roles:</strong> Tax Consultant, Auditor, Financial Advisor, Corporate Finance Specialist.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Chartered Accountants</h3>
+            <div class="button-container">
+                <a href="https://www.icai.org" class="button">ICAI Resources</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careerindia.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

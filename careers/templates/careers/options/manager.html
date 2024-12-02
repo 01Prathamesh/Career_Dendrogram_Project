@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Career Path after 12th Commerce</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Commerce Stream - Manager Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#manager-paths">Manager Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Manager Career Path</h2>
+            <p>A Manager is responsible for overseeing and directing operations within a business or organization. Managers handle planning, organizing, and coordinating tasks to ensure the company's goals are met.</p>
+        </section>
+
+        <section id="manager-paths">
+            <h3>How to Become a Manager after 12th Commerce</h3>
+            <p>Students can pursue a BBA (Bachelor of Business Administration) or a B.Com with a focus on management. A Master's in Business Administration (MBA) is a common pathway to higher managerial roles.</p>
+            <ul>
+                <li><strong>Skills Required:</strong> Leadership, communication, problem-solving, and strategic thinking.</li>
+                <li><strong>Key Roles:</strong> Project Manager, Operations Manager, HR Manager, Sales Manager.</li>
+                <li><strong>Key Industries:</strong> Corporate Sector, Manufacturing, Retail, IT, Marketing, Healthcare.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Managers</h3>
+            <div class="button-container">
+                <a href="https://www.mba.com/" class="button">MBA Resources</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careerindia.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

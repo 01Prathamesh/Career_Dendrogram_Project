@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analyst Career Path after 12th Commerce</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Commerce Stream - Financial Analyst Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#financial-analyst-paths">Financial Analyst Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Financial Analyst Career Path</h2>
+            <p>A Financial Analyst analyzes financial data to help companies and individuals make investment decisions. They focus on budgeting, forecasting, and financial modeling.</p>
+        </section>
+
+        <section id="financial-analyst-paths">
+            <h3>How to Become a Financial Analyst after 12th Commerce</h3>
+            <p>After completing 12th Commerce, students can pursue undergraduate courses in Finance, Accounting, or Economics. Postgraduate options include an MBA in Finance or a CFA (Chartered Financial Analyst) certification.</p>
+            <ul>
+                <li><strong>Skills Required:</strong> Strong knowledge of financial markets, analytical thinking, proficiency in Excel and financial software.</li>
+                <li><strong>Key Roles:</strong> Investment Analyst, Risk Analyst, Portfolio Manager, Financial Planner.</li>
+                <li><strong>Key Industries:</strong> Banking, Investment, Insurance, Corporate Finance, Consulting.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Financial Analysts</h3>
+            <div class="button-container">
+                <a href="https://www.cfa-institute.org/" class="button">CFA Institute</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careerindia.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
