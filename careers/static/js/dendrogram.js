@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         children: [
             {
                 name: "12th Science",
-                url: "https://idreamcareer.com/blog/12th-science-subjects/#:~:text=The%20Medical%20stream%20in%2012th,engineering%20and%20technology%2Drelated%20fields.",
+                url: "science",
                 children: [
                     { name: "Engineer", url: "https://en.wikipedia.org/wiki/Engineer" },
                     { name: "Data Analyst", url: "https://en.wikipedia.org/wiki/Data_analysis" },
