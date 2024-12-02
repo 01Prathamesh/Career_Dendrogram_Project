@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Science - Career Paths</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#career-paths">Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Science Stream</h2>
+            <p>The 12th Science stream is designed for students who wish to explore fields such as Engineering, Medicine, Research, and Technology. This stream covers subjects like Physics, Chemistry, Biology, and Mathematics.</p>
+            <p>The stream offers a strong foundation for students aiming to pursue professional degrees or research in various scientific fields.</p>
+        </section>
+
+        <section id="career-paths">
+            <h3>Potential Career Paths after 12th Science</h3>
+            <ul>
+                <li><strong>Engineering:</strong> Students can pursue various branches like Civil, Mechanical, Electrical, and Computer Science Engineering.</li>
+                <li><strong>Medicine:</strong> A career in medical sciences such as becoming a Doctor, Dentist, or Pharmacist.</li>
+                <li><strong>Research:</strong> Research and development in fields like Physics, Chemistry, Biology, and Environmental Science.</li>
+                <li><strong>Technology:</strong> Software development, IT consulting, and tech entrepreneurship.</li>
+                <li><strong>Data Science and Artificial Intelligence:</strong> Work in data analytics, machine learning, and AI technologies.</li>
+                <li><strong>Government Services:</strong> Entrance exams like IIT-JEE, NEET, UPSC, etc., for various government roles.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources</h3>
+            <div class="button-container">
+                <a href="https://www.jeemain.nta.nic.in" class="button">JEE Main Resources</a>
+                <a href="https://neet.nta.nic.in" class="button">NEET Resources</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 12th Science Career Paths. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
