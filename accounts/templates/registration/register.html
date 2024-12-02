@@ -60,6 +60,9 @@
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+            font-size: 1rem;
+            width: 100%;
+            box-sizing: border-box;
         }
         form button {
             background-color: #3f51b5;
@@ -73,12 +76,20 @@
             transform: translateY(-2px);
         }
         .form-group {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 1.1rem;
         }
         .form-group small {
-            font-size: 0.8em;
+            font-size: 0.85rem;
             color: #555;
+            margin-top: 5px;
         }
         .links {
             margin-top: 20px;
@@ -95,6 +106,7 @@
         .error-message {
             color: red;
             font-size: 0.9em;
+            margin-top: 5px;
         }
         .messages .message {
             color: green;
@@ -182,7 +194,6 @@
             <div class="form-group">
                 <label for="username">Username:</label>
                 {{ form.username }}
-                <br>
                 <small>Required. 15 characters or fewer. Letters, digits, and @/./+/-/_ only.</small>
                 {% if form.username.errors %}
                     <div class="error-message">
@@ -192,7 +203,7 @@
                     </div>
                 {% endif %}
             </div>
-
+            <br>
             <div class="form-group">
                 <label for="email">Email:</label>
                 {{ form.email }}
@@ -208,7 +219,7 @@
             <div class="form-group">
                 <label for="password1">Password:</label>
                 {{ form.password1 }}
-                <br>
+                
                 <small>Your password must be at least 8 characters long, and not be too similar to your other personal information.</small>
                 {% if form.password1.errors %}
                     <div class="error-message">
@@ -218,11 +229,10 @@
                     </div>
                 {% endif %}
             </div>
-        
+            <br>
             <div class="form-group">
                 <label for="password2">Password confirmation:</label>
                 {{ form.password2 }}
-                <br>
                 <small>Confirm the password.</small>
                 {% if form.password2.errors %}
                     <div class="error-message">
@@ -232,6 +242,7 @@
                     </div>
                 {% endif %}
             </div>
+            <br>
         
             <button type="submit">Register</button>
         </form>
