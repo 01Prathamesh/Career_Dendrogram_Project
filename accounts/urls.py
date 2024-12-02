@@ -28,5 +28,6 @@ urlpatterns = [
     path('api/career_paths/', views.career_paths_data, name='career_paths_data'),
     path('plagiarism/', views.plagiarism, name='plagiarism'),
     path('dendrogram/science/', views.science_view, name='science_view'),
+    path('dendrogram/commerce/', views.commerce_view, name='commerce_view'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
