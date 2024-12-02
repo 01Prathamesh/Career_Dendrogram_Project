@@ -358,3 +358,7 @@ def career_paths_api(request):
 
 def plagiarism(request):
     return render(request, 'accounts/plagiarism.html')
+
+
+def science_view(request):
+    return render(request, 'careers/options/science.html')
