@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 url: "commerce",
                 children: [
                     { name: "Chartered Accountant", url: "ca" },
-                    { name: "Financial Analyst", url: "fynancial_analyst" },
+                    { name: "Financial Analyst", url: "financial_analyst" },
                     { name: "Manager", url: "manager" },
                     { name: "Remote Worker", url: "remote_worker" },
                     { name: "Public Relations Specialist", url: "PR_specialist" }
