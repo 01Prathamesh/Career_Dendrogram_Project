@@ -64,10 +64,10 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("width", width)
         .attr("height", height)
         .append("g")
-        .attr("transform", "translate(40,0)");
+        .attr("transform", "translate(90,0)");
 
     const tree = d3.tree()
-        .size([height, width - 160]);
+        .size([height, width - 300]);
 
     const root = d3.hierarchy(treeData);
 
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .attr("x", d => d.children ? -10 : 10)
         .style("text-anchor", d => d.children ? "end" : "start")
         .text(d => d.data.name)
-        .style("font-size", "12px")
+        .style("font-size", "16px")
         .style("fill", "#333");
 
     // Add interactivity for hover
