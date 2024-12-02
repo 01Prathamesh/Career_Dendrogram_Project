@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Director Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Creative Director Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#creative-director-paths">Creative Director Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Creative Director Career</h2>
+            <p>Creative Directors are responsible for overseeing the creative direction of various projects. They manage teams of designers, writers, and other creative professionals to ensure that the visuals, branding, and messaging align with the client's goals and vision.</p>
+            <p>Creative Directors must have strong leadership, communication, and artistic skills to successfully guide the creative process, all while staying on brand and on budget.</p>
+        </section>
+
+        <section id="creative-director-paths">
+            <h3>Creative Director Career Paths</h3>
+            <p>Creative directors can specialize in various industries, including:</p>
+            <ul>
+                <li><strong>Advertising Creative Director:</strong> Lead creative teams for advertising campaigns, ensuring strong visual and verbal communication.</li>
+                <li><strong>Marketing Creative Director:</strong> Oversee the creation of digital and print marketing materials to support marketing strategies.</li>
+                <li><strong>Film/Television Creative Director:</strong> Guide the visual and thematic direction of films or television shows.</li>
+                <li><strong>Digital Media Creative Director:</strong> Lead creative direction for websites, apps, and social media platforms.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Creative Directors</h3>
+            <div class="button-container">
+                <a href="https://www.creativebloq.com" class="button">Creative Bloq</a>
+                <a href="https://www.adweek.com" class="button">AdWeek</a>
+                <a href="https://www.udemy.com" class="button">Creative Director Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

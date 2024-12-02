@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop Instructor Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Workshop Instructor Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#workshop-instructor-paths">Workshop Instructor Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Workshop Instructor Career</h2>
+            <p>Workshop instructors teach practical skills and techniques in a hands-on environment. They may teach trades, crafts, or vocational skills to students in workshops, helping them develop proficiency in specific fields.</p>
+            <p>To succeed as a workshop instructor, you need practical expertise, excellent teaching abilities, and a passion for sharing your knowledge.</p>
+        </section>
+
+        <section id="workshop-instructor-paths">
+            <h3>Workshop Instructor Career Paths</h3>
+            <p>Workshop instructors can specialize in various fields:</p>
+            <ul>
+                <li><strong>Carpentry Instructor:</strong> Teach students how to use tools and work with wood.</li>
+                <li><strong>Welding Instructor:</strong> Instruct students on welding techniques and safety.</li>
+                <li><strong>Electrical Instructor:</strong> Train students in electrical theory and practical applications.</li>
+                <li><strong>Mechanics Instructor:</strong> Teach students the skills needed to repair and maintain vehicles.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Workshop Instructors</h3>
+            <div class="button-container">
+                <a href="https://www.ace.edu" class="button">American Council on Education</a>
+                <a href="https://www.skillshare.com" class="button">Skillshare Workshops</a>
+                <a href="https://www.udemy.com" class="button">Teaching Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

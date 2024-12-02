@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Startup Founder Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Startup Founder Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#startup-founder-paths">Startup Founder Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Startup Founder Career</h2>
+            <p>Startup founders are entrepreneurs who create and run their own businesses from the ground up. They are responsible for developing ideas, securing funding, and driving the vision for the company's growth.</p>
+            <p>To succeed as a startup founder, you need strong leadership, risk management, and business development skills. It also requires resilience and a willingness to work in an ever-evolving market.</p>
+        </section>
+
+        <section id="startup-founder-paths">
+            <h3>Startup Founder Career Paths</h3>
+            <p>Startup founders can pursue various business models, such as:</p>
+            <ul>
+                <li><strong>Tech Startup Founder:</strong> Focus on creating innovative software or hardware products.</li>
+                <li><strong>Social Enterprise Founder:</strong> Create businesses that address social or environmental challenges.</li>
+                <li><strong>Service-Based Startup Founder:</strong> Build a business offering services, like consulting, education, or marketing.</li>
+                <li><strong>Product-Based Startup Founder:</strong> Focus on launching physical products or consumer goods.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Startup Founders</h3>
+            <div class="button-container">
+                <a href="https://www.entrepreneur.com" class="button">Entrepreneur Resources</a>
+                <a href="https://www.ycombinator.com" class="button">Y Combinator</a>
+                <a href="https://www.udemy.com" class="button">Startup Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

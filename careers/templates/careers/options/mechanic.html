@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mechanic Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Mechanic Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#mechanic-paths">Mechanic Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Mechanic Career</h2>
+            <p>Mechanics are skilled professionals who work with machinery, vehicles, and mechanical systems. They diagnose and repair issues with automobiles, engines, or other mechanical devices to ensure they function efficiently.</p>
+            <p>Mechanics must have strong problem-solving skills, technical expertise, and the ability to work with various tools and equipment. A mechanic’s job often requires hands-on work, precision, and attention to detail.</p>
+        </section>
+
+        <section id="mechanic-paths">
+            <h3>Mechanic Career Paths</h3>
+            <p>Mechanics can specialize in various fields, such as:</p>
+            <ul>
+                <li><strong>Automobile Mechanic:</strong> Focus on repairing and maintaining vehicles.</li>
+                <li><strong>Diesel Mechanic:</strong> Work with diesel-powered engines, often in larger vehicles like trucks and buses.</li>
+                <li><strong>Industrial Mechanic:</strong> Maintain and repair machinery used in manufacturing and industrial settings.</li>
+                <li><strong>Aviation Mechanic:</strong> Work on the maintenance and repair of aircraft and their systems.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Mechanics</h3>
+            <div class="button-container">
+                <a href="https://www.nccer.org" class="button">National Center for Construction Education and Research (NCCER)</a>
+                <a href="https://www.autobahnautomotive.com" class="button">Automotive Service Excellence (ASE)</a>
+                <a href="https://www.udemy.com" class="button">Mechanic Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurity Analyst Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Cybersecurity Analyst Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#cybersecurity-analyst-paths">Cybersecurity Analyst Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Cybersecurity Analyst Career</h2>
+            <p>Cybersecurity analysts protect organizations' networks and data from cyber threats such as hacking, malware, and data breaches. They work to secure systems, identify vulnerabilities, and respond to attacks.</p>
+            <p>Cybersecurity analysts need technical expertise in networking, encryption, and security protocols, as well as strong problem-solving and analytical skills to protect valuable digital assets.</p>
+        </section>
+
+        <section id="cybersecurity-analyst-paths">
+            <h3>Cybersecurity Analyst Career Paths</h3>
+            <p>Cybersecurity analysts can specialize in various areas, including:</p>
+            <ul>
+                <li><strong>Network Security Analyst:</strong> Focus on securing networks from external and internal threats.</li>
+                <li><strong>Penetration Tester:</strong> Simulate attacks on systems to identify vulnerabilities.</li>
+                <li><strong>Incident Responder:</strong> Handle cyberattacks and breaches, working to resolve security incidents.</li>
+                <li><strong>Security Consultant:</strong> Provide advice on implementing security measures to protect company infrastructure.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Cybersecurity Analysts</h3>
+            <div class="button-container">
+                <a href="https://www.cybrary.it" class="button">Cybrary</a>
+                <a href="https://www.sans.org" class="button">SANS Institute</a>
+                <a href="https://www.udemy.com" class="button">Cybersecurity Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Coach Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Sports Coach Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#sports-coach-paths">Sports Coach Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Sports Coach Career</h2>
+            <p>Sports coaches are responsible for training and developing athletes in various sports. They design training programs, teach techniques, and provide motivation to improve performance and achieve success in competitions.</p>
+            <p>To succeed as a sports coach, you must have a deep knowledge of the sport, excellent communication skills, and a passion for helping others reach their potential.</p>
+        </section>
+
+        <section id="sports-coach-paths">
+            <h3>Sports Coach Career Paths</h3>
+            <p>Sports coaches can specialize in various sports or work with different levels of athletes:</p>
+            <ul>
+                <li><strong>Football Coach:</strong> Train and develop football teams or individual players.</li>
+                <li><strong>Basketball Coach:</strong> Focus on training basketball players and managing team strategies.</li>
+                <li><strong>Personal Trainer:</strong> Help individuals with fitness training and health goals.</li>
+                <li><strong>Swimming Coach:</strong> Teach swimming techniques and improve swimmers’ performance.</li>
+                <li><strong>Strength and Conditioning Coach:</strong> Specialize in improving athletic strength and conditioning.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Coaches</h3>
+            <div class="button-container">
+                <a href="https://www.nsca.com" class="button">National Strength and Conditioning Association</a>
+                <a href="https://www.acefitness.org" class="button">American Council on Exercise</a>
+                <a href="https://www.udemy.com" class="button">Coaching Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporate Employee Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Corporate Employee Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#corporate-employee-paths">Corporate Employee Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Corporate Employee Career</h2>
+            <p>Corporate employees work for large organizations in a variety of roles across different departments, such as HR, marketing, finance, operations, and more. They perform tasks that help the company achieve its business goals and objectives.</p>
+            <p>To succeed in a corporate environment, employees need strong communication, problem-solving, and teamwork skills. Employees can work their way up to managerial positions and beyond with the right experience and education.</p>
+        </section>
+
+        <section id="corporate-employee-paths">
+            <h3>Corporate Employee Career Paths</h3>
+            <p>Corporate employees can specialize in various fields, such as:</p>
+            <ul>
+                <li><strong>Human Resources Manager:</strong> Responsible for managing employee relations, recruitment, and benefits.</li>
+                <li><strong>Marketing Specialist:</strong> Focuses on creating and executing marketing campaigns to promote the company's products or services.</li>
+                <li><strong>Financial Analyst:</strong> Analyze financial data to assist in decision-making for the company’s future.</li>
+                <li><strong>Operations Manager:</strong> Oversees the day-to-day operations and ensures the efficiency of business activities.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Corporate Employees</h3>
+            <div class="button-container">
+                <a href="https://www.hbr.org" class="button">Harvard Business Review</a>
+                <a href="https://www.careerbuilder.com" class="button">CareerBuilder</a>
+                <a href="https://www.udemy.com" class="button">Corporate Career Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

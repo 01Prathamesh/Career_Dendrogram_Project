@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conservationist Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Conservationist Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#conservationist-paths">Conservationist Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Conservationist Career</h2>
+            <p>Conservationists work to protect natural resources, wildlife, and ecosystems. They work in various fields, such as environmental conservation, habitat restoration, and wildlife protection, ensuring the sustainability of natural environments.</p>
+            <p>Conservationists must be passionate about nature and the environment, have strong research and analytical skills, and be committed to advocating for sustainable practices.</p>
+        </section>
+
+        <section id="conservationist-paths">
+            <h3>Conservationist Career Paths</h3>
+            <p>Conservationists can specialize in various areas, including:</p>
+            <ul>
+                <li><strong>Wildlife Biologist:</strong> Study animal populations and their habitats to protect endangered species.</li>
+                <li><strong>Environmental Consultant:</strong> Advise businesses and governments on environmental regulations and sustainability.</li>
+                <li><strong>Marine Biologist:</strong> Focus on protecting marine ecosystems and ocean wildlife.</li>
+                <li><strong>Ecologist:</strong> Study ecosystems and the impact of human activities on the environment.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Conservationists</h3>
+            <div class="button-container">
+                <a href="https://www.conservation.org" class="button">Conservation International</a>
+                <a href="https://www.worldwildlife.org" class="button">World Wildlife Fund</a>
+                <a href="https://www.udemy.com" class="button">Conservation Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

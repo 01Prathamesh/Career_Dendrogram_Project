@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelancer Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Freelancer Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#freelancer-paths">Freelancer Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Freelancer Career</h2>
+            <p>Freelancers are self-employed professionals who offer their services to clients on a project-by-project basis. They work in a variety of fields, including writing, design, consulting, and web development.</p>
+            <p>Freelancers need to be independent, self-motivated, and capable of managing their own business operations, such as marketing, pricing, and client communication.</p>
+        </section>
+
+        <section id="freelancer-paths">
+            <h3>Freelancer Career Paths</h3>
+            <p>Freelancers can specialize in various fields:</p>
+            <ul>
+                <li><strong>Freelance Writer:</strong> Create content for websites, blogs, marketing materials, and more.</li>
+                <li><strong>Freelance Designer:</strong> Offer graphic design, web design, or branding services.</li>
+                <li><strong>Freelance Developer:</strong> Work on software development, app development, or web development projects.</li>
+                <li><strong>Freelance Consultant:</strong> Provide expert advice to businesses or individuals in areas like marketing, finance, or management.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Freelancers</h3>
+            <div class="button-container">
+                <a href="https://www.upwork.com" class="button">Upwork Freelance Jobs</a>
+                <a href="https://www.fiverr.com" class="button">Fiverr Freelance Services</a>
+                <a href="https://www.udemy.com" class="button">Freelancer Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
