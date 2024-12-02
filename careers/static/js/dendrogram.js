@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: "12th Science",
                 url: "science",
                 children: [
-                    { name: "Engineer", url: "https://en.wikipedia.org/wiki/Engineer" },
+                    { name: "Engineer", url: "engineering" },
                     { name: "Data Analyst", url: "https://en.wikipedia.org/wiki/Data_analysis" },
                     { name: "Research Scientist", url: "https://en.wikipedia.org/wiki/Research_scientist" },
                     { name: "Healthcare Professional", url: "https://en.wikipedia.org/wiki/Health_professional" },
