@@ -363,8 +363,8 @@ def career_paths_api(request):
     data = list(CareerPath.objects.values('id', 'name', 'parent_id'))
     return JsonResponse(data, safe=False)
 
-def plagiarism(request):
-    return render(request, 'accounts/plagiarism.html')
+def declaration(request):
+    return render(request, 'accounts/declaration.html')
 
 def career_view(request, category):
     template_name = f'careers/options/{category}.html'
