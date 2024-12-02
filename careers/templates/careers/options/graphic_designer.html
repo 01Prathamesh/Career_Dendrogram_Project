@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphic Designer Career after 12th Arts</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Graphic Designer Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#graphic-designer-paths">Graphic Designer Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>The 12th Arts stream offers an excellent foundation for students interested in creative fields like graphic design. This career path focuses on visual communication through design software, artwork, and branding.</p>
+            <p>Graphic designers play an important role in industries such as advertising, web design, publishing, and more.</p>
+        </section>
+
+        <section id="graphic-designer-paths">
+            <h3>Graphic Designer Career Paths after 12th Arts</h3>
+            <p>After completing 12th Arts, students can pursue a career as a graphic designer in various sectors:</p>
+            <ul>
+                <li><strong>Brand Design:</strong> Create logos, brand identities, and visual assets for businesses.</li>
+                <li><strong>Web Design:</strong> Design user interfaces (UI) and websites, ensuring they are visually appealing and functional.</li>
+                <li><strong>Advertising Design:</strong> Design posters, flyers, and advertisements for print or digital media.</li>
+                <li><strong>Motion Graphics:</strong> Create animated graphics and videos for digital media.</li>
+                <li><strong>Illustration:</strong> Create custom illustrations for books, magazines, and digital content.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Graphic Designers</h3>
+            <div class="button-container">
+                <a href="https://www.adobe.com" class="button">Adobe Resources</a>
+                <a href="https://www.coursera.org" class="button">Graphic Design Courses</a>
+                <a href="https://www.skillshare.com" class="button">Design Tutorials</a>
+                <a href="https://www.behance.net" class="button">Portfolio Platform</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

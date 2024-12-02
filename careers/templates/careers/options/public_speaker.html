@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Speaker Career</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Public Speaker Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#public-speaker-paths">Public Speaker Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Public Speaker Career</h2>
+            <p>A career as a public speaker can be incredibly rewarding, offering the chance to influence, inspire, and educate diverse audiences. Public speakers deliver talks and presentations at events, conferences, seminars, and workshops, sharing valuable insights and knowledge on various topics.</p>
+            <p>To succeed as a public speaker, it's essential to have excellent communication skills, confidence, and the ability to engage and connect with an audience. Public speakers often specialize in specific fields, such as business, motivation, education, or politics.</p>
+        </section>
+
+        <section id="public-speaker-paths">
+            <h3>Public Speaker Career Paths</h3>
+            <p>There are various paths within the field of public speaking. Some popular career paths include:</p>
+            <ul>
+                <li><strong>Motivational Speaker:</strong> Inspire and motivate people by sharing personal stories and life lessons.</li>
+                <li><strong>Corporate Speaker:</strong> Deliver talks at business conferences, seminars, and corporate training sessions, focusing on topics such as leadership, productivity, and teamwork.</li>
+                <li><strong>Educational Speaker:</strong> Speak at educational institutions or workshops, providing guidance on topics such as career development, study techniques, or personal growth.</li>
+                <li><strong>Political Speaker:</strong> Deliver speeches in political campaigns, addressing voters, and conveying political messages.</li>
+                <li><strong>Expert Speaker:</strong> Share knowledge in a specific area of expertise, such as health, technology, or social issues, at industry-specific events.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Public Speakers</h3>
+            <div class="button-container">
+                <a href="https://www.toastmasters.org" class="button">Toastmasters International</a>
+                <a href="https://www.udemy.com" class="button">Public Speaking Courses</a>
+                <a href="https://www.ted.com" class="button">TED Talks for Inspiration</a>
+                <a href="https://www.coursera.org" class="button">Public Speaking & Communication Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

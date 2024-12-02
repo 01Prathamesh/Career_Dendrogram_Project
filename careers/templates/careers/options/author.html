@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Author Career after 12th Arts</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Author Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#author-paths">Author Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>The 12th Arts stream is ideal for students who are passionate about literature, writing, and creative expression. It offers an opportunity to dive into various writing careers, such as becoming an author, journalist, or editor.</p>
+            <p>Students in this stream develop strong communication and writing skills, which form the foundation for a successful career as an author or in other creative fields.</p>
+        </section>
+
+        <section id="author-paths">
+            <h3>Author Career Paths after 12th Arts</h3>
+            <p>As an aspiring author, you can write books, novels, articles, or poetry. There are several career paths in this field:</p>
+            <ul>
+                <li><strong>Fiction Writing:</strong> Write novels, short stories, or scripts in genres such as romance, mystery, fantasy, and more.</li>
+                <li><strong>Non-fiction Writing:</strong> Write biographies, memoirs, self-help books, or articles based on factual information.</li>
+                <li><strong>Journalism:</strong> Write news articles, features, and editorials for newspapers, magazines, or digital platforms.</li>
+                <li><strong>Children’s Literature:</strong> Write books specifically targeted at young readers, focusing on storytelling and educational content.</li>
+                <li><strong>Poetry:</strong> Express ideas and emotions through poetry, often published in literary journals or books.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Authors</h3>
+            <div class="button-container">
+                <a href="https://www.writer.com" class="button">Writing Resources</a>
+                <a href="https://www.udemy.com" class="button">Writing Courses</a>
+                <a href="https://www.amazon.com" class="button">Self-Publishing Platform</a>
+                <a href="https://www.coursera.org" class="button">Creative Writing Courses</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

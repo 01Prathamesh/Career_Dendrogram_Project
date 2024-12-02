@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Creator Career after 12th Arts</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Content Creator Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#content-creator-paths">Content Creator Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>Students pursuing the 12th Arts stream can explore a wide range of creative career options, including content creation. Content creators engage with audiences by producing videos, blogs, and social media posts.</p>
+            <p>With platforms like YouTube, Instagram, and TikTok, this career offers flexibility and creative freedom.</p>
+        </section>
+
+        <section id="content-creator-paths">
+            <h3>Content Creator Career Paths after 12th Arts</h3>
+            <p>There are many paths you can take as a content creator:</p>
+            <ul>
+                <li><strong>YouTube Creator:</strong> Make videos on a wide range of topics, from education to entertainment.</li>
+                <li><strong>Instagram Influencer:</strong> Create posts and stories, building a brand or promoting products.</li>
+                <li><strong>Blogger:</strong> Write articles or blogs on specific niches like travel, lifestyle, fashion, or technology.</li>
+                <li><strong>Podcast Creator:</strong> Host and create podcasts around topics you are passionate about.</li>
+                <li><strong>TikTok Creator:</strong> Produce short-form videos for TikTok, often focused on trends, comedy, or advice.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Content Creators</h3>
+            <div class="button-container">
+                <a href="https://www.youtube.com" class="button">YouTube Creator Academy</a>
+                <a href="https://www.coursera.org" class="button">Content Creation Courses</a>
+                <a href="https://www.skillshare.com" class="button">Video Editing Tutorials</a>
+                <a href="https://www.instagram.com" class="button">Instagram Tips</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

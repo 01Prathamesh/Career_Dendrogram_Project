@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child Psychologist Career after 12th Science</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Child Psychologist Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#psychologist-paths">Child Psychologist Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Science Stream</h2>
+            <p>Students who pursue the 12th Science stream can enter fields that involve understanding human behavior and mental health. A career as a child psychologist is particularly rewarding for those passionate about helping children manage emotional, social, and psychological challenges.</p>
+            <p>Child psychologists work with children and adolescents to diagnose and treat emotional and behavioral issues, guiding them towards better mental health and well-being.</p>
+        </section>
+
+        <section id="psychologist-paths">
+            <h3>Child Psychologist Career Paths after 12th Science</h3>
+            <p>After completing the 12th Science stream, aspiring child psychologists can pursue various career paths:</p>
+            <ul>
+                <li><strong>Clinical Psychologist:</strong> Assess and treat mental health conditions in children and adolescents.</li>
+                <li><strong>School Psychologist:</strong> Work in educational settings to support students' emotional well-being and learning difficulties.</li>
+                <li><strong>Developmental Psychologist:</strong> Focus on understanding childhood development, including cognitive, emotional, and social growth.</li>
+                <li><strong>Behavioral Therapist:</strong> Work with children who exhibit behavioral issues, using therapy to promote healthier habits and responses.</li>
+                <li><strong>Child and Adolescent Counselor:</strong> Provide counseling services to young individuals, helping them navigate personal and emotional challenges.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Child Psychologists</h3>
+            <div class="button-container">
+                <a href="https://www.psychologytoday.com" class="button">Psychology Resources</a>
+                <a href="https://www.napsindia.org/" class="button">National Association of Psychological Science</a>
+                <a href="https://www.coursera.org" class="button">Psychology Courses</a>
+                <a href="https://www.psychcentral.com" class="button">Mental Health Resources</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

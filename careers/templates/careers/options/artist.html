@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Career after 12th Arts</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Artist Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#artist-paths">Artist Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>The 12th Arts stream provides aspiring artists with the skills to create visual art across a variety of mediums. Whether you are passionate about painting, sculpture, digital arts, or mixed media, being an artist offers boundless creative freedom.</p>
+            <p>Artists play a vital role in cultural, social, and personal expression through their artwork.</p>
+        </section>
+
+        <section id="artist-paths">
+            <h3>Artist Career Paths after 12th Arts</h3>
+            <p>After completing the 12th Arts stream, there are numerous paths an artist can explore:</p>
+            <ul>
+                <li><strong>Fine Art Painter:</strong> Create original paintings in various styles and sell them in galleries or online.</li>
+                <li><strong>Sculptor:</strong> Work with materials like clay, wood, and metal to create three-dimensional art.</li>
+                <li><strong>Digital Artist:</strong> Use digital tools to create artwork for the web, video games, movies, and advertising.</li>
+                <li><strong>Illustrator:</strong> Create illustrations for books, magazines, advertisements, and more.</li>
+                <li><strong>Art Curator:</strong> Organize and maintain art collections in museums or galleries.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Artists</h3>
+            <div class="button-container">
+                <a href="https://www.artstation.com" class="button">Art Portfolio Platform</a>
+                <a href="https://www.coursera.org" class="button">Art Courses</a>
+                <a href="https://www.skillshare.com" class="button">Art Tutorials</a>
+                <a href="https://www.pinterest.com" class="button">Creative Inspiration</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

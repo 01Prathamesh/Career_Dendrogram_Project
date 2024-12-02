@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Art Teacher Career after 12th Arts</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Art Teacher Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#art-teacher-paths">Art Teacher Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>The 12th Arts stream provides a solid foundation for students who are passionate about teaching and art. As an art teacher, you will help others develop their creative skills, express themselves through various art forms, and appreciate the beauty of visual arts.</p>
+            <p>Teaching art involves guiding students through techniques in drawing, painting, sculpture, and other creative practices.</p>
+        </section>
+
+        <section id="art-teacher-paths">
+            <h3>Art Teacher Career Paths after 12th Arts</h3>
+            <p>Art teachers can work in various educational settings, including schools, colleges, and art institutions. Here are some potential paths:</p>
+            <ul>
+                <li><strong>Primary School Art Teacher:</strong> Teach young children basic art skills and foster their creativity.</li>
+                <li><strong>High School Art Teacher:</strong> Teach advanced techniques and art history to high school students.</li>
+                <li><strong>College Professor:</strong> Teach art at the college level, specializing in subjects like drawing, painting, or digital arts.</li>
+                <li><strong>Private Art Instructor:</strong> Offer private art lessons to students of all ages, either in-person or online.</li>
+                <li><strong>Art Workshop Instructor:</strong> Lead workshops for adults or children in community centers or art studios.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources for Aspiring Art Teachers</h3>
+            <div class="button-container">
+                <a href="https://www.artstation.com" class="button">Art Teacher Resources</a>
+                <a href="https://www.coursera.org" class="button">Teaching Art Courses</a>
+                <a href="https://www.udemy.com" class="button">Art Education Tutorials</a>
+                <a href="https://www.edutopia.org" class="button">Teaching Strategies</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
