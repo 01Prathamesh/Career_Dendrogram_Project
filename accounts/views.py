@@ -306,17 +306,6 @@ def determine_career_paths(user_answers):
     return list(set(suggested_paths))  # Return unique paths
 
 
-
-def register(request):
-    if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('login')
-    else:
-        form = CustomUserCreationForm()
-    return render(request, 'registration/register.html', {'form': form})
-
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
@@ -348,7 +337,7 @@ def profile_view(request):
     else:
         form = UserProfileForm(instance=user_profile)
     
-    return render(request, 'accounts/profile.html', {'form': form})
+    return render(request, 'accounts/profile.html', {'form': form, 'profile': user_profile, 'user': request.user})
 
 @login_required
 def edit_profile(request):
