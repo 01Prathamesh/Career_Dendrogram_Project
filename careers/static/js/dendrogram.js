@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: "12th Arts",
                 url: "arts",
                 children: [
-                    { name: "Author", url: "https://en.wikipedia.org/wiki/Author" },
-                    { name: "Graphic Designer", url: "https://en.wikipedia.org/wiki/Graphic_designer" },
-                    { name: "Content Creator", url: "https://en.wikipedia.org/wiki/Content_creator" },
-                    { name: "Art Teacher", url: "https://en.wikipedia.org/wiki/Art_teacher" },
-                    { name: "Artist", url: "https://en.wikipedia.org/wiki/Artist" },
-                    { name: "Public Speaker", url: "https://en.wikipedia.org/wiki/Public_speaking" },
-                    { name: "Child Psychologist", url: "https://en.wikipedia.org/wiki/Child_psychologist" }
+                    { name: "Author", url: "author" },
+                    { name: "Graphic Designer", url: "graphic_designer" },
+                    { name: "Content Creator", url: "content_creator" },
+                    { name: "Art Teacher", url: "art_teacher" },
+                    { name: "Artist", url: "artist" },
+                    { name: "Public Speaker", url: "public_speaker" },
+                    { name: "Child Psychologist", url: "child_psychologist" }
                 ]
             },
             {
