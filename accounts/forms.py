@@ -10,7 +10,7 @@ class RegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        fields = ('first_name','last_name','username', 'email', 'password1', 'password2')
 
 
 class CustomUserCreationForm(UserCreationForm):
@@ -24,33 +24,55 @@ class CustomUserChangeForm(UserChangeForm):
         fields = ('username', 'email', 'first_name', 'last_name')
 
 class UserProfileForm(forms.ModelForm):
-    class Meta:
-        model = UserProfile
-        fields = ['name', 'photo', 'date_of_birth', 'location', 'education_qualification', 'current_role', 'career_goals' ]
+    # Separate first_name and last_name fields (avoiding the 'name' field redundancy)
+    first_name = forms.CharField(max_length=30, required=False, label='First Name')
+    last_name = forms.CharField(max_length=30, required=False, label='Last Name')
 
-    # Add a field for the username if you want to allow users to change it
+    # Optional: You can add the 'username' field if you want the user to be able to change it.
     # username = forms.CharField(max_length=150, required=False, label='Username')
-    name = forms.CharField(max_length=150, required=False, label='Full Name')
-    location= forms.CharField(max_length=150, required=False, label='Location')
-    education_qualification= forms.CharField(max_length=150, required=False, label='Education Qualification')
+
+    location = forms.CharField(max_length=150, required=False, label='Location')
+    education_qualification = forms.CharField(max_length=150, required=False, label='Education Qualification')
+    
+    # Date of birth input
     date_of_birth = forms.DateField(
         widget=forms.DateInput(attrs={'type': 'date'}),
-        input_formats=['%Y-%m-%d']  # Optional, adjust if needed
+        input_formats=['%Y-%m-%d']
     )
+
+    class Meta:
+        model = UserProfile
+        fields = ['photo', 'first_name', 'last_name', 'date_of_birth', 'location', 'education_qualification', 'current_role', 'career_goals']
+
     def __init__(self, *args, **kwargs):
+        # Assuming the 'user' object is passed into the form, we can set initial values for first_name/last_name
         user = kwargs.pop('user', None)
         super().__init__(*args, **kwargs)
+
+        # If the 'user' object is provided, initialize first_name and last_name with values from the User model
         if user:
-            self.fields['username'].initial = user.username
+            self.fields['first_name'].initial = user.first_name
+            self.fields['last_name'].initial = user.last_name
+            # Optional: Initialize username if you're allowing changes to the username
+            # self.fields['username'].initial = user.username
 
     def save(self, commit=True):
+        # Save the user profile and update the user's first_name and last_name from the form fields
         user_profile = super().save(commit=False)
-        if self.cleaned_data.get('username'):
-            user = self.instance.user
-            user.username = self.cleaned_data['username']
-            user.save()
+        
+        # Set the user fields (first_name, last_name) from the form data
+        if self.cleaned_data.get('first_name'):
+            self.instance.user.first_name = self.cleaned_data['first_name']
+        if self.cleaned_data.get('last_name'):
+            self.instance.user.last_name = self.cleaned_data['last_name']
+        
+        # Save the user object
         if commit:
+            self.instance.user.save()  # Save the user model first
+
+            # Now save the user_profile object
             user_profile.save()
+
         return user_profile
 
 class CareerPathForm(forms.ModelForm):
