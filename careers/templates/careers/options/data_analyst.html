@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Analyst Career Path after 12th Science</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Data Analyst Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#data-analyst-paths">Data Analyst Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Data Analyst Career Path</h2>
+            <p>A Data Analyst uses data to help companies make informed decisions. The role involves interpreting large datasets, identifying trends, and creating reports. The field is essential in sectors like healthcare, finance, technology, and more.</p>
+        </section>
+
+        <section id="data-analyst-paths">
+            <h3>How to Become a Data Analyst after 12th Science</h3>
+            <p>After completing the 12th Science stream, students can pursue degrees and certifications in Data Science, Computer Science, Statistics, or Mathematics to become a Data Analyst.</p>
+            <ul>
+                <li><strong>Skills Required:</strong> Strong analytical abilities, knowledge of programming languages like Python, R, and SQL, data visualization tools like Tableau, and statistical analysis.</li>
+                <li><strong>Key Industries:</strong> Technology, Finance, Healthcare, E-commerce, Government, and Education.</li>
+                <li><strong>Popular Tools:</strong> Excel, Power BI, Tableau, Hadoop, Python, SQL, R.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Data Analysts</h3>
+            <div class="button-container">
+                <a href="https://www.datacamp.com/" class="button">DataCamp Courses</a>
+                <a href="https://www.kaggle.com/" class="button">Kaggle Datasets</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

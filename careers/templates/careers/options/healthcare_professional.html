@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Professional Career Path after 12th Science</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Healthcare Professional Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#healthcare-paths">Healthcare Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Healthcare Career Path</h2>
+            <p>The healthcare industry offers a variety of career opportunities for students after completing 12th Science. You can pursue roles like Doctor, Nurse, Pharmacist, or Medical Technician.</p>
+        </section>
+
+        <section id="healthcare-paths">
+            <h3>Healthcare Careers after 12th Science</h3>
+            <p>Students can pursue a wide range of careers in healthcare after completing the 12th Science stream, especially by opting for medical or paramedical courses.</p>
+            <ul>
+                <li><strong>Medicine:</strong> Becoming a Doctor (MBBS, MD), Dentist (BDS), or Physiotherapist (BPT).</li>
+                <li><strong>Pharmacy:</strong> Pharmacist, Pharmaceutical Scientist.</li>
+                <li><strong>Medical Technologist:</strong> Medical Imaging, Lab Technology, Radiology, etc.</li>
+                <li><strong>Healthcare Administration:</strong> Hospital Administration, Health Management.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Healthcare Professionals</h3>
+            <div class="button-container">
+                <a href="https://www.nmims.edu/" class="button">NMIMS Medical Courses</a>
+                <a href="https://www.mciindia.org/" class="button">MCI India</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

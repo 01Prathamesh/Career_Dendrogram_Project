@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Scientist Career Path after 12th Science</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Science Stream - Environmental Scientist Career Path</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#environmental-scientist-paths">Environmental Scientist Career Path</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the Environmental Scientist Career Path</h2>
+            <p>Environmental Scientists study the environment and work to protect natural resources. They address environmental issues like pollution, conservation, and climate change.</p>
+        </section>
+
+        <section id="environmental-scientist-paths">
+            <h3>How to Become an Environmental Scientist after 12th Science</h3>
+            <p>Students can pursue undergraduate and postgraduate degrees in Environmental Science, Environmental Engineering, or related fields. This can lead to roles in government, private sectors, and research organizations.</p>
+            <ul>
+                <li><strong>Skills Required:</strong> Knowledge of environmental policies, scientific research skills, fieldwork, and data analysis.</li>
+                <li><strong>Key Industries:</strong> Environmental Consultancy, Government Agencies, Non-profits, Research Institutions.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Resources for Aspiring Environmental Scientists</h3>
+            <div class="button-container">
+                <a href="https://www.cseindia.org/" class="button">CSE India</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
