@@ -45,15 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: "Vocational Courses",
                 url: "vocational_courses",
                 children: [
-                    { name: "Mechanic", url: "https://en.wikipedia.org/wiki/Mechanic" },
-                    { name: "Sports Coach", url: "https://en.wikipedia.org/wiki/Coach_(sport)" },
-                    { name: "Workshop Instructor", url: "https://en.wikipedia.org/wiki/Instructor" },
-                    { name: "Freelancer", url: "https://en.wikipedia.org/wiki/Freelancer" },
-                    { name: "Startup Founder", url: "https://en.wikipedia.org/wiki/Entrepreneur" },
-                    { name: "Creative Director", url: "https://en.wikipedia.org/wiki/Creative_director" },
-                    { name: "Corporate Employee", url: "https://en.wikipedia.org/wiki/Employee" },
-                    { name: "Conservationist", url: "https://en.wikipedia.org/wiki/Conservation" },
-                    { name: "Cybersecurity Analyst", url: "https://en.wikipedia.org/wiki/Cybersecurity_analyst" }
+                    { name: "Mechanic", url: "mechanic" },
+                    { name: "Sports Coach", url: "sport_coach" },
+                    { name: "Workshop Instructor", url: "work_instructor" },
+                    { name: "Freelancer", url: "freelancer" },
+                    { name: "Startup Founder", url: "startup_founder" },
+                    { name: "Creative Director", url: "creative_director" },
+                    { name: "Corporate Employee", url: "corporate_employee" },
+                    { name: "Conservationist", url: "conservation" },
+                    { name: "Cybersecurity Analyst", url: "cybersecurity_analyst" }
                 ]
             }
         ]
