@@ -21,11 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 name: "12th Commerce",
                 url: "commerce",
                 children: [
-                    { name: "Chartered Accountant", url: "https://en.wikipedia.org/wiki/Chartered_accountant_(India)" },
-                    { name: "Financial Analyst", url: "https://en.wikipedia.org/wiki/Financial_analyst" },
-                    { name: "Manager", url: "https://en.wikipedia.org/wiki/Manager" },
-                    { name: "Remote Worker", url: "https://en.wikipedia.org/wiki/Remote_work" },
-                    { name: "Public Relations Specialist", url: "https://en.wikipedia.org/wiki/Public_relations" }
+                    { name: "Chartered Accountant", url: "ca" },
+                    { name: "Financial Analyst", url: "fynancial_analyst" },
+                    { name: "Manager", url: "manager" },
+                    { name: "Remote Worker", url: "remote_worker" },
+                    { name: "Public Relations Specialist", url: "PR_specialist" }
                 ]
             },
             {
