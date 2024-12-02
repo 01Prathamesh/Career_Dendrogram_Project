@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Commerce - Career Paths</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Commerce Stream - Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#career-paths">Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Commerce Stream</h2>
+            <p>The 12th Commerce stream is designed for students who wish to explore fields related to business, economics, law, and finance. It includes subjects like Accountancy, Economics, Business Studies, and Mathematics (optional).</p>
+            <p>The Commerce stream provides a strong foundation for students to pursue careers in business, finance, law, and management.</p>
+        </section>
+
+        <section id="career-paths">
+            <h3>Potential Career Paths after 12th Commerce</h3>
+            <ul>
+                <li><strong>Commerce and Business Management:</strong> Students can pursue courses in Business Administration (BBA), Management (MBA), or Marketing Management.</li>
+                <li><strong>Chartered Accountancy (CA):</strong> Students can pursue CA to become certified accountants.</li>
+                <li><strong>Company Secretary (CS):</strong> A career in corporate law and governance as a Company Secretary.</li>
+                <li><strong>Finance and Banking:</strong> Students can opt for finance-related courses such as B.Com (Finance), Financial Planning, or work in the banking sector.</li>
+                <li><strong>Economics and Research:</strong> Students can explore careers in economics, economic research, or policy analysis.</li>
+                <li><strong>Law:</strong> A career in law by pursuing a 5-year LLB program after completing 12th Commerce.</li>
+                <li><strong>Government Services:</strong> Prepare for exams like UPSC, SSC, or state government services for various roles in the government sector.</li>
+                <li><strong>Hospitality Management:</strong> Students can opt for a career in hotel management, event planning, or tourism management.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources</h3>
+            <div class="button-container">
+                <a href="https://www.icai.org" class="button">Chartered Accountancy Resources</a>
+                <a href="https://www.careerindia.com" class="button">Career Guidance</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.career360.com" class="button">Commerce Career Resources</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 12th Commerce Career Paths. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
