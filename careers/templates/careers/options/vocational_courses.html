@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocational Courses - Career Paths</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">Vocational Courses - Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#career-paths">Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to Vocational Courses</h2>
+            <p>Vocational courses provide specialized knowledge and skills in fields such as IT, hospitality, healthcare, beauty, and more. These courses are designed to offer practical training, which prepares students for immediate employment after completion.</p>
+            <p>The vocational stream opens doors to a variety of career opportunities, especially in sectors like healthcare, media, technology, and design.</p>
+        </section>
+
+        <section id="career-paths">
+            <h3>Potential Career Paths after Vocational Courses</h3>
+            <ul>
+                <li><strong>Healthcare and Nursing:</strong> A career in nursing, medical lab technology, physiotherapy, or pharmacy.</li>
+                <li><strong>Information Technology (IT):</strong> Work in the IT sector in fields like programming, web development, and networking.</li>
+                <li><strong>Hospitality and Tourism:</strong> Careers in hotel management, tourism management, travel agencies, and event planning.</li>
+                <li><strong>Fashion Designing:</strong> Become a fashion designer, stylist, or work in the fashion industry.</li>
+                <li><strong>Beauty and Cosmetology:</strong> Careers in beauty salons, makeup artistry, and cosmetology.</li>
+                <li><strong>Graphic Designing:</strong> Work as a graphic designer, web designer, or in digital media production.</li>
+                <li><strong>Automobile Engineering:</strong> Become an automobile technician or work in automotive industries.</li>
+                <li><strong>Media and Entertainment:</strong> Work in radio, television, film production, photography, or video editing.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources</h3>
+            <div class="button-container">
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+                <a href="https://www.naric.org.uk" class="button">Vocational Course Resources</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th Arts - Career Paths</title>
+    <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="header-title">12th Arts Stream - Career Paths</div>
+        <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
+    </header>
+
+    <nav class="navbar">
+        <a href="#overview">Overview</a>
+        <a href="#career-paths">Career Paths</a>
+        <a href="#resources">Resources</a>
+    </nav>
+
+    <div class="content">
+        <section id="overview">
+            <h2 class="welcome-message">Welcome to the 12th Arts Stream</h2>
+            <p>The 12th Arts stream is designed for students interested in fields like Humanities, Literature, History, and Social Sciences. It covers subjects such as History, Political Science, Sociology, Psychology, and various languages.</p>
+            <p>This stream offers a wide range of career opportunities, including jobs in teaching, journalism, social work, and creative industries like media, advertising, and design.</p>
+        </section>
+
+        <section id="career-paths">
+            <h3>Potential Career Paths after 12th Arts</h3>
+            <ul>
+                <li><strong>Law:</strong> Pursuing a 5-year LLB program after 12th Arts to become a lawyer or legal advisor.</li>
+                <li><strong>Journalism and Mass Communication:</strong> Career in media, journalism, news reporting, and public relations.</li>
+                <li><strong>Teaching:</strong> Become a teacher or educator by opting for B.Ed. and teaching in schools or colleges.</li>
+                <li><strong>Psychology:</strong> A career in clinical psychology, counseling, or social work.</li>
+                <li><strong>Fine Arts and Design:</strong> Pursue a career in painting, sculpture, graphic design, or fashion design.</li>
+                <li><strong>Social Work:</strong> A career helping communities by working in NGOs or social welfare programs.</li>
+                <li><strong>Tourism and Hospitality:</strong> Work in the tourism industry, hotel management, and event planning.</li>
+                <li><strong>Advertising and Public Relations:</strong> Work in marketing, brand communication, and advertising agencies.</li>
+            </ul>
+        </section>
+
+        <section id="resources">
+            <h3>Additional Resources</h3>
+            <div class="button-container">
+                <a href="https://www.nls.ac.in" class="button">Law Entrance Resources</a>
+                <a href="https://www.indiatoday.in/education-today" class="button">Journalism Resources</a>
+                <a href="https://www.edx.org" class="button">Online Learning Resources</a>
+                <a href="https://www.careers360.com" class="button">Career Guidance</a>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
