@@ -118,7 +118,7 @@
             <img src="{% if profile.photo %}{{ profile.photo.url }}{% else %}{% static 'images/default-profile.png' %}{% endif %}" alt="Profile Photo">
             <div>
                 <h2>UserName: {{ user.username }}</h2>
-                <h2>Full Name: {{ profile.name }}</h2>
+                <h2>Full Name: {{ user.first_name }} {{ user.last_name }}</h2>
                 <p>Date of Birth: {{ profile.date_of_birth }}</p>
                 <p>Location: {{ profile.location }}</p>
                 <p>Education: {{ profile.education_qualification }}</p>
