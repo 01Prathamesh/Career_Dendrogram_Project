@@ -362,3 +362,6 @@ def plagiarism(request):
 
 def science_view(request):
     return render(request, 'careers/options/science.html')
+
+def commerce_view(request):
+    return render(request, 'careers/options/commerce.html')
