@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             {
                 name: "12th Commerce",
-                url: "https://www.pw.live/exams/commerce/#:~:text=In%20the%20Class%2012%20curriculum,%2C%20Mathematics%2C%20and%20Informatics%20Practices.",
+                url: "commerce",
                 children: [
                     { name: "Chartered Accountant", url: "https://en.wikipedia.org/wiki/Chartered_accountant_(India)" },
                     { name: "Financial Analyst", url: "https://en.wikipedia.org/wiki/Financial_analyst" },
