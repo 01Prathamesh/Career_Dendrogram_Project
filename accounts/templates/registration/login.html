@@ -38,7 +38,7 @@
             background-color: #ffd54f;
         }
         .container {
-            flex: 1; /* Take up remaining space */
+            flex: 1;
             max-width: 400px;
             margin: 50px auto;
             padding: 20px;
@@ -75,7 +75,7 @@
         .errorlist {
             color: red;
             margin-bottom: 15px;
-            text-align: left; /* Align error messages to the left */
+            text-align: left;
         }
         .links {
             margin-top: 20px;
@@ -94,7 +94,26 @@
             color: #fff;
             text-align: center;
             padding: 10px 0;
-            margin-top: auto; /* Push footer to the bottom */
+            margin-top: auto;
+        }
+
+        /* Popup message style */
+        .popup-message {
+            display: outside;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -200%);
+            background-color: #24ff33;
+            color: white;
+            padding: 3px;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .popup-message.show {
+            display: block;
         }
     </style>
 </head>
@@ -128,7 +147,16 @@
             <a href="{% url 'home' %}">Back to Home</a>
         </div>
     </div>
-    
+
+    <!-- Popup for messages -->
+    {% if messages %}
+        <div class="popup-message show">
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>

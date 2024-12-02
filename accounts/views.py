@@ -100,16 +100,19 @@ def delete_role(request, pk):
         return redirect('role_list')
     return render(request, 'careers/delete_role.html', {'role': role})
 
-
 def login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
+            messages.success(request, 'Login successful!')
             return redirect('home')
+        else:
+            messages.error(request, 'Invalid credentials. Please try again.')
     else:
         form = AuthenticationForm()
+    
     return render(request, 'careers/login.html', {'form': form})
 
 def logout_view(request):
@@ -310,8 +313,11 @@ def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            form.save()
-            messages.success(request, 'Registration successful! You can now log in.')
+            # Save the user to the database
+            user = form.save()
+            username = user.username
+            messages.success(request, f'Registration successful!!! Welcome, {username}. You can now log in.')
+            # Redirect to the login page
             return redirect('login')
     else:
         form = RegistrationForm()
