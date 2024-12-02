@@ -359,15 +359,6 @@ def career_paths_api(request):
 def plagiarism(request):
     return render(request, 'accounts/plagiarism.html')
 
-
-def science_view(request):
-    return render(request, 'careers/options/science.html')
-
-def commerce_view(request):
-    return render(request, 'careers/options/commerce.html')
-
-def arts_view(request):
-    return render(request, 'careers/options/arts.html')
-
-def vocational_courses_view(request):
-    return render(request, 'careers/options/vocational_courses.html')
+def career_view(request, category):
+    template_name = f'careers/options/{category}.html'
+    return render(request, template_name)
