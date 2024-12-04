@@ -1,4 +1,5 @@
 # Career Dendrogram  Project
+A Career Guidance Application for Students.
 
 ## Overview
 
