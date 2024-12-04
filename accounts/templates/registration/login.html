@@ -4,158 +4,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'media/favicon.png' %}">
     <title>Login</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
+        /* Global Styles */
         html, body {
             height: 100%;
             margin: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f5f7fa; /* Light gray background */
+            color: #333;
             display: flex;
             flex-direction: column;
-            font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #e3f2fd;
-            color: #333;
+            overflow-x: hidden;
+            animation: fadeInAll 1s ease-in-out;
         }
+
+        /* Header Styles */
         header {
-            background-color: #ff6f61;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 5px dashed #ffd54f;
+            background-color: #4e73df; /* Soft blue */
+            color: white;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #f4c724; /* Soft yellow */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInFromBottom 1s ease-out;
         }
+
+        .header-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-left: 40px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .navbar {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 30px;
+            padding: 0 30px;
         }
+
         .navbar a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
+            padding: 18px 30px;
+            border-radius: 8px;
+            transition: all 0.4s;
+            font-weight: bold;
         }
+
         .navbar a:hover {
-            background-color: #ffd54f;
+            background-color: #f4c724;
+            color: #2f2f2f;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
-        .container {
+
+        /* Content Styles */
+        .content {
             flex: 1;
-            max-width: 400px;
-            margin: 50px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            padding: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
+            background: linear-gradient(to bottom right, #ffffff, #ffeb3b);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
         }
-        h1 {
-            margin-bottom: 20px;
+
+        .login-form h1 {
+            font-size: 40px;
+            margin-bottom: 25px;
             color: #ff5722;
+            animation: slideInFromBottom 2s ease-out;
         }
+
+        /* Form Styles */
         form {
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
         }
-        form input, form button {
-            margin-bottom: 15px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+
+        form input {
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            width: 300px;
+            transition: all 0.3s ease;
         }
+
+        form input:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 5px rgba(78, 115, 223, 0.8);
+        }
+
         form button {
+            padding: 12px 20px;
+            font-size: 18px;
             background-color: #3f51b5;
             color: white;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.2s;
+            width: 320px;
+            transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s;
         }
+
         form button:hover {
-            background-color: #303f9f;
-            transform: translateY(-2px);
+            background-color: #f4c724;
+            transform: translateY(-6px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
         }
-        .errorlist {
+
+        form .error {
             color: red;
-            margin-bottom: 15px;
+            margin-top: -10px;
+            font-size: 14px;
             text-align: left;
+            width: 300px;
         }
+
         .links {
             margin-top: 20px;
-            text-align: center;
+            font-size: 16px;
         }
+
         .links a {
-            color: #007bff;
+            color: #4e73df;
             text-decoration: none;
-            margin: 0 10px;
+            transition: text-decoration 0.3s;
         }
+
         .links a:hover {
             text-decoration: underline;
         }
-        footer {
-            background-color: #ff6f61;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            margin-top: auto;
+
+        
+        .messages .message {
+            color: green;
+            font-size: 1.1em;
         }
 
-        /* Popup message style */
-        .popup-message {
-            display: outside;
-            position: fixed;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -200%);
-            background-color: #24ff33;
-            color: white;
-            padding: 3px;
+        .messages {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
         }
 
-        .popup-message.show {
-            display: block;
+
+        /* Footer Styles */
+        footer {
+            background-color: #4e73df;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+            font-size: 16px;
+            animation: fadeIn 1s ease-in-out;
         }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInAll {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+                width: 90%;
+            }
+
+            form input, form button {
+                width: 100%;
+            }
+        }
+
     </style>
 </head>
 <body>
     <header>
+        <div class="header-title">Career Dendrogram</div>
         <nav class="navbar">
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'register' %}">Register</a>
             {% if user.is_authenticated %}
-                <a href="{% url 'profile' %}">Profile</a>
-                <a href="{% url 'logout' %}">Logout</a>
+                <span class="user-info">Welcome, {{ user.username }}!</span>
+                <form action="{% url 'logout' %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" style="background-color: #3f51b5; color: #fff; border: none; padding: 12px 24px; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px;">Logout</button>
+                </form>
+            {% else %}
+                <a href="{% url 'home' %}">Home</a>
+                <a href="{% url 'register' %}">Register</a>
             {% endif %}
         </nav>
     </header>
 
-    <div class="container">
-        <h1>🎉 Login 🎉</h1>
-        <form method="post">
-            {% csrf_token %}
-            {% if form.non_field_errors %}
-                <div class="errorlist">
-                    {{ form.non_field_errors }}
-                </div>
+    <div class="content">
+        <div class="login-form">
+            <h1>🎉 Login 🎉</h1>
+
+            <!-- Display success or error messages -->
+            {% if messages %}
+            <div class="messages">
+                {% for message in messages %}
+                    <p class="message">{{ message }}</p>
+                {% endfor %}
+            </div>
             {% endif %}
-            {{ form.as_p }}
-            <button type="submit">Login</button>
-        </form>
-        <div class="links">
-            <a href="{% url 'register' %}">Don't have an account? Register here.</a>
-            <br>
-            <a href="{% url 'home' %}">Back to Home</a>
+
+            <form method="post">
+                {% csrf_token %}
+                {% if form.non_field_errors %}
+                    <div class="errorlist">
+                        {{ form.non_field_errors }}
+                    </div>
+                {% endif %}
+                {{ form.as_p }}
+                <button type="submit">Login</button>
+            </form>
+
+            <div class="links">
+                <a href="{% url 'register' %}">Don't have an account? Register here.</a><br>
+                <a href="{% url 'home' %}">Back to Home</a>
+            </div>
         </div>
     </div>
-
-    <!-- Popup for messages -->
-    {% if messages %}
-        <div class="popup-message show">
-            {% for message in messages %}
-                <p>{{ message }}</p>
-            {% endfor %}
-        </div>
-    {% endif %}
 
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
