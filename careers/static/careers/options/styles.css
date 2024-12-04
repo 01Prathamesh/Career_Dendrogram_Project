@@ -10,19 +10,22 @@ html, body {
 }
 
 header {
-    background-color: #ff6f61;
-    color: #fff;
+    background-color: #4e73df;
+    color: white;
     padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 5px dashed #ffd54f;
+    border-bottom: 3px solid #f4c724;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: slideInFromBottom 1s ease-out;
 }
 
 .header-title {
-    font-size: 28px;
-    margin-left: 20px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 40px;
+    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .navbar {
@@ -43,9 +46,10 @@ header {
 }
 
 .navbar a:hover {
-    background-color: #ffd54f;
-    border-radius: 5px;
-    color: #333;
+    background-color: #f4c724;
+    color: #2f2f2f;
+    transform: translateY(-4px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .user-info {
@@ -60,7 +64,7 @@ header {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     background: linear-gradient(white, #ffecb3);
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -74,23 +78,22 @@ header {
 
 .button {
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 20px;
-    color: #fff;
-    background-color: #3f51b5;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 10px;
-    transition: background-color 0.3s, transform 0.2s;
-    flex: 1 1 calc(45% - 20px);
-    max-width: 300px;
-    border: 2px dashed #ff6f61;
+            padding: 20px 35px;
+            font-size: 22px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #3f51b5;
+            color: white;
+            border-radius: 8px;
+            margin: 12px;
+            border: 2px solid #ff5722;
+            transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s;
 }
 
 .button:hover {
-    background-color: #303f9f;
-    transform: translateY(-3px);
+    background-color: #f4c724;
+            transform: translateY(-6px);
+            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
 .button-container {
@@ -101,9 +104,37 @@ header {
 }
 
 footer {
-    background-color: #ff6f61;
-    color: #fff;
+    background-color: #4e73df;
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 10px 0;
-    margin-top: auto; /* Push footer to the bottom */
+    margin-top: auto;
+    font-size: 16px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInAll {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
