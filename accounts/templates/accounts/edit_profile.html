@@ -4,67 +4,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'media/favicon.png' %}">
     <title>Edit Profile</title>
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
+        /* Global Styles */
         html, body {
             height: 100%;
             margin: 0;
             display: flex;
             flex-direction: column;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #e3f2fd;
+            background-color: #f5f7fa; /* Light gray background */
             color: #333;
+            animation: fadeInAll 1s ease-in-out;
         }
+
+        /* Header Styles */
         header {
-            background-color: #ff6f61;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-            border-bottom: 5px dashed #ffd54f;
+            background-color: #4e73df; /* Soft blue */
+            color: white;
+            padding: 30px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid #f4c724; /* Soft yellow */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInFromBottom 1s ease-out;
         }
+
+        .header-title {
+            font-size: 40px;
+            font-weight: bold;
+            margin-left: 40px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
         .navbar {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 30px;
+            padding: 0 30px;
         }
+
         .navbar a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            transition: background-color 0.3s;
+            padding: 18px 30px;
+            border-radius: 8px;
+            transition: all 0.4s;
+            font-weight: bold;
         }
+
         .navbar a:hover {
-            background-color: #ffd54f;
+            background-color: #f4c724;
+            color: #2f2f2f;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
+        /* Edit Profile Container */
         .container {
-            flex: 1; /* Take up remaining space */
+            flex: 1;
+            padding: 50px;
             max-width: 800px;
             margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to bottom right, #ffffff, #ffeb3b);
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeInUp 2s ease-in-out;
         }
+
         h1 {
             margin-bottom: 20px;
             color: #ff5722;
-            text-align: center;
+            animation: slideInFromBottom 2s ease-out;
         }
+
+        /* Form Styling */
         form {
             display: flex;
             flex-direction: column;
+            align-items: center;
+            gap: 15px;
         }
+
         form input, form select, form textarea, form button {
+            width: 80%;
             margin-bottom: 15px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
+
         form textarea {
             resize: vertical;
         }
+
         form button {
             background-color: #007bff;
             color: white;
@@ -74,49 +110,78 @@
             font-weight: bold;
             transition: background-color 0.3s;
         }
+
         form button:hover {
             background-color: #0056b3;
         }
+
+        /* Form Error Styling */
         .form-errors {
             color: red;
             margin-bottom: 15px;
         }
+
+        /* Links */
         .links {
             text-align: center;
             margin-top: 20px;
         }
+
         .links a {
             color: #007bff;
             text-decoration: none;
             margin: 0 10px;
             transition: text-decoration 0.2s;
         }
+
         .links a:hover {
             text-decoration: underline;
         }
+
+        /* Footer Styles */
         footer {
-            background-color: #ff6f61;
-            color: #fff;
+            background-color: #4e73df;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 10px 0;
-            margin-top: auto; /* Push footer to the bottom */
+            margin-top: auto;
+            font-size: 16px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInAll {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
     <header>
+        <div class="header-title">Career Dendrogram</div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'profile' %}">Profile</a>
-            {% if user.is_authenticated %}
-                <form method="post" action="{% url 'logout' %}" style="display:inline;">
-                    {% csrf_token %}
-                    <button type="submit" style="background:none; border:none; color:#fff; cursor:pointer;">Logout</button>
-                </form>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-                <a href="{% url 'register' %}">Register</a>
-            {% endif %}
         </nav>
     </header>
 
@@ -141,7 +206,7 @@
             {% endif %}
             <button type="submit">💾 Save Changes</button>
         </form>
-        
+
         <div class="links">
             <a href="{% url 'profile' %}">🔙 Back to Profile</a>
         </div>
