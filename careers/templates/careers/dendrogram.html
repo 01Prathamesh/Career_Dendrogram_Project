@@ -15,38 +15,45 @@
             background-color: #e3f2fd;
         }
         header {
-            background-color: #ff6f61;
-            color: #fff;
+            background-color: #4e73df; /* Soft blue */
+            color: white;
             padding: 20px 0;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 5px dashed #ffd54f;
+            border-bottom: 3px solid #f4c724; /* Soft yellow */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: slideInFromBottom 1s ease-out;
         }
         .user-info {
             color: #fff;
             font-weight: bold;
-            margin-right: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
         .header-title {
-            font-size: 24px;
-            margin-left: 20px;
+            font-size: 40px;
+            font-weight: bold;
+            margin-left: 40px;
+            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
         }
         .navbar {
             display: flex;
-            justify-content: center;
-            gap: 20px;
-            padding: 0 20px;
+            gap: 30px;
+            padding: 0 30px;
         }
         .navbar a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            padding: 10px 20px;
-            display: block;
-            transition: background-color 0.3s;
+            padding: 18px 30px;
+            border-radius: 8px;
+            transition: all 0.4s;
+            font-weight: bold;
         }
         .navbar a:hover {
-            background-color: #ffd54f;
+            background-color: #f4c724;
+            color: #2f2f2f;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         .content {
             padding: 20px;
@@ -66,13 +73,39 @@
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         footer {
-            background-color: #ff6f61;
-            color: #fff;
+            background-color: #4e73df;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            padding: 10px 0;
-            position: relative;
-            width: 100%;
+            margin-top: auto;
+            font-size: 16px;
+            animation: fadeIn 1s ease-in-out;
         }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInAll {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideInFromLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInFromBottom {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
