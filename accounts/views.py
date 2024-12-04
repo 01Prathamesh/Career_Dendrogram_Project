@@ -103,16 +103,22 @@ def delete_role(request, pk):
 def login(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
+        form.error_messages = {
+            'invalid_login': 'Incorrect username or password. Please check your credentials and try again.'
+        }
         if form.is_valid():
             user = form.get_user()
             auth_login(request, user)
             messages.success(request, 'Login successful!')
             return redirect('home')
         else:
-            messages.error(request, 'Invalid credentials. Please try again.')
+            for field in form:
+                for error in field.errors:
+                    messages.error(request, error)
+
     else:
         form = AuthenticationForm()
-    
+
     return render(request, 'careers/login.html', {'form': form})
 
 def logout_view(request):

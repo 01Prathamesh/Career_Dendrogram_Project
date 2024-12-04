@@ -146,6 +146,11 @@
             text-decoration: underline;
         }
 
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
         
         .messages .message {
             color: green;
@@ -244,12 +249,15 @@
 
             <form method="post">
                 {% csrf_token %}
-                {% if form.non_field_errors %}
-                    <div class="errorlist">
-                        {{ form.non_field_errors }}
-                    </div>
-                {% endif %}
                 {{ form.as_p }}
+
+                <!-- Display form-specific error messages -->
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <p class="error-message">{{ error }}</p>
+                    {% endfor %}
+                {% endfor %}
+                
                 <button type="submit">Login</button>
             </form>
 
