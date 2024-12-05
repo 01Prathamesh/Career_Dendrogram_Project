@@ -124,6 +124,37 @@
             box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
         }
 
+        .logout-btn {
+            background-color: #ff4d4d;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .logout-btn:hover {
+            background-color: #e60000; 
+            transform: translateY(-4px); 
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .logout-btn:focus {
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+        }
+
+        .logout-btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
         /* Footer Styles */
         footer {
             background-color: #4e73df;
@@ -170,7 +201,7 @@
                 <span class="user-info">Welcome, {{ user.username }}!</span>
                 <form action="{% url 'logout' %}" method="post" style="display:inline;">
                     {% csrf_token %}
-                    <button type="submit" style="background-color: #3f51b5; color: #fff; border: none; padding: 12px 24px; cursor: pointer; font-size: 16px; font-weight: bold; border-radius: 5px;">Logout</button>
+                    <button type="submit" class="logout-btn">Logout</button>
                 </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
