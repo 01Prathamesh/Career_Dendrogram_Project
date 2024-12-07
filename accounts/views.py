@@ -354,14 +354,17 @@ def profile_view(request):
 
 @login_required
 def edit_profile(request):
+    # Ensure the user profile exists, or create an empty one
     user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, request.FILES, instance=request.user.userprofile)
+        form = UserProfileForm(request.POST, request.FILES, instance=user_profile)
         if form.is_valid():
             form.save()
-            return redirect('profile')
+            return redirect('profile')  # Redirect to the profile page after saving the form
     else:
-        form = UserProfileForm(instance=request.user.userprofile)
+        form = UserProfileForm(instance=user_profile)
+
     return render(request, 'accounts/edit_profile.html', {'form': form})
 
 

@@ -40,9 +40,6 @@ class UserProfileForm(forms.ModelForm):
     first_name = forms.CharField(max_length=30, required=False, label='First Name')
     last_name = forms.CharField(max_length=30, required=False, label='Last Name')
 
-    # Optional: You can add the 'username' field if you want the user to be able to change it.
-    # username = forms.CharField(max_length=150, required=False, label='Username')
-
     location = forms.CharField(max_length=150, required=False, label='Location')
     education_qualification = forms.CharField(max_length=150, required=False, label='Education Qualification')
     
@@ -55,18 +52,6 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['photo', 'first_name', 'last_name', 'date_of_birth', 'location', 'education_qualification', 'current_role', 'career_goals']
-
-    def __init__(self, *args, **kwargs):
-        # Assuming the 'user' object is passed into the form, we can set initial values for first_name/last_name
-        user = kwargs.pop('user', None)
-        super().__init__(*args, **kwargs)
-
-        # If the 'user' object is provided, initialize first_name and last_name with values from the User model
-        if user:
-            self.fields['first_name'].initial = user.first_name
-            self.fields['last_name'].initial = user.last_name
-            # Optional: Initialize username if you're allowing changes to the username
-            # self.fields['username'].initial = user.username
 
     def save(self, commit=True):
         # Save the user profile and update the user's first_name and last_name from the form fields
@@ -81,8 +66,6 @@ class UserProfileForm(forms.ModelForm):
         # Save the user object
         if commit:
             self.instance.user.save()  # Save the user model first
-
-            # Now save the user_profile object
             user_profile.save()
 
         return user_profile

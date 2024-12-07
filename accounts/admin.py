@@ -5,10 +5,14 @@ from .models import UserProfile, CareerPath, Role, TestQuestion, UserTestRespons
 
 # Admin configuration for UserProfile model
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ('user', 'name', 'date_of_birth', 'location', 'education_qualification', 'current_role')
-    search_fields = ('user__username', 'name', 'location')
+    list_display = ('user', 'get_full_name', 'date_of_birth', 'location', 'education_qualification', 'current_role')
+    search_fields = ('user__username', 'first_name', 'last_name', 'location')
     list_filter = ('location', 'education_qualification')
     ordering = ('user__username',)
+
+    def get_full_name(self, obj):
+        return f"{obj.first_name} {obj.last_name}"
+    get_full_name.short_description = 'Full Name'
 
 # Admin configuration for CareerPath model
 class CareerPathAdmin(admin.ModelAdmin):
