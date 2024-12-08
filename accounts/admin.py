@@ -48,7 +48,8 @@ class TestQuestionAdmin(admin.ModelAdmin):
 # Admin configuration for UserTestResponse model
 class UserTestResponseAdmin(admin.ModelAdmin):
     list_display = ('user', 'question', 'selected_option')
-    search_fields = ('user__username', 'question__text')
+    list_filter = ('user', 'question')
+    search_fields = ('user__username', 'question__text', 'selected_option')
 
 # Register the models with their corresponding admin classes
 admin.site.register(UserProfile, UserProfileAdmin)

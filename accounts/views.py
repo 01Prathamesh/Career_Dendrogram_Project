@@ -12,6 +12,9 @@ from django.http import JsonResponse
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.http import HttpResponseBadRequest
+from .forms import TestForm
+from .models import UserTestResponse, TestQuestion
+
 
 def home(request):
     return render(request, 'accounts/home.html')
@@ -126,57 +129,69 @@ def logout_view(request):
     return redirect('home')
 
 def start_test(request):
-    form = Test()
-    if request.method == 'POST':
-        form = Test(request.POST)
-        if form.is_valid():
-            # Collecting the user's answers from the form
-            user_answer = {
-                'How_do_you_prefer_to_work': form.cleaned_data['How_do_you_prefer_to_work'],
-                'Which_subjects_did_you_enjoy_most_in_school': form.cleaned_data['Which_subjects_did_you_enjoy_most_in_school'],
-                'What_hobbies_do_you_spend_the_most_time_on': form.cleaned_data['What_hobbies_do_you_spend_the_most_time_on'],
-                'What_type_of_environment_do_you_thrive_in': form.cleaned_data['What_type_of_environment_do_you_thrive_in'],
-                'Which_of_the_following_skills_do_you_consider_your_strongest': form.cleaned_data['Which_of_the_following_skills_do_you_consider_your_strongest'],
-                'How_comfortable_are_you_with_technology': form.cleaned_data['How_comfortable_are_you_with_technology'],
-                'How_important_is_creativity_in_your_career_choice': form.cleaned_data['How_important_is_creativity_in_your_career_choice'],
-                'What_is_most_important_to_you_in_a_career': form.cleaned_data['What_is_most_important_to_you_in_a_career'],
-                'Which_age_group_do_you_prefer_to_work_with': form.cleaned_data['Which_age_group_do_you_prefer_to_work_with'],
-                'Are_you_interested_in_healthcare_or_helping_others': form.cleaned_data['Are_you_interested_in_healthcare_or_helping_others'],
-                'How_do_you_feel_about_public_speaking': form.cleaned_data['How_do_you_feel_about_public_speaking'],
-                'What_aspect_of_business_interests_you_the_most': form.cleaned_data['What_aspect_of_business_interests_you_the_most'],
-                'Are_you_passionate_about_environmental_issues': form.cleaned_data['Are_you_passionate_about_environmental_issues'],
-                'Which_area_of_IT_interests_you_the_most': form.cleaned_data['Which_area_of_IT_interests_you_the_most'],
-                'How_do_you_approach_financial_decisions': form.cleaned_data['How_do_you_approach_financial_decisions'],
-                'Do_you_enjoy_hands_on_work': form.cleaned_data['Do_you_enjoy_hands_on_work'],
-                'Which_area_of_arts_and_culture_fascinates_you': form.cleaned_data['Which_area_of_arts_and_culture_fascinates_you'],
-                'How_do_you_feel_about_research_and_analysis': form.cleaned_data['How_do_you_feel_about_research_and_analysis'],
-                'Are_you_interested_in_entrepreneurship': form.cleaned_data['Are_you_interested_in_entrepreneurship'],
-                'Which_of_the_following_best_describes_your_learning_style': form.cleaned_data['Which_of_the_following_best_describes_your_learning_style'],
-            }
+    questions = TestQuestion.objects.all()  # Fetch all questions from the database
+    form = TestForm(questions=questions)
 
+    if request.method == 'POST':
+        form = TestForm(request.POST, questions=questions)
+        if form.is_valid():
+            # Collect user answers
+            user_answer = get_user_answers(form, questions)
+
+            # Save user responses to the database
+            save_user_responses(user_answer, questions, request.user)
+
+            # Store the answers in the session for future use
             request.session['user_answers'] = user_answer
-            print("Session User Answers Set:", request.session.get('user_answers'))
-            return redirect('test_results')
+
+            return redirect('test_results')  # Redirect to the results page
         else:
-            print("Form errors:", form.errors)  # Print errors if the form is invalid
-            messages.error(request, "Please correct the errors below.")
+            messages.error(request, "Please correct the errors below.")  # Show error messages if form is invalid
     
     return render(request, 'start_test.html', {'form': form})
 
+
+def get_user_answers(form, questions):
+    """Collect user answers from the form using question text as the key."""
+    return {
+        question.text: form.cleaned_data.get(f'question_{question.id}')
+        for question in questions
+    }
+
+def save_user_responses(user_answer, questions, user):
+    """Save the user's responses to the database."""
+    for question in questions:
+        response = user_answer.get(question.text)
+        if response:
+            UserTestResponse.objects.create(
+                user=user,
+                question=question,  # The TestQuestion object
+                selected_option=response  # The user's selected answer
+            )
 
 def test_results(request):
     user_answers = request.session.get('user_answers')
     if user_answers is None:
         return redirect('start_test')
     
-    print("User Answers from Session:", user_answers)
-
+    questions = TestQuestion.objects.all()
+    user_responses = get_user_responses(user_answers, questions)
     suggested_career_paths = determine_career_paths(user_answers)
 
     return render(request, 'test_results.html', {
-        'user_answers': user_answers,
+        'user_answers': user_answers,  # Pass the dictionary of user answers
         'suggested_career_paths': suggested_career_paths,
     })
+
+def get_user_responses(user_answers, questions):
+    """Format the user responses for display using question text."""
+    return [
+        {
+            'question_text': question.text,
+            'answer': user_answers.get(question.text)
+        }
+        for question in questions if user_answers.get(question.text)
+    ]
 
 def determine_career_paths(user_answers):
     print("User Answers:", user_answers)
@@ -184,135 +199,142 @@ def determine_career_paths(user_answers):
 
     # Define career paths based on user inputs
     paths_mapping = {
-        'How_do_you_prefer_to_work': {
-            'In a team': 'Project Manager',
-            'Independently': 'Freelancer',
-            'A mix of both': 'Team Leader',
-        },
-        'Which_subjects_did_you_enjoy_most_in_school': {
-            'Science': 'Engineer',
+        'Which subjects did you enjoy most in school?': {
+            'Science': 'Scientist',
             'Mathematics': 'Data Analyst',
             'Literature': 'Author',
             'Arts': 'Graphic Designer',
             'History': 'Historian',
             'Technology': 'Software Developer',
+            'Business': 'Entrepreneur',
         },
-        'What_hobbies_do_you_spend_the_most_time_on': {
-            'Painting': 'Art Teacher',
-            'Writing': 'Content Creator',
+        'What hobbies do you spend the most time on': {
+            'Painting': 'Artist',
+            'Writing': 'Writer',
             'Playing sports': 'Sports Coach',
             'Gaming': 'Game Developer',
             'Cooking': 'Chef',
-            'Volunteering': 'Nonprofit Worker',
-            'Crafting': 'Craft Business Owner',
+            'Volunteering': 'Social Worker',
+            'Crafting': 'Craftsman',
         },
-        'What_type_of_environment_do_you_thrive_in': {
-            'Office': 'Corporate Employee',
-            'Outdoors': 'Environmental Scientist',
-            'Remote': 'Remote Worker',
-            'Laboratory': 'Lab Technician',
+        'How do you prefer to work?': {
+            'In a Team': 'Project Manager',
+            'Independently': 'Freelancer',
+            'A Mix of Both (Independent as well as in a Team)': 'Team Leader',
+        },
+        'What type of environment do you thrive in?': {
+            'Office': 'Corporate Manager',
+            'Outdoors': 'Field Engineer',
+            'Remote': 'Remote Developer',
+            'Laboratory': 'Researcher',
             'Classroom': 'Teacher',
         },
-        'Which_of_the_following_skills_do_you_consider_your_strongest': {
+        'Which of the following skills do you consider your strongest?': {
             'Communication': 'Public Relations Specialist',
-            'Analytical Thinking': 'Data Scientist',
+            'Analytical Thinking': 'Financial Analyst',
             'Creativity': 'Creative Director',
-            'Leadership': 'Team Leader',
-            'Technical Skills': 'IT Specialist',
+            'Leadership': 'CEO',
+            'Technical Skills': 'Software Engineer',
         },
-        'How_comfortable_are_you_with_technology': {
-            'Very Comfortable': 'Software Developer',
-            'Somewhat Comfortable': 'IT Support',
-            'Not Comfortable': 'Customer Service Representative',
+        'How comfortable are you with technology?': {
+            'Very Comfortable': 'IT Specialist',
+            'Somewhat Comfortable': 'Technical Support',
+            'Not Comfortable': 'Customer Service',
         },
-        'How_important_is_creativity_in_your_career_choice': {
-            'Very Important': 'Creative Director',
+        'How important is creativity in your career choice?': {
+            'Very Important': 'Graphic Designer',
             'Somewhat Important': 'Marketing Specialist',
-            'Not Important': 'Operations Manager',
+            'Not Important': 'Financial Analyst',
         },
-        'What_is_most_important_to_you_in_a_career': {
-            'Job Security': 'Government Employee',
+        'What is most important to you in a career': {
+            'Job Security': 'Government Job',
             'High Salary': 'Investment Banker',
-            'Creativity': 'Graphic Designer',
-            'Helping Others': 'Healthcare Professional',
-            'Work-life balance': 'Remote Worker',
+            'Creativity': 'Artist',
+            'Helping Others': 'Social Worker',
+            'Work-life balance': 'Remote Developer',
         },
-        'Are_you_interested_in_healthcare_or_helping_others': {
-            'Yes': 'Healthcare Professional',
-            'No': None,
-            'Somewhat': 'Social Worker',
+        'Which age group do you prefer to work with?': {
+            'Children': 'Teacher',
+            'Teenagers': 'Youth Counselor',
+            'Adults': 'Corporate Manager',
+            'All Ages': 'Healthcare Worker',
         },
-        'How_do_you_feel_about_public_speaking': {
+        'Are you interested in healthcare or helping others?': {
+            'Yes': 'Doctor',
+            'No': 'Engineer',
+            'Somewhat': 'Nurse',
+        },
+        'How do you feel about public speaking?': {
             'I enjoy it': 'Public Speaker',
-            'Can Manage': 'Trainer',
-            'Prefer To Avoid': 'Researcher',
+            'I can manage': 'Corporate Trainer',
+            'I prefer to avoid it': 'Researcher',
         },
-        'What_aspect_of_business_interests_you_the_most': {
-            'Management': 'Manager',
-            'Finance': 'Financial Analyst',
+        'What aspect of business interests you the most?': {
+            'Management': 'Business Consultant',
+            'Finance': 'Investment Banker',
             'Marketing': 'Marketing Specialist',
             'Entrepreneurship': 'Startup Founder',
-            'Human Resources': 'HR Specialist',
+            'Human Resources': 'HR Manager',
         },
-        'Are_you_passionate_about_environmental_issues': {
-            'Yes': 'Conservationist',
-            'No': None,
+        'Are you passionate about environmental issues?': {
+            'Yes': 'Environmental Scientist',
+            'No': 'Engineer',
             'Somewhat': 'Sustainability Consultant',
         },
-        'Which_area_of_IT_interests_you_the_most': {
-            'CyberSecurity': 'Cybersecurity Analyst',
+        'Which area of IT interests you the most?': {
+            'Cybersecurity': 'Cybersecurity Expert',
             'Software Development': 'Software Engineer',
             'Networking': 'Network Engineer',
             'Database Management': 'Database Administrator',
             'Web Development': 'Web Developer',
         },
-        'How_do_you_approach_financial_decisions': {
+        'How do you approach financial decisions?': {
             'Analytical and calculated': 'Financial Analyst',
             'Gut feeling': 'Entrepreneur',
             'A mix of both': 'Business Consultant',
         },
-        'Do_you_enjoy_hands_on_work': {
-            'Yes': 'Mechanic',
-            'No': 'Office Worker',
-            'Sometimes': 'Technician',
+        'Do you enjoy hands-on work?': {
+            'Yes': 'Engineer',
+            'No': 'Software Developer',
+            'Sometimes': 'Architect',
         },
-        'Which_area_of_arts_and_culture_fascinates_you': {
-            'Visual Arts': 'Artist',
+        'Which area of arts and culture fascinates you?': {
+            'Visual arts': 'Artist',
             'Music': 'Musician',
             'Literature': 'Writer',
             'Theater': 'Actor',
             'Dance': 'Choreographer',
         },
-        'How_do_you_feel_about_research_and_analysis': {
+        'How do you feel about research and analysis?': {
             'I love it': 'Research Scientist',
-            'Can Manage': 'Market Research Analyst',
-            'Prefer Practical': 'Hands-On Technician',
+            'I can manage': 'Analyst',
+            'I prefer practical work': 'Engineer',
         },
-        'Are_you_interested_in_entrepreneurship': {
+        'Are you interested in entrepreneurship?': {
             'Yes': 'Startup Founder',
-            'No': None,
-            'Maybe': 'Business Consultant',
+            'No': 'Corporate Worker',
+            'Maybe': 'Freelancer',
         },
-        'Which_of_the_following_best_describes_your_learning_style': {
-            'Hands-On': 'Workshop Instructor',
-            'Visual': 'Graphic Designer',
-            'Auditory': 'Public Speaker',
+        'Which of the following best describes your learning style?': {
+            'Hands-on': 'Engineer',
+            'Visual': 'Designer',
+            'Auditory': 'Podcaster',
             'Reading/Writing': 'Author',
-        },
-        'Which_age_group_do_you_prefer_to_work_with': {
-            'Children': 'Child Psychologist',
-            'Teenagers': 'Youth Counselor',
-            'Adults': 'Career Coach',
-            'All Ages': 'Community Organizer',
         },
     }
 
-    for key, mapping in paths_mapping.items():
-        suggested_paths.append(mapping.get(user_answers.get(key)))
+    # Iterate through each field in the form and get the career path suggestions
+    for question, response in user_answers.items():
+        if response != '--Select--' and question in paths_mapping:
+            career_suggestion = paths_mapping[question].get(response)
+            if career_suggestion:
+                suggested_paths.append(career_suggestion)
 
-    suggested_paths = list(filter(None, suggested_paths))
-    print("Final Suggested Paths:", suggested_paths)
-    return list(set(suggested_paths))  # Return unique paths
+    # Remove duplicates and return the career suggestions
+    unique_suggested_paths = list(set(suggested_paths))
+    print("Suggested Career Paths:", unique_suggested_paths)
+
+    return unique_suggested_paths
 
 
 def register(request):

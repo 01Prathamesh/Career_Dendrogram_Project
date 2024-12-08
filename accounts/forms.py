@@ -88,16 +88,40 @@ class RoleForm(forms.ModelForm):
 
 class TestForm(forms.Form):
     def __init__(self, *args, **kwargs):
+        # Extract the 'questions' argument passed into the form
         questions = kwargs.pop('questions', [])
         super().__init__(*args, **kwargs)
-        
+
         for question in questions:
-            # Extract choices from the JSON field
+            # Extract choices from the 'choices' attribute (assuming it's a list or tuple)
             choices = [(choice, choice) for choice in question.choices]
-            
+
+            # Dynamically create a ChoiceField for each question
             self.fields[f'question_{question.id}'] = forms.ChoiceField(
                 choices=choices,
                 label=question.text,
-                widget=forms.RadioSelect
+                widget=forms.RadioSelect,
+                # The Below are some options to display the questions options.
+                # widget=forms.CheckboxSelectMultiple,
+                # widget=forms.Select,
+                # widget=forms.SelectMultiple,
+                # widget=forms.TextInput,
+                # widget=forms.FileInput,
+                required=False,  # Allow the user to leave it empty for custom validation
             )
 
+    def clean(self):
+        """
+        Perform form-level validation (if needed).
+        This method ensures that users are selecting options for each question.
+        """
+        cleaned_data = super().clean()
+
+        # Loop through all the fields to check for unselected questions
+        for field in self.fields:
+            # Check if the user has selected an option for the field
+            if cleaned_data.get(field) == '--Select--' or not cleaned_data.get(field):
+                # Add an error for the field if no option was selected
+                self.add_error(field, '*Please select an option.*')
+
+        return cleaned_data

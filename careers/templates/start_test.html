@@ -14,6 +14,7 @@
             margin: 0;
             padding: 0;
         }
+
         header {
             background-color: #4e73df; /* Soft blue */
             color: white;
@@ -25,17 +26,20 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: slideInFromBottom 1s ease-out;
         }
+
         .header-title {
             font-size: 40px;
             font-weight: bold;
             margin-left: 40px;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
         }
+
         .navbar {
             display: flex;
             gap: 30px;
             padding: 0 30px;
         }
+
         .navbar a {
             color: white;
             text-decoration: none;
@@ -44,18 +48,21 @@
             transition: all 0.4s;
             font-weight: bold;
         }
+
         .navbar a:hover {
             background-color: #f4c724;
             color: #2f2f2f;
             transform: translateY(-4px);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
+
         .user-info {
             color: #fff;
             font-weight: bold;
             margin-top: 16px;
             text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
         }
+
         .test-container {
             background-color: #ffffff;
             padding: 40px;
@@ -119,13 +126,40 @@
             color: #333;
         }
 
-        .question .options label {
-            display: block;
-            margin-bottom: 12px;
+        /* Updated Flexbox layout for options */
+        .question .options {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Create a responsive grid */
+            gap: 15px;
+            padding: 10px 0;
         }
 
-        .question input[type="radio"] {
+        .question .options label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .question .options label:hover {
+            background-color: #f4c724;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question .options input[type="radio"] {
             margin-right: 10px;
+        }
+
+        /* Additional responsiveness for small screens */
+        @media (max-width: 768px) {
+            .question .options label {
+                font-size: 14px;
+            }
         }
 
         .form-buttons {
@@ -154,6 +188,7 @@
             font-weight: bold;
             font-size: 16px;
         }
+
         footer {
             background-color: #4e73df;
             color: white;
@@ -163,13 +198,8 @@
             font-size: 16px;
             animation: fadeIn 1s ease-in-out;
         }
-        /* Keyframe Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
 
-        @keyframes fadeInAll {
+        @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
@@ -177,11 +207,6 @@
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
             to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInFromLeft {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes slideInFromBottom {
@@ -220,10 +245,11 @@
                     <div class="form-group mb-4">  
                         <label>{{ forloop.counter }}.) {{ fm.label }}?</label>  
                         <br>
-                        {{ fm }}  
+                        <div class="options">
+                            {{ fm }}  
+                        </div>
                         <small class="text-danger">{{ fm.errors|striptags }}</small>
-                        <br>
-                        <br>
+                        <br><br>
                     </div>
                 {% endfor %}
     

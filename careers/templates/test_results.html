@@ -183,12 +183,11 @@
         <h2>Your Responses:</h2>
         <ul>
             {% for question, answer in user_answers.items %}
-                <li><strong>{{ question }}?:</strong> {{ answer }}</li>
+                <li><strong>{{ question }}:</strong> {{ answer }}</li>
             {% endfor %}
         </ul>
     
         <!-- Display suggested career paths -->
-        <!-- <h2>Suggested Career Paths:</h2> //commented because its just options not paths. -->
         <h2>Suggested Career Options:</h2>
         <ul>
             {% if suggested_career_paths %}
