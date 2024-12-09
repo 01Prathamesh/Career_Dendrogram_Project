@@ -13,54 +13,55 @@
             height: 100%;
             margin: 0;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #f5f7fa; /* Light gray background */
+            background: radial-gradient(circle, #f5f7fa, #e3e9f0);
             color: #333;
             display: flex;
             flex-direction: column;
             overflow-x: hidden;
-            animation: fadeInAll 1s ease-in-out;
+            animation: fadeInAll 1.2s ease-in-out;
         }
-        
+
         /* Header Styles */
         header {
-            background-color: #4e73df; /* Soft blue */
+            background-color: #4e73df;
             color: white;
-            padding: 30px 0;
+            padding: 25px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 3px solid #f4c724; /* Soft yellow */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            animation: slideInFromBottom 1s ease-out;
+            border-bottom: 3px solid #f4c724;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            animation: slideInFromBottom 1.5s ease-out;
         }
-        
+
         .header-title {
-            font-size: 40px;
+            font-size: 42px;
             font-weight: bold;
             margin-left: 40px;
-            text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
         }
 
         .navbar {
             display: flex;
-            gap: 30px;
-            padding: 0 30px;
+            gap: 25px;
+            padding: 0 20px;
+            align-items: center;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 18px 30px;
+            padding: 12px 25px;
             border-radius: 8px;
-            transition: all 0.4s;
             font-weight: bold;
+            transition: all 0.4s ease-in-out;
         }
 
         .navbar a:hover {
             background-color: #f4c724;
             color: #2f2f2f;
-            transform: translateY(-4px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .user-info {
@@ -73,25 +74,25 @@
         /* Content Styles */
         .content {
             flex: 1;
-            padding: 50px;
+            padding: 60px 30px;
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
-            background: linear-gradient(to bottom right, #ffffff, #ffeb3b);
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 1s ease-in-out;
+            background: linear-gradient(145deg, #ffffff, #ffeb3b);
+            border-radius: 18px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.5s ease-in-out;
         }
 
         .welcome-message h1 {
-            font-size: 40px;
-            margin-bottom: 25px;
+            font-size: 48px;
+            margin-bottom: 20px;
             color: #ff5722;
             animation: slideInFromBottom 2s ease-out;
         }
 
         .welcome-message p {
-            font-size: 22px;
+            font-size: 24px;
             margin-bottom: 50px;
             color: #616161;
         }
@@ -101,22 +102,22 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             animation: fadeIn 2s ease-out;
         }
 
         .button {
             display: inline-block;
-            padding: 20px 35px;
-            font-size: 22px;
+            padding: 18px 32px;
+            font-size: 24px;
             text-align: center;
             text-decoration: none;
             background-color: #3f51b5;
             color: white;
-            border-radius: 8px;
-            margin: 12px;
-            border: 2px solid #ff5722;
-            transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s;
+            border-radius: 10px;
+            margin: 15px;
+            border: 3px solid #ff5722;
+            transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s ease-in-out;
         }
 
         .button:hover {
@@ -129,8 +130,8 @@
             background-color: #ff4d4d;
             color: #fff;
             border: none;
-            padding: 15px 30px;
-            font-size: 18px;
+            padding: 15px 28px;
+            font-size: 20px;
             font-weight: bold;
             border-radius: 8px;
             cursor: pointer;
@@ -141,8 +142,8 @@
         }
 
         .logout-btn:hover {
-            background-color: #e60000; 
-            transform: translateY(-4px); 
+            background-color: #e60000;
+            transform: translateY(-4px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
@@ -165,6 +166,42 @@
             margin-top: auto;
             font-size: 16px;
             animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 30px;
+                margin-left: 20px;
+            }
+
+            .navbar {
+                gap: 15px;
+                flex-wrap: wrap;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            .welcome-message h1 {
+                font-size: 32px;
+            }
+
+            .button-container {
+                gap: 20px;
+            }
+
+            .button {
+                padding: 15px 25px;
+                font-size: 20px;
+            }
+
+            .logout-btn {
+                font-size: 18px;
+                padding: 12px 25px;
+            }
         }
 
         /* Keyframe Animations */
