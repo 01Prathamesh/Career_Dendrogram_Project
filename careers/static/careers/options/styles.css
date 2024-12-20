@@ -1,4 +1,4 @@
-/* styles.css */
+/* Global Styles */
 html, body {
     height: 100%; /* Ensure the body takes full height */
     margin: 0;
@@ -137,4 +137,85 @@ footer {
 @keyframes slideInFromBottom {
     from { transform: translateY(50px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    /* Header */
+    .header-title {
+        font-size: 30px;
+        margin-left: 10px;
+    }
+
+    .navbar {
+        gap: 15px;
+        padding: 0 10px;
+    }
+
+    .navbar a {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    /* Content */
+    .content {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .welcome-message {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .button {
+        font-size: 18px;
+        padding: 15px 30px;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Header */
+    .header-title {
+        font-size: 24px;
+        margin-left: 5px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 8px;
+        padding: 0;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    /* Content */
+    .content {
+        padding: 10px;
+    }
+
+    .welcome-message {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
 }
