@@ -271,20 +271,24 @@ footer {
 /* Media Queries */
 @media (max-width: 768px) {
     .header-title {
-        font-size: 32px;
+        font-size: 28px;
+        margin-left: 10px;
     }
 
     .navbar {
         flex-direction: column;
         gap: 15px;
+        align-items: flex-start;
     }
 
     .navbar a {
         font-size: 18px;
+        padding: 10px 20px;
     }
 
     .content {
         padding: 30px 15px;
+        margin: 0 20px;
     }
 
     .button {
@@ -295,6 +299,10 @@ footer {
     .logout-btn {
         font-size: 18px;
         padding: 12px 20px;
+    }
+
+    footer {
+        font-size: 14px;
     }
 }
 
