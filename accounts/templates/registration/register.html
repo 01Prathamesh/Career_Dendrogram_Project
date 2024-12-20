@@ -25,35 +25,41 @@
         header {
             background-color: #4e73df; /* Soft blue */
             color: white;
-            padding: 30px 0;
+            padding: 20px 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             border-bottom: 3px solid #f4c724; /* Soft yellow */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: slideInFromBottom 1s ease-out;
+            flex-wrap: wrap;
         }
 
         .header-title {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: bold;
-            margin-left: 40px;
+            margin-left: 10px;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+            flex-grow: 1;
         }
 
         .navbar {
             display: flex;
-            gap: 30px;
-            padding: 0 30px;
+            gap: 20px;
+            padding: 0;
+            justify-content: center;
+            width: 100%;
+            flex-wrap: wrap;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 18px 30px;
+            padding: 10px 20px;
             border-radius: 8px;
             transition: all 0.4s;
             font-weight: bold;
+            text-align: center;
         }
 
         .navbar a:hover {
@@ -66,7 +72,7 @@
         /* Content Styles */
         .container {
             flex: 1;
-            max-width: 500px;
+            max-width: 100%;
             margin: 30px auto;
             padding: 20px;
             background-color: #fff;
@@ -80,21 +86,24 @@
             margin-bottom: 20px;
             color: #ff5722;
             animation: slideInFromBottom 2s ease-out;
+            font-size: 1.8em;
         }
 
         form {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
         form input, form button {
-            margin-bottom: 15px;
-            padding: 10px;
+            padding: 12px;
+            font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 5px;
-            font-size: 1rem;
             width: 100%;
             box-sizing: border-box;
+            font-family: inherit;
+            background-color: #fff;
         }
 
         form button {
@@ -103,6 +112,7 @@
             border: none;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.2s;
+            font-weight: bold;
         }
 
         form button:hover {
@@ -112,7 +122,6 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
             text-align: left;
             display: flex;
             flex-direction: column;
@@ -121,7 +130,7 @@
         .form-group label {
             font-weight: bold;
             margin-bottom: 5px;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .form-group small {
@@ -130,15 +139,15 @@
             margin-top: 5px;
         }
 
-        /* Specific styles for invalid input fields */
+        /* Invalid input styles */
         .form-group input:invalid {
             border-color: red;
-            background-color: #f8d7da; /* Light red background */
+            background-color: #f8d7da;
         }
 
         .form-group input:valid {
             border-color: green;
-            background-color: #d4edda; /* Light green background */
+            background-color: #d4edda;
         }
 
         .error-message {
@@ -164,7 +173,7 @@
         footer {
             background-color: #4e73df;
             color: white;
-            padding: 20px 0;
+            padding: 15px;
             text-align: center;
             margin-top: auto;
             font-size: 16px;
@@ -195,6 +204,87 @@
         @keyframes slideInFromBottom {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Mobile-responsive Styles */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 28px;
+                margin-left: 0;
+                text-align: center;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .navbar a {
+                padding: 12px;
+                width: 100%;
+                text-align: center;
+                font-size: 14px;
+            }
+
+            .container {
+                margin: 20px;
+                width: 100%;
+                padding: 15px;
+                border-radius: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+                text-align: center;
+            }
+
+            form input, form button {
+                font-size: 1.2rem;
+                padding: 15px;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+            }
+
+            .form-group small {
+                font-size: 0.8rem;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 10px 0;
+            }
+        }
+
+        /* Very small devices (e.g., phones in portrait mode) */
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 24px;
+            }
+
+            .navbar a {
+                padding: 12px;
+                font-size: 13px;
+            }
+
+            .container {
+                margin: 10px;
+                padding: 12px;
+                width: 100%;
+            }
+
+            form input, form button {
+                font-size: 1.1rem;
+                padding: 12px;
+            }
+
+            footer {
+                font-size: 13px;
+                padding: 8px 0;
+            }
         }
     </style>
 </head>
@@ -254,7 +344,7 @@
                     </div>
                 {% endif %}
             </div>
-            <br>
+
             <div class="form-group">
                 <label for="email">Email:</label>
                 {{ form.email }}
@@ -270,7 +360,7 @@
             <div class="form-group">
                 <label for="password1">Password:</label>
                 {{ form.password1 }}
-                <small>Your password must be at least 8 characters long, and not be too similar to your other personal information.</small>
+                <small>Your password must be at least 8 characters long.</small>
                 {% if form.password1.errors %}
                     <div class="error-message">
                         {% for error in form.password1.errors %}
@@ -279,11 +369,11 @@
                     </div>
                 {% endif %}
             </div>
-            <br>
+
             <div class="form-group">
                 <label for="password2">Password confirmation:</label>
                 {{ form.password2 }}
-                <small>Confirm the password.</small>
+                <small>Confirm your password.</small>
                 {% if form.password2.errors %}
                     <div class="error-message">
                         {% for error in form.password2.errors %}
@@ -298,7 +388,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2024 Career Dendrogram | All rights reserved.</p>
+        <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 </body>
 </html>
