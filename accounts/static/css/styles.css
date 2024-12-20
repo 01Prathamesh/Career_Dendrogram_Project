@@ -11,7 +11,93 @@ html, body {
     animation: fadeInAll 1.2s ease-in-out;
 }
 
-/* Header Styles */
+/* Night Mode Styles */
+body.night-mode {
+    background: #121212;
+    color: #f5f5f5;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Header */
+body.night-mode header {
+    background-color: #1a1a1a;
+    color: #fff;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+}
+
+/* Header Title */
+body.night-mode .header-title {
+    color: #ff8c00;
+    text-shadow: 2px 2px 12px rgba(255, 165, 0, 0.8); /* Brighter glowing effect */
+}
+
+/* Navbar Links */
+body.night-mode .navbar a {
+    color: #dcdcdc;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.6);
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+body.night-mode .navbar a:hover {
+    background-color: #ff5722;
+    color: #121212;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transform: translateY(-5px);
+}
+
+/* Content Area */
+body.night-mode .content {
+    background: linear-gradient(145deg, #2c2c2c, #1f1f1f);
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    color: #f5f5f5;
+}
+
+/* Button Styles */
+body.night-mode .button {
+    background-color: #3f51b5;
+    color: #fff;
+    border: 3px solid #ff5722;
+    transition: all 0.3s ease-in-out;
+    padding: 15px 25px;
+}
+
+body.night-mode .button:hover {
+    background-color: #ff5722;
+    transform: translateY(-6px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* Footer */
+body.night-mode footer {
+    background-color: #1a1a1a;
+    color: #ddd;
+    padding: 25px 0;
+    text-align: center;
+    margin-top: auto;
+    font-size: 16px;
+}
+
+/* Mode Button */
+body.night-mode .mode-btn {
+    background-color: #ff5722;
+    color: white;
+    border-radius: 8px;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+body.night-mode .mode-btn:hover {
+    background-color: #f4c724;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Day Mode Styles (default) */
 header {
     background-color: #4e73df;
     color: white;
@@ -24,6 +110,7 @@ header {
     animation: slideInFromBottom 1.5s ease-out;
 }
 
+/* Header Title */
 .header-title {
     font-size: 42px;
     font-weight: bold;
@@ -31,6 +118,7 @@ header {
     text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     gap: 25px;
@@ -38,6 +126,7 @@ header {
     align-items: center;
 }
 
+/* Navbar Links */
 .navbar a {
     color: white;
     text-decoration: none;
@@ -54,14 +143,7 @@ header {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
-.user-info {
-    color: #fff;
-    font-weight: bold;
-    margin-top: 14px;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-}
-
-/* Content Styles */
+/* Content Area */
 .content {
     flex: 1;
     padding: 60px 30px;
@@ -74,6 +156,7 @@ header {
     animation: fadeInUp 1.5s ease-in-out;
 }
 
+/* Welcome Message */
 .welcome-message h1 {
     font-size: 48px;
     margin-bottom: 20px;
@@ -87,7 +170,7 @@ header {
     color: #616161;
 }
 
-/* Button Styles */
+/* Button Container */
 .button-container {
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +179,7 @@ header {
     animation: fadeIn 2s ease-out;
 }
 
+/* Buttons */
 .button {
     display: inline-block;
     padding: 18px 32px;
@@ -116,6 +200,7 @@ header {
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
 }
 
+/* Logout Button */
 .logout-btn {
     background-color: #ff4d4d;
     color: #fff;
@@ -147,7 +232,7 @@ header {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Footer Styles */
+/* Footer */
 footer {
     background-color: #4e73df;
     color: white;
@@ -158,64 +243,98 @@ footer {
     animation: fadeIn 1s ease-in-out;
 }
 
+/* Mode Toggle */
+.mode-toggle {
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+/* Mode Button */
+.mode-btn {
+    font-size: 18px;
+    padding: 12px 25px;
+    background-color: #ff5722;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease-in-out;
+}
+
+.mode-btn:hover {
+    background-color: #f4c724;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+}
+
 /* Media Queries */
 @media (max-width: 768px) {
     .header-title {
-        font-size: 30px;
-        margin-left: 20px;
-    }
-
-    .navbar {
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .navbar a {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
-
-    .welcome-message h1 {
         font-size: 32px;
     }
 
-    .button-container {
-        gap: 20px;
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 18px;
+    }
+
+    .content {
+        padding: 30px 15px;
     }
 
     .button {
-        padding: 15px 25px;
         font-size: 20px;
+        padding: 12px 24px;
     }
 
     .logout-btn {
         font-size: 18px;
-        padding: 12px 25px;
+        padding: 12px 20px;
     }
 }
 
 /* Keyframe Animations */
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInAll {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInFromLeft {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes slideInFromBottom {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
