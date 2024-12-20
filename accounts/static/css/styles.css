@@ -1,0 +1,221 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: radial-gradient(circle, #f5f7fa, #e3e9f0);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    animation: fadeInAll 1.2s ease-in-out;
+}
+
+/* Header Styles */
+header {
+    background-color: #4e73df;
+    color: white;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 3px solid #f4c724;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    animation: slideInFromBottom 1.5s ease-out;
+}
+
+.header-title {
+    font-size: 42px;
+    font-weight: bold;
+    margin-left: 40px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.navbar {
+    display: flex;
+    gap: 25px;
+    padding: 0 20px;
+    align-items: center;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar a:hover {
+    background-color: #f4c724;
+    color: #2f2f2f;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.user-info {
+    color: #fff;
+    font-weight: bold;
+    margin-top: 14px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Content Styles */
+.content {
+    flex: 1;
+    padding: 60px 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff, #ffeb3b);
+    border-radius: 18px;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.welcome-message h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    color: #ff5722;
+    animation: slideInFromBottom 2s ease-out;
+}
+
+.welcome-message p {
+    font-size: 24px;
+    margin-bottom: 50px;
+    color: #616161;
+}
+
+/* Button Styles */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    animation: fadeIn 2s ease-out;
+}
+
+.button {
+    display: inline-block;
+    padding: 18px 32px;
+    font-size: 24px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 10px;
+    margin: 15px;
+    border: 3px solid #ff5722;
+    transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s ease-in-out;
+}
+
+.button:hover {
+    background-color: #f4c724;
+    transform: translateY(-6px);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    border: none;
+    padding: 15px 28px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logout-btn:hover {
+    background-color: #e60000;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+}
+
+.logout-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Styles */
+footer {
+    background-color: #4e73df;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+    font-size: 16px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 30px;
+        margin-left: 20px;
+    }
+
+    .navbar {
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .navbar a {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    .welcome-message h1 {
+        font-size: 32px;
+    }
+
+    .button-container {
+        gap: 20px;
+    }
+
+    .button {
+        padding: 15px 25px;
+        font-size: 20px;
+    }
+
+    .logout-btn {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInAll {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
