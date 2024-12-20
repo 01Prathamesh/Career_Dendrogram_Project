@@ -25,6 +25,11 @@
         </nav>
     </header>
 
+    <!-- Night Mode / Day Mode Toggle Button -->
+    <div class="mode-toggle">
+        <button id="mode-toggle-btn" class="mode-btn">🌙 Night Mode</button>
+    </div>
+
     <div class="content">
         <div class="welcome-message">
             <h1>🎉 Welcome to the Career Dendrogram! 🎉</h1>
@@ -46,5 +51,21 @@
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
+
+    <script>
+        const modeToggleBtn = document.getElementById('mode-toggle-btn');
+        let isNightMode = false;
+
+        modeToggleBtn.addEventListener('click', () => {
+            isNightMode = !isNightMode;
+            if (isNightMode) {
+                document.body.classList.add('night-mode');
+                modeToggleBtn.textContent = "🌞 Day Mode";
+            } else {
+                document.body.classList.remove('night-mode');
+                modeToggleBtn.textContent = "🌙 Night Mode";
+            }
+        });
+    </script>
 </body>
 </html>
