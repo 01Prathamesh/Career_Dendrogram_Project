@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
             font-family: 'Comic Sans MS', cursive, sans-serif;
-            background-color: #f5f7fa; /* Light gray background */
+            background-color: #f5f7fa;
             color: #333;
             animation: fadeInAll 1s ease-in-out;
         }
@@ -34,22 +34,22 @@
         }
 
         .header-title {
-            font-size: 40px;
+            font-size: 30px;
             font-weight: bold;
-            margin-left: 40px;
+            margin-left: 20px;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .navbar {
             display: flex;
-            gap: 30px;
-            padding: 0 30px;
+            gap: 15px;
+            padding: 0 20px;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 18px 30px;
+            padding: 12px 20px;
             border-radius: 8px;
             transition: all 0.4s;
             font-weight: bold;
@@ -65,7 +65,7 @@
         /* Edit Profile Container */
         .container {
             flex: 1;
-            padding: 50px;
+            padding: 40px;
             max-width: 800px;
             margin: 40px auto;
             background: linear-gradient(to bottom right, #ffffff, #ffeb3b);
@@ -173,6 +173,91 @@
         @keyframes slideInFromBottom {
             from { transform: translateY(50px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            .header-title {
+                font-size: 24px;
+                margin-left: 10px;
+            }
+
+            .navbar {
+                gap: 10px;
+            }
+
+            .navbar a {
+                font-size: 14px;
+                padding: 12px;
+            }
+
+            .container {
+                padding: 30px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            form input, form select, form textarea, form button {
+                width: 90%;
+            }
+
+            form button {
+                padding: 12px;
+                font-size: 14px;
+            }
+
+            .links a {
+                font-size: 14px;
+            }
+
+            footer {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title {
+                font-size: 20px;
+                margin-left: 5px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                gap: 8px;
+                padding: 0;
+            }
+
+            .navbar a {
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            form input, form select, form textarea, form button {
+                width: 100%;
+                padding: 8px;
+            }
+
+            form button {
+                font-size: 16px;
+            }
+
+            .links a {
+                font-size: 12px;
+            }
+
+            footer {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
