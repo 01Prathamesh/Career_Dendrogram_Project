@@ -34,7 +34,7 @@
         }
 
         .header-title {
-            font-size: 40px;
+            font-size: 32px;
             font-weight: bold;
             margin-left: 40px;
             text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
@@ -42,14 +42,15 @@
 
         .navbar {
             display: flex;
-            gap: 30px;
+            gap: 20px;
             padding: 0 30px;
+            justify-content: flex-end;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            padding: 18px 30px;
+            padding: 12px 20px;
             border-radius: 8px;
             transition: all 0.4s;
             font-weight: bold;
@@ -165,7 +166,6 @@
             border-radius: 5px;
         }
 
-
         /* Footer Styles */
         footer {
             background-color: #4e73df;
@@ -205,6 +205,22 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            .header-title {
+                font-size: 28px;
+                margin-left: 10px;
+            }
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .navbar a {
+                padding: 10px 20px;
+                font-size: 16px;
+            }
+
             .content {
                 padding: 20px;
                 width: 90%;
@@ -212,6 +228,11 @@
 
             form input, form button {
                 width: 100%;
+            }
+
+            footer {
+                font-size: 14px;
+                padding: 15px 0;
             }
         }
 
