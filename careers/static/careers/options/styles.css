@@ -1,12 +1,12 @@
-/* Global Style for career options page. */
+/* Global Style for career options page */
 html, body {
     height: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: column;
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background-color: #212121;
     color: #fff;
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
 }
 
@@ -83,7 +83,6 @@ header {
     padding: 35px;
     max-width: 1100px;
     margin: 0 auto;
-    text-align: left;
     background: #333;
     border-radius: 12px;
     box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
@@ -102,13 +101,61 @@ header {
 h3 {
     color: rgb(0, 255, 247);
     font-size: 24px;
+    margin-bottom: 15px;
 }
-  
+
 h4 {
     color: rgb(189, 255, 7);
     font-size: 20px;
-}  
+    margin-bottom: 12px;
+}
 
+/* Colorful subpoints styling */
+ul, ol {
+    padding-left: 20px;
+}
+
+ul li, ol li {
+    font-size: 18px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Colorful subpoint styles */
+ul li:nth-child(1),
+ol li:nth-child(1) {
+    color: #ff4081;
+}
+
+ul li:nth-child(2),
+ol li:nth-child(2) {
+    color: #ffeb3b;
+}
+
+ul li:nth-child(3),
+ol li:nth-child(3) {
+    color: #4caf50;
+}
+
+ul li:nth-child(4),
+ol li:nth-child(4) {
+    color: #00bcd4;
+}
+
+ul li:nth-child(5),
+ol li:nth-child(5) {
+    color: #9c27b0;
+}
+
+ul li:hover,
+ol li:hover {
+    color: #ff4081;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255, 64, 129, 0.7);
+}
+
+/* Button styles */
 .button {
     display: inline-block;
     padding: 18px 32px;
@@ -213,7 +260,6 @@ footer {
 @media (max-width: 768px) {
     .header-title {
         font-size: 36px;
-        margin-left: 10px;
     }
 
     .navbar {
@@ -253,13 +299,11 @@ footer {
 @media (max-width: 480px) {
     .header-title {
         font-size: 28px;
-        margin-left: 10px;
     }
 
     .navbar {
         flex-direction: column;
         gap: 10px;
-        padding: 0;
     }
 
     .navbar a {
@@ -273,7 +317,6 @@ footer {
 
     .welcome-message {
         font-size: 22px;
-        margin-bottom: 12px;
     }
 
     .button {
