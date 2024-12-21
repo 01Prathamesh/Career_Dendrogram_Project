@@ -99,6 +99,16 @@ header {
     animation: moveUp 1.5s ease-out, fadeIn 2s ease;
 }
 
+h3 {
+    color: rgb(0, 255, 247);
+    font-size: 24px;
+}
+  
+h4 {
+    color: rgb(189, 255, 7);
+    font-size: 20px;
+}  
+
 .button {
     display: inline-block;
     padding: 18px 32px;
