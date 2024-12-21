@@ -1,135 +1,172 @@
-/* Global Styles */
+/* Global Style for career options page. */
 html, body {
-    height: 100%; /* Ensure the body takes full height */
+    height: 100%;
     margin: 0;
     display: flex;
-    flex-direction: column; /* Stack children vertically */
+    flex-direction: column;
     font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #e3f2fd;
-    color: #333;
+    background-color: #212121;
+    color: #fff;
+    box-sizing: border-box;
 }
 
 header {
-    background-color: #4e73df;
+    background-color: #1a1a1a;
     color: white;
-    padding: 20px 0;
+    padding: 30px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid #f4c724;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    animation: slideInFromBottom 1s ease-out;
+    border-bottom: 5px solid #00bcd4;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    animation: slideInFromBottom 1.5s ease-out, glow 2s infinite alternate;
 }
 
 .header-title {
-    font-size: 40px;
-    font-weight: bold;
-    margin-left: 40px;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    font-size: 42px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    animation: textGlitch 3s infinite alternate;
 }
 
 .navbar {
     display: flex;
     justify-content: center;
-    gap: 20px;
-    align-items: center;
-    padding: 0 20px;
+    gap: 30px;
+    padding: 0 25px;
 }
 
 .navbar a {
-    color: #0044ff;
+    color: #00bcd4;
     text-decoration: none;
-    padding: 14px 20px;
-    display: block;
-    border: 2px solid transparent;
-    transition: all 0.3s;
+    padding: 14px 22px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background-color: #ff4081;
+    transition: width 0.3s ease;
 }
 
 .navbar a:hover {
-    background-color: #f4c724;
-    color: #2f2f2f;
-    transform: translateY(-4px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #00bcd4;
+    color: #212121;
+    transform: translateY(-6px) scale(1.1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar a:hover::after {
+    width: 100%;
 }
 
 .user-info {
     color: #fff;
-    font-weight: bold;
-    margin-right: 20px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 600;
+    margin-right: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
 .content {
-    flex: 1; /* Take up remaining space */
-    padding: 20px;
-    max-width: 1200px;
+    flex: 1;
+    padding: 35px;
+    max-width: 1100px;
     margin: 0 auto;
     text-align: left;
-    background: linear-gradient(white, #ffecb3);
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    background: #333;
+    border-radius: 12px;
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.2);
+    animation: scaleUp 1s ease-in-out, slideInFromLeft 1.5s ease-out;
 }
 
 .welcome-message {
-    font-size: 26px;
+    font-size: 28px;
     margin-bottom: 20px;
-    color: #ff5722;
+    color: #ff4081;
+    font-weight: 700;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+    animation: moveUp 1.5s ease-out, fadeIn 2s ease;
 }
 
 .button {
     display: inline-block;
-    padding: 20px 35px;
+    padding: 18px 32px;
     font-size: 22px;
     text-align: center;
     text-decoration: none;
-    background-color: #3f51b5;
-    color: white;
+    background-color: #00bcd4;
+    color: #212121;
     border-radius: 8px;
-    margin: 12px;
-    border: 2px solid #ff5722;
-    transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s;
+    margin: 15px;
+    border: 3px solid #ff4081;
+    transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s ease-in-out;
+    font-weight: 700;
 }
 
 .button:hover {
-    background-color: #f4c724;
-    transform: translateY(-6px);
-    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+    background-color: #ff4081;
+    color: white;
+    transform: translateY(-8px) scale(1.1);
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.4);
 }
 
 .button-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 20px 0;
+    margin: 30px 0;
 }
 
 footer {
-    background-color: #4e73df;
+    background-color: #1a1a1a;
     color: white;
-    padding: 20px 0;
+    padding: 25px 50px;
     text-align: center;
     margin-top: auto;
     font-size: 16px;
-    animation: fadeIn 1s ease-in-out;
+    border-top: 5px solid #00bcd4;
+    animation: fadeIn 1s ease-in-out, glowFooter 3s infinite alternate;
 }
 
-/* Animations */
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
 
-@keyframes fadeInAll {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes scaleUp {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
 }
 
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+@keyframes moveUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
-@keyframes slideInFromLeft {
+@keyframes textGlitch {
+    0% {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7), -2px -2px 6px rgba(0, 0, 0, 0.5);
+    }
+    50% {
+        text-shadow: -2px -2px 6px rgba(0, 0, 0, 0.7), 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    100% {
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7), -2px -2px 6px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes slideInFromTop {
     from { transform: translateX(-100%); opacity: 0; }
     to { transform: translateX(0); opacity: 1; }
 }
@@ -139,38 +176,59 @@ footer {
     to { transform: translateY(0); opacity: 1; }
 }
 
-/* Mobile Responsive Styles */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 15px #00bcd4;
+    }
+    50% {
+        text-shadow: 0 0 15px #ff4081, 0 0 25px #ff4081, 0 0 35px #ff4081;
+    }
+    100% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 10px #00bcd4, 0 0 15px #00bcd4;
+    }
+}
+
+@keyframes glowFooter {
+    0% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 15px #00bcd4;
+    }
+    50% {
+        text-shadow: 0 0 10px #ff4081, 0 0 20px #ff4081;
+    }
+    100% {
+        text-shadow: 0 0 5px #00bcd4, 0 0 15px #00bcd4;
+    }
+}
+
 @media (max-width: 768px) {
-    /* Header */
     .header-title {
-        font-size: 30px;
+        font-size: 36px;
         margin-left: 10px;
     }
 
     .navbar {
-        gap: 15px;
-        padding: 0 10px;
+        gap: 25px;
+        padding: 0 15px;
     }
 
     .navbar a {
-        font-size: 14px;
-        padding: 10px;
+        font-size: 16px;
+        padding: 12px;
     }
 
-    /* Content */
     .content {
-        padding: 15px;
+        padding: 25px;
         max-width: 100%;
     }
 
     .welcome-message {
-        font-size: 22px;
-        margin-bottom: 15px;
+        font-size: 24px;
+        margin-bottom: 18px;
     }
 
     .button {
-        font-size: 18px;
-        padding: 15px 30px;
+        font-size: 20px;
+        padding: 16px 28px;
     }
 
     .button-container {
@@ -183,39 +241,37 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Header */
     .header-title {
-        font-size: 24px;
-        margin-left: 5px;
+        font-size: 28px;
+        margin-left: 10px;
     }
 
     .navbar {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         padding: 0;
     }
 
     .navbar a {
-        font-size: 16px;
-        padding: 10px;
+        font-size: 18px;
+        padding: 12px;
     }
 
-    /* Content */
     .content {
-        padding: 10px;
+        padding: 15px;
     }
 
     .welcome-message {
-        font-size: 18px;
-        margin-bottom: 10px;
+        font-size: 22px;
+        margin-bottom: 12px;
     }
 
     .button {
-        font-size: 16px;
-        padding: 12px 25px;
+        font-size: 18px;
+        padding: 14px 25px;
     }
 
     footer {
-        font-size: 12px;
+        font-size: 13px;
     }
 }
