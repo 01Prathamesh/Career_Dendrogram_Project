@@ -5,49 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'media/favicon.png' %}">
-    <title>Mechanic Career</title>
+    <title>Mechanic Career Paths</title>
     <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+    <meta name="description" content="Explore the rewarding career of a mechanic, including various career paths, required skills, educational routes, and resources for aspiring mechanics.">
+    <meta name="keywords" content="Mechanic Career, Automotive Mechanic, Diesel Mechanic, Industrial Mechanic, Aviation Mechanic, Mechanic Training, Mechanical Engineering">
+    <meta name="author" content="Career Dendrogram">
+    <meta property="og:title" content="Mechanic Career Paths">
+    <meta property="og:description" content="Learn about the different career paths in the mechanic field, the skills needed, educational opportunities, and resources for aspiring mechanics.">
+    <meta property="og:image" content="{% static 'media/mechanic.jpg' %}">
+    <meta property="og:url" content="https://yourwebsite.com/mechanic-career">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="header-title">Mechanic Career Paths</div>
         <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
     </header>
 
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="#overview">Overview</a>
-        <a href="#mechanic-paths">Mechanic Career Paths</a>
-        <a href="#resources">Resources</a>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#mechanic-paths">Career Paths</a></li>
+            <li><a href="#skills">Skills Required</a></li>
+            <li><a href="#education">Education Pathways</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#career-growth">Career Growth</a></li>
+        </ul>
     </nav>
 
+    <!-- Main Content Section -->
     <div class="content">
+
+        <!-- Overview Section -->
         <section id="overview">
-            <h2 class="welcome-message">Welcome to the Mechanic Career</h2>
-            <p>Mechanics are skilled professionals who work with machinery, vehicles, and mechanical systems. They diagnose and repair issues with automobiles, engines, or other mechanical devices to ensure they function efficiently.</p>
-            <p>Mechanics must have strong problem-solving skills, technical expertise, and the ability to work with various tools and equipment. A mechanic’s job often requires hands-on work, precision, and attention to detail.</p>
+            <h2 class="section-title">What is a Mechanic?</h2>
+            <p>A mechanic is a skilled professional who works with machinery, vehicles, and mechanical systems. They diagnose, repair, and maintain mechanical systems to ensure their proper functioning. Mechanics work with various tools and equipment, often in hands-on, detailed work environments.</p>
+            <p>Mechanics need a strong understanding of mechanical systems, problem-solving abilities, and technical expertise to repair complex machinery. It's a rewarding and essential career found in industries like automotive, aviation, and manufacturing.</p>
         </section>
 
+        <!-- Mechanic Career Paths Section -->
         <section id="mechanic-paths">
-            <h3>Mechanic Career Paths</h3>
-            <p>Mechanics can specialize in various fields, such as:</p>
+            <h3 class="section-title">Mechanic Career Paths</h3>
+            <p>Mechanics can specialize in several fields, including:</p>
             <ul>
-                <li><strong>Automobile Mechanic:</strong> Focus on repairing and maintaining vehicles.</li>
-                <li><strong>Diesel Mechanic:</strong> Work with diesel-powered engines, often in larger vehicles like trucks and buses.</li>
-                <li><strong>Industrial Mechanic:</strong> Maintain and repair machinery used in manufacturing and industrial settings.</li>
-                <li><strong>Aviation Mechanic:</strong> Work on the maintenance and repair of aircraft and their systems.</li>
+                <li><strong>Automobile Mechanic:</strong> Specialize in the repair and maintenance of cars, trucks, and other vehicles.</li>
+                <li><strong>Diesel Mechanic:</strong> Focus on diesel-powered engines in large vehicles like trucks, buses, and heavy equipment.</li>
+                <li><strong>Industrial Mechanic:</strong> Maintain and repair machinery used in industrial settings, ensuring smooth operations in manufacturing facilities.</li>
+                <li><strong>Aviation Mechanic:</strong> Work with aircraft, ensuring the safety and functionality of engines, airframes, and systems.</li>
             </ul>
         </section>
 
+        <!-- Skills Required Section -->
+        <section id="skills">
+            <h3 class="section-title">Skills Required to Become a Successful Mechanic</h3>
+            <p>To excel as a mechanic, you must develop both technical and soft skills. Here are the key skills needed:</p>
+            <ul>
+                <li><strong>Problem-Solving Skills:</strong> The ability to diagnose issues and determine the most effective repair solutions is crucial.</li>
+                <li><strong>Technical Expertise:</strong> A deep understanding of mechanical systems, engines, and tools is essential for accurate repairs.</li>
+                <li><strong>Attention to Detail:</strong> Mechanics must work carefully and precisely to ensure repairs are done right the first time.</li>
+                <li><strong>Manual Dexterity:</strong> Strong hand-eye coordination and comfort with tools are important for mechanical tasks.</li>
+                <li><strong>Physical Stamina:</strong> Mechanics often work in physically demanding conditions, requiring good endurance and strength.</li>
+                <li><strong>Time Management:</strong> Mechanics need to work efficiently under tight deadlines while ensuring the quality of their work.</li>
+            </ul>
+        </section>
+
+        <!-- Education Pathways Section -->
+        <section id="education">
+            <h3 class="section-title">Education Pathways for Mechanics</h3>
+            <p>There are various educational pathways that can help you start a successful mechanic career:</p>
+            <ul>
+                <li><strong>Automotive Technology Degree:</strong> A degree in automotive technology provides comprehensive training in vehicle systems, diagnostics, and repair.</li>
+                <li><strong>Diesel Mechanics Training:</strong> Specialized courses or certifications for working with diesel engines, often required for diesel mechanic roles.</li>
+                <li><strong>Vocational or Technical Training:</strong> Many mechanics attend vocational schools or technical colleges for hands-on training in specific mechanical fields.</li>
+                <li><strong>Apprenticeships:</strong> On-the-job training that combines learning from experienced professionals with practical work experience.</li>
+            </ul>
+        </section>
+
+        <!-- Career Growth Section -->
+        <section id="career-growth">
+            <h3 class="section-title">Career Growth for Mechanics</h3>
+            <p>As a mechanic, there are several opportunities for career growth and advancement:</p>
+            <ul>
+                <li><strong>Specialization:</strong> Mechanics can specialize in certain types of vehicles or machinery, becoming experts in a niche field.</li>
+                <li><strong>Shop Owner or Manager:</strong> With experience, some mechanics open their own repair shop or move into management roles within larger organizations.</li>
+                <li><strong>Instructor or Trainer:</strong> Experienced mechanics can teach others in vocational schools, training programs, or even create their own educational content.</li>
+                <li><strong>Certification:</strong> Mechanics can obtain certifications like ASE (Automotive Service Excellence) to increase credibility and job prospects.</li>
+            </ul>
+        </section>
+
+        <!-- Resources Section -->
         <section id="resources">
-            <h3>Additional Resources for Aspiring Mechanics</h3>
+            <h3 class="section-title">Additional Resources for Aspiring Mechanics</h3>
             <div class="button-container">
                 <a href="https://www.nccer.org" class="button">National Center for Construction Education and Research (NCCER)</a>
                 <a href="https://www.autobahnautomotive.com" class="button">Automotive Service Excellence (ASE)</a>
                 <a href="https://www.udemy.com" class="button">Mechanic Courses</a>
+                <a href="https://www.careeronestop.org" class="button">Mechanic Career Resources</a>
             </div>
         </section>
+
     </div>
 
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
     </footer>
