@@ -7,47 +7,85 @@
     <link rel="icon" href="{% static 'media/favicon.png' %}">
     <title>Freelancer Career</title>
     <link rel="stylesheet" href="{% static 'careers/options/styles.css' %}">
+    <meta name="description" content="Explore various freelancer career paths, from writing and design to development and consulting, and discover the skills, resources, and opportunities to thrive as a freelancer.">
+    <meta name="keywords" content="Freelancer Career, Freelance Writing, Freelance Design, Freelance Development, Freelance Consultant, Freelance Jobs">
+    <meta name="author" content="Career Dendrogram">
+    <meta property="og:title" content="Freelancer Career Paths">
+    <meta property="og:description" content="Learn about different freelancer career paths and how to succeed as a freelancer in various industries.">
+    <meta property="og:image" content="{% static 'media/freelancer_image.jpg' %}">
+    <meta property="og:url" content="https://yourwebsite.com/freelancer-career">
 </head>
 <body>
+    <!-- Header Section -->
     <header>
         <div class="header-title">Freelancer Career Paths</div>
         <div class="user-info">Welcome, {{ user.first_name }} {{ user.last_name }}!!</div>
     </header>
 
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <a href="#overview">Overview</a>
-        <a href="#freelancer-paths">Freelancer Career Paths</a>
-        <a href="#resources">Resources</a>
+        <ul>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#freelancer-paths">Freelancer Career Paths</a></li>
+            <li><a href="#skills">Skills Required</a></li>
+            <li><a href="#resources">Resources</a></li>
+        </ul>
     </nav>
 
+    <!-- Main Content Section -->
     <div class="content">
+
+        <!-- Overview Section -->
         <section id="overview">
-            <h2 class="welcome-message">Welcome to the Freelancer Career</h2>
-            <p>Freelancers are self-employed professionals who offer their services to clients on a project-by-project basis. They work in a variety of fields, including writing, design, consulting, and web development.</p>
-            <p>Freelancers need to be independent, self-motivated, and capable of managing their own business operations, such as marketing, pricing, and client communication.</p>
+            <h2 class="section-title">What is a Freelancer?</h2>
+            <p>Freelancers are independent professionals who work for themselves, providing services to clients on a project-by-project basis. Freelancers enjoy the flexibility of choosing their work hours, selecting clients, and determining their pricing structure. However, they also handle their own business operations, including marketing, client communication, and managing finances.</p>
+            <p>Freelancing is a popular career choice due to its autonomy and the growing demand for specialized services in a variety of industries. Successful freelancers must possess a diverse skill set, including both technical abilities and business acumen.</p>
         </section>
 
+        <!-- Freelancer Career Paths Section -->
         <section id="freelancer-paths">
-            <h3>Freelancer Career Paths</h3>
-            <p>Freelancers can specialize in various fields:</p>
+            <h3 class="section-title">Freelancer Career Paths</h3>
+            <p>Freelancers can specialize in many fields, depending on their interests, skills, and experience. Some popular career paths for freelancers include:</p>
             <ul>
-                <li><strong>Freelance Writer:</strong> Create content for websites, blogs, marketing materials, and more.</li>
-                <li><strong>Freelance Designer:</strong> Offer graphic design, web design, or branding services.</li>
-                <li><strong>Freelance Developer:</strong> Work on software development, app development, or web development projects.</li>
-                <li><strong>Freelance Consultant:</strong> Provide expert advice to businesses or individuals in areas like marketing, finance, or management.</li>
+                <li><strong>Freelance Writer:</strong> Writers can work on content for websites, blogs, e-books, and marketing materials. They may specialize in technical writing, copywriting, journalism, or creative writing.</li>
+                <li><strong>Freelance Designer:</strong> Freelance designers offer services such as graphic design, web design, UI/UX design, and branding. They may work with businesses, individuals, or agencies to create visual content for digital and print media.</li>
+                <li><strong>Freelance Developer:</strong> Freelance developers build and maintain websites, mobile apps, and software solutions. They can specialize in front-end development, back-end development, or full-stack development depending on their skill set.</li>
+                <li><strong>Freelance Consultant:</strong> Consultants provide expert advice in areas like marketing, business strategy, finance, and management. Freelance consultants work with businesses or individuals to solve problems and improve performance.</li>
+                <li><strong>Freelance Photographer:</strong> Freelance photographers capture high-quality images for events, portraits, commercial use, or stock photography. They may specialize in specific areas like wedding photography, product photography, or photojournalism.</li>
+                <li><strong>Freelance Social Media Manager:</strong> Freelance social media managers help businesses manage their social media presence, creating content, engaging with followers, and strategizing campaigns to boost brand awareness and engagement.</li>
             </ul>
         </section>
 
+        <!-- Skills Required Section -->
+        <section id="skills">
+            <h3 class="section-title">Skills Required to Be a Successful Freelancer</h3>
+            <p>Freelancers need to have a variety of skills beyond technical expertise. Some key skills for freelancers include:</p>
+            <ul>
+                <li><strong>Time Management:</strong> Freelancers must manage their time effectively to balance multiple projects, meet deadlines, and avoid burnout.</li>
+                <li><strong>Communication Skills:</strong> Clear communication with clients is essential for understanding project requirements, providing updates, and negotiating terms.</li>
+                <li><strong>Self-Discipline:</strong> Freelancers need to stay motivated and organized without the structure of a traditional office environment.</li>
+                <li><strong>Financial Management:</strong> Freelancers are responsible for their own finances, including setting rates, managing invoices, and handling taxes.</li>
+                <li><strong>Networking:</strong> Building and maintaining a strong network of clients, collaborators, and industry contacts can help freelancers secure future work opportunities.</li>
+                <li><strong>Marketing:</strong> Freelancers need to market their services, build a portfolio, and use platforms like LinkedIn or freelancing websites to attract clients.</li>
+            </ul>
+        </section>
+
+        <!-- Resources Section -->
         <section id="resources">
-            <h3>Additional Resources for Aspiring Freelancers</h3>
+            <h3 class="section-title">Additional Resources for Aspiring Freelancers</h3>
             <div class="button-container">
                 <a href="https://www.upwork.com" class="button">Upwork Freelance Jobs</a>
                 <a href="https://www.fiverr.com" class="button">Fiverr Freelance Services</a>
-                <a href="https://www.udemy.com" class="button">Freelancer Courses</a>
+                <a href="https://www.freelancer.com" class="button">Freelancer.com</a>
+                <a href="https://www.skillshare.com" class="button">Skillshare Freelance Courses</a>
+                <a href="https://www.udemy.com" class="button">Freelancer Courses on Udemy</a>
+                <a href="https://www.indeed.com" class="button">Freelance Job Listings</a>
             </div>
         </section>
+
     </div>
 
+    <!-- Footer Section -->
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All Rights Reserved.</p>
     </footer>
