@@ -1,21 +1,21 @@
+# settings.py
 
-# Updated Code
 from pathlib import Path
+from dotenv import load_dotenv
+load_dotenv()
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
+# Secret key - set via environment variable or fallback to a default key (not for production).
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-#gsap6gj3oj*t4&%1q-s^wp8)g25cuv6j&gm@7060c8wso$y-m')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
+# Debug mode - set via environment variable (use False in production).
+DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'False'
 
-ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '').split(',')
+# Allowed hosts - set via environment variable, e.g., '127.0.0.1,localhost'.
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
 
 # Application definition
 INSTALLED_APPS = [
@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'accounts',
 ]
 
+# Middleware settings - essential middlewares for security and session management.
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -39,8 +40,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# URL configuration
 ROOT_URLCONF = 'career_dendrogram.urls'
 
+# Template settings - define template directories dynamically.
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -57,19 +60,22 @@ TEMPLATES = [
     },
 ]
 
+# WSGI application entry point
 WSGI_APPLICATION = 'career_dendrogram.wsgi.application'
 
-# Database
-# https://docs.djangoproject.com/en/5.0/ref/settings/#databases
+# Database configuration - default to SQLite, can be overridden via environment.
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': os.getenv('DJANGO_DB_ENGINE', 'django.db.backends.sqlite3'),
+        'NAME': os.getenv('DJANGO_DB_NAME', BASE_DIR / 'db.sqlite3'),
+        'USER': os.getenv('DJANGO_DB_USER', ''),
+        'PASSWORD': os.getenv('DJANGO_DB_PASSWORD', ''),
+        'HOST': os.getenv('DJANGO_DB_HOST', ''),
+        'PORT': os.getenv('DJANGO_DB_PORT', ''),
     }
 }
 
-# Password validation
-# https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
+# Password validation settings - essential for security.
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -85,39 +91,39 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
-# https://docs.djangoproject.com/en/5.0/topics/i18n/
+# Localization and time zone settings
 LANGUAGE_CODE = 'en-us'
 TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 STATIC_URL = 'static/'
 
+# Directories to look for static files
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'accounts/static'),
+    os.path.join(BASE_DIR, 'accounts', 'static'),
     os.path.join(BASE_DIR, 'careers', 'static'),
 ]
 
+# Where to collect static files during deployment
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Login and Logout redirects
+# Login/Logout redirects
 LOGIN_REDIRECT_URL = 'home'
-# LOGOUT_REDIRECT_URL = 'home'
+# LOGOUT_REDIRECT_URL = 'home'  # Uncomment to use
 
-# Media files
+# Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# Authentication backends
+# Authentication backends (custom backends can be added here)
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
-# Optional: Add any other settings or configurations specific to your project here.
+# Allowed Hosts for production
+ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
