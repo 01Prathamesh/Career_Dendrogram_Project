@@ -18,6 +18,13 @@
             flex-direction: column;
             overflow-x: hidden;
             animation: fadeInAll 1s ease-in-out;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            background-color: #121212;
+            color: white;
         }
 
         /* Header Styles */
@@ -63,6 +70,11 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
+        /* Dark Mode Navbar */
+        .navbar a.dark-mode {
+            color: #ffeb3b;
+        }
+
         /* Content Styles */
         .content {
             flex: 1;
@@ -74,6 +86,11 @@
             border-radius: 15px;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
             animation: fadeIn 2s ease-in-out;
+            transition: background-color 0.3s ease;
+        }
+
+        .content.dark-mode {
+            background: linear-gradient(to bottom right, #333, #444);
         }
 
         .login-form h1 {
@@ -90,31 +107,54 @@
             justify-content: center;
             gap: 15px;
             align-items: center;
+            position: relative;
         }
 
-        form input {
+        form input, form button {
             padding: 12px;
-            border: 2px solid #ddd;
             border-radius: 8px;
-            font-size: 16px;
             width: 300px;
+            font-size: 16px;
             transition: all 0.3s ease;
         }
 
-        form input:focus {
-            border-color: #4e73df;
-            box-shadow: 0 0 5px rgba(78, 115, 223, 0.8);
+        /* Floating Labels */
+        form .floating-label {
+            position: relative;
+            margin-bottom: 25px;
         }
 
+        form .floating-label input {
+            padding-top: 16px;
+            padding-bottom: 16px;
+            border: 2px solid #ddd;
+        }
+
+        form .floating-label label {
+            position: absolute;
+            top: 50%;
+            left: 12px;
+            font-size: 16px;
+            color: #666;
+            transform: translateY(-50%);
+            pointer-events: none;
+            transition: all 0.3s;
+        }
+
+        form .floating-label input:focus + label,
+        form .floating-label input:not(:placeholder-shown) + label {
+            top: 5px;
+            font-size: 12px;
+            color: #4e73df;
+        }
+
+        /* Button Styles */
         form button {
-            padding: 12px 20px;
-            font-size: 18px;
             background-color: #3f51b5;
             color: white;
             border: none;
-            border-radius: 8px;
             cursor: pointer;
-            width: 320px;
+            font-size: 18px;
             transition: transform 0.3s, background-color 0.4s, box-shadow 0.4s;
         }
 
@@ -124,46 +164,61 @@
             box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
         }
 
-        form .error {
-            color: red;
-            margin-top: -10px;
-            font-size: 14px;
-            text-align: left;
-            width: 300px;
-        }
-
-        .links {
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        .links a {
-            color: #4e73df;
-            text-decoration: none;
-            transition: text-decoration 0.3s;
-        }
-
-        .links a:hover {
-            text-decoration: underline;
-        }
-
-        .error-message {
-            color: red;
-            font-size: 14px;
-            margin-top: 10px;
-        }
-        
-        .messages .message {
-            color: green;
-            font-size: 1.1em;
-        }
-
-        .messages {
+        /* Remember Me Checkbox */
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 10px;
             margin-bottom: 20px;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+        }
+
+        .remember-me input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .remember-me label {
+            font-size: 16px;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .remember-me input[type="checkbox"]:checked + label {
+            color: #4e73df;
+        }
+
+        /* Social Media Buttons */
+        .social-login {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-login button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s ease;
+        }
+
+        .social-login button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Loading Spinner */
+        .loading {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .loading.show {
+            display: block;
         }
 
         /* Footer Styles */
@@ -186,16 +241,6 @@
         @keyframes fadeInAll {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes slideInFromLeft {
-            from { transform: translateX(-100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
         }
 
         @keyframes slideInFromBottom {
@@ -268,19 +313,40 @@
             </div>
             {% endif %}
 
-            <form method="post">
+            <form method="post" onsubmit="showLoading()">
                 {% csrf_token %}
-                {{ form.as_p }}
-
-                <!-- Display form-specific error messages -->
-                {% for field in form %}
-                    {% for error in field.errors %}
-                        <p class="error-message">{{ error }}</p>
-                    {% endfor %}
-                {% endfor %}
                 
+                <!-- Floating Label Inputs -->
+                <div class="floating-label">
+                    {{ form.username }}
+                    <label for="{{ form.username.id_for_label }}">Username</label>
+                </div>
+
+                <div class="floating-label">
+                    {{ form.password }}
+                    <label for="{{ form.password.id_for_label }}">Password</label>
+                </div>
+
+                <!-- Remember Me Checkbox -->
+                <div class="remember-me">
+                    <input type="checkbox" id="remember_me" name="remember_me">
+                    <label for="remember_me">Remember Me</label>
+                </div>
+
+                <!-- Submit Button -->
                 <button type="submit">Login</button>
             </form>
+
+            <!-- Social Login Buttons -->
+            <div class="social-login">
+                <button style="background-color: #db4437; color: white;">Login with Google</button>
+                <button style="background-color: #3b5998; color: white;">Login with Facebook</button>
+            </div>
+
+            <!-- Loading Spinner -->
+            <div class="loading" id="loadingSpinner">
+                <div class="spinner"></div>
+            </div>
 
             <div class="links">
                 <a href="{% url 'register' %}">Don't have an account? Register here.</a><br>
@@ -292,5 +358,22 @@
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
+
+    <script>
+        // Dark Mode Toggle
+        let isDarkMode = localStorage.getItem('dark-mode') === 'true';
+        document.body.classList.toggle('dark-mode', isDarkMode);
+
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            localStorage.setItem('dark-mode', isDarkMode);
+            document.body.classList.toggle('dark-mode', isDarkMode);
+        }
+
+        // Show Loading Spinner
+        function showLoading() {
+            document.getElementById('loadingSpinner').classList.add('show');
+        }
+    </script>
 </body>
 </html>
