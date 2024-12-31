@@ -5,3 +5,6 @@ __pycache__/
 
 # Ignore SQLite database
 # db.sqlite3
+
+# Ignore .env file to prevent tracking sensitive data
+**/.env
