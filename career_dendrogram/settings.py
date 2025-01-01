@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-#gsap6gj3oj*t4&%1q-s^wp8)g25cuv6j&gm@7060c8wso$y-m')
 
 # Debug mode - set via environment variable (use False in production).
-DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'False'
+DEBUG = os.getenv('DJANGO_DEBUG', 'True') == 'True'
 
 # Allowed hosts - set via environment variable, e.g., '127.0.0.1,localhost'.
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
