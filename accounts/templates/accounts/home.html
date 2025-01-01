@@ -25,6 +25,9 @@
         </nav>
     </header>
 
+    <!-- Live Time and Date Widget -->
+    <div class="live-time" id="live-time"></div>
+
     <!-- Night Mode / Day Mode Toggle Button -->
     <div class="mode-toggle">
         <button id="mode-toggle-btn" class="mode-btn">🌙 Night Mode</button>
@@ -46,13 +49,26 @@
                 <a href="{% url 'start_test' %}" class="button">🧠 Start Test</a>
             {% endif %}
         </div>
+
+        <!-- Latest News Section -->
+        <div class="news-section">
+            <h3>🔔 Latest Career News</h3>
+            <div class="news-item"><a href="#">How to Ace Your Job Interview in 2025</a></div>
+            <div class="news-item"><a href="#">Top 10 In-Demand Careers for the Future</a></div>
+            <div class="news-item"><a href="#">How Career Dendrogram Can Help You Plan</a></div>
+        </div>
+
     </div>
 
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
     </footer>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top-btn" title="Go to top">↑</button>
+
     <script>
+        // Night Mode Toggle Script
         const modeToggleBtn = document.getElementById('mode-toggle-btn');
         let isNightMode = false;
 
@@ -65,6 +81,28 @@
                 document.body.classList.remove('night-mode');
                 modeToggleBtn.textContent = "🌙 Night Mode";
             }
+        });
+
+        // Live Time Widget Script
+        function updateLiveTime() {
+            const liveTimeElement = document.getElementById('live-time');
+            const now = new Date();
+            liveTimeElement.textContent = now.toLocaleString();
+        }
+        setInterval(updateLiveTime, 1000); // Update every second
+
+        // Scroll to Top Button Script
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
