@@ -14,10 +14,14 @@ from django.contrib.auth import login as auth_login, logout as auth_logout
 from django.http import HttpResponseBadRequest
 from .forms import TestForm
 from .models import UserTestResponse, TestQuestion
+import requests
+import os
+from dotenv import load_dotenv
 
 
 def home(request):
-    return render(request, 'accounts/home.html')
+    news_list = fetch_news()
+    return render(request, 'accounts/home.html', {'news_list': news_list})
 
 def career_list(request):
     careers = CareerPath.objects.all()
@@ -400,3 +404,21 @@ def declaration(request):
 def career_view(request, category):
     template_name = f'careers/options/{category}.html'
     return render(request, template_name)
+
+def fetch_news():
+    # Get the NewsAPI key from environment variables
+    api_key = os.getenv('NEWS_API_KEY')  # Fetch the API key from the .env file
+
+    if not api_key:
+        raise ValueError("API key is missing. Please add it to the .env file.")
+    
+    url = f'https://newsapi.org/v2/top-headlines?category=business&apiKey={api_key}'
+
+    response = requests.get(url)
+    data = response.json()
+
+    # Extract articles from the API response
+    if response.status_code == 200:
+        return data.get('articles', [])
+    else:
+        return []
