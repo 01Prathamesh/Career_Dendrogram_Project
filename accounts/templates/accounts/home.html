@@ -52,10 +52,18 @@
 
         <!-- Latest News Section -->
         <div class="news-section">
-            <h3>🔔 Latest Career News</h3>
-            <div class="news-item"><a href="#">How to Ace Your Job Interview in 2025</a></div>
-            <div class="news-item"><a href="#">Top 10 In-Demand Careers for the Future</a></div>
-            <div class="news-item"><a href="#">How Career Dendrogram Can Help You Plan</a></div>
+            <h3>🔔 Latest News</h3>
+            
+            {% if news_list %}
+                {% for article in news_list %}
+                    <div class="news-item">
+                        <a href="{{ article.url }}" target="_blank">{{ article.title }}</a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No news available at the moment. Please check back later!</p>
+            {% endif %}
+            
         </div>
 
     </div>
