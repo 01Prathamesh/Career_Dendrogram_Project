@@ -1,0 +1,280 @@
+/* register_style.css */
+
+/* Global Styles */
+html, body {
+height: 100%;
+margin: 0;
+font-family: 'Comic Sans MS', cursive, sans-serif;
+background-color: #f5f7fa; /* Light gray background */
+color: #333;
+display: flex;
+flex-direction: column;
+overflow-x: hidden;
+animation: fadeInAll 1s ease-in-out;
+}
+
+/* Header Styles */
+header {
+background-color: #4e73df; /* Soft blue */
+color: white;
+padding: 20px 15px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+border-bottom: 3px solid #f4c724; /* Soft yellow */
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+animation: slideInFromBottom 1s ease-out;
+flex-wrap: wrap;
+}
+
+.header-title {
+font-size: 32px;
+font-weight: bold;
+margin-left: 10px;
+text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+flex-grow: 1;
+}
+
+.navbar {
+display: flex;
+gap: 20px;
+padding: 0;
+justify-content: center;
+width: 100%;
+flex-wrap: wrap;
+}
+
+.navbar a {
+color: white;
+text-decoration: none;
+padding: 10px 20px;
+border-radius: 8px;
+transition: all 0.4s;
+font-weight: bold;
+text-align: center;
+}
+
+.navbar a:hover {
+background-color: #f4c724;
+color: #2f2f2f;
+transform: translateY(-4px);
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Styles */
+.container {
+flex: 1;
+max-width: 100%;
+margin: 30px auto;
+padding: 20px;
+background-color: #fff;
+border-radius: 15px;
+box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+text-align: center;
+animation: fadeInUp 1s ease-in-out;
+}
+
+h1 {
+margin-bottom: 20px;
+color: #ff5722;
+animation: slideInFromBottom 2s ease-out;
+font-size: 1.8em;
+}
+
+form {
+display: flex;
+flex-direction: column;
+gap: 15px;
+}
+
+form input, form button {
+padding: 12px;
+font-size: 1rem;
+border: 1px solid #ddd;
+border-radius: 5px;
+width: 100%;
+box-sizing: border-box;
+font-family: inherit;
+background-color: #fff;
+}
+
+form button {
+background-color: #3f51b5;
+color: white;
+border: none;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.2s;
+font-weight: bold;
+}
+
+form button:hover {
+background-color: #f4c724;
+transform: translateY(-6px);
+box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+}
+
+.form-group {
+text-align: left;
+display: flex;
+flex-direction: column;
+}
+
+.form-group label {
+font-weight: bold;
+margin-bottom: 5px;
+font-size: 1rem;
+}
+
+.form-group small {
+font-size: 0.85rem;
+color: #555;
+margin-top: 5px;
+}
+
+/* Invalid input styles */
+.form-group input:invalid {
+border-color: red;
+background-color: #f8d7da;
+}
+
+.form-group input:valid {
+border-color: green;
+background-color: #d4edda;
+}
+
+.error-message {
+color: red;
+font-size: 0.9em;
+margin-top: 5px;
+}
+
+.messages .message {
+color: green;
+font-size: 1.1em;
+}
+
+.messages {
+margin-bottom: 20px;
+padding: 10px;
+background-color: #f4f4f4;
+border: 1px solid #ccc;
+border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+background-color: #4e73df;
+color: white;
+padding: 15px;
+text-align: center;
+margin-top: auto;
+font-size: 16px;
+animation: fadeIn 1s ease-in-out;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes fadeInAll {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(30px); }
+to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromLeft {
+from { transform: translateX(-100%); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInFromBottom {
+from { transform: translateY(50px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+
+/* Mobile-responsive Styles */
+@media (max-width: 768px) {
+.header-title {
+    font-size: 28px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.navbar {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+}
+
+.navbar a {
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
+
+.container {
+    margin: 20px;
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+h1 {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+form input, form button {
+    font-size: 1.2rem;
+    padding: 15px;
+}
+
+.form-group label {
+    font-size: 1rem;
+}
+
+.form-group small {
+    font-size: 0.8rem;
+}
+
+footer {
+    font-size: 14px;
+    padding: 10px 0;
+}
+}
+
+/* Very small devices (e.g., phones in portrait mode) */
+@media (max-width: 480px) {
+.header-title {
+    font-size: 24px;
+}
+
+.navbar a {
+    padding: 12px;
+    font-size: 13px;
+}
+
+.container {
+    margin: 10px;
+    padding: 12px;
+    width: 100%;
+}
+
+form input, form button {
+    font-size: 1.1rem;
+    padding: 12px;
+}
+
+footer {
+    font-size: 13px;
+    padding: 8px 0;
+}
+}
