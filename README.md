@@ -129,3 +129,59 @@ The Career Dendrogram project is continuously evolving. Future improvements may 
 - **Social Integration**: Integration with LinkedIn and other platforms to allow users to showcase their career progress.
 - **Multilingual Support**: The app will support multiple languages to cater to a global audience.
 - **Advanced Data Analytics**: Track career trends and visualize job market data, providing students with deeper insights into career opportunities.
+
+## Screenshots
+
+Below are the screenshots of the web application, showcasing different features and functionalities.
+
+### 1. Home Page
+- **Top Part**
+  ![Home Page Top](SS/1.jpg)
+- **Middle Part**
+  ![Home Page Middle](SS/2.jpg)
+- **Bottom Part**
+  ![Home Page Bottom](SS/3.jpg)
+
+### 2. User Registration Page
+- **Top Part**
+  ![User Registration Top](SS/4.jpg)
+- **Bottom Part**
+  ![User Registration Bottom](SS/5.jpg)
+
+### 3. Login Page
+![Login Page](SS/6.jpg)
+
+### 4. User Dashboard
+- **Home Page After User Login**
+  ![User Dashboard](SS/7.jpg)
+
+### 5. Profile Page
+![Profile Page](SS/8.jpg)
+
+### 6. Test Question Pages
+- **Top Part**
+  ![Test Question Top](SS/9.jpg)
+- **Bottom Part**
+  ![Test Question Bottom](SS/10.jpg)
+
+### 7. Test Result Pages
+- **Top Part**
+  ![Test Result Top](SS/11.jpg)
+- **Bottom Part**
+  ![Test Result Bottom](SS/12.jpg)
+
+### 8. Career Dendrogram Visualization
+![Career Dendrogram Visualization](SS/13.jpg)
+
+### 9. Career Description Page
+![Career Description Page](SS/14.jpg)
+
+### 10. Admin Pages
+- **Login Page**
+  ![Admin Login Page](SS/15.jpg)
+- **Home Page**
+  ![Admin Home Page](SS/16.jpg)
+- **Update Questions Page**
+  ![Admin Update Questions Page](SS/17.jpg)
+- **Update Users Page**
+  ![Admin Update Users Page](SS/18.jpg)
