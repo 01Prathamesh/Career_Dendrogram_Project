@@ -114,7 +114,16 @@ We welcome contributions to improve Career Dendrogram! To contribute:
 
 ## License
 
-This project is licensed under the MIT License. For more details, see the LICENSE file.
+This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE.txt) file.
+
+## Code of Conduct
+
+Guidelines and standards for contributing to and interacting with the community [Code of Conduct](CODE_OF_CONDUCT.md).
+
+## Security
+
+Information on supported versions and how to report vulnerabilities.
+[Security Policy](SECURITY.md)
 
 ## Acknowledgments
 
