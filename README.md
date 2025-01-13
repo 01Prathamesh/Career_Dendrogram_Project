@@ -51,17 +51,29 @@ Follow these steps to set up the Career Dendrogram project locally:
    ```bash
     pip install -r requirements.txt
 
-4. **Run migrations:**
+4. **Create a .env file:**
+In the root of your project, create a .env file and add the following environment variables:
+   ```bash
+   NEWS_API_KEY="Your_News_API_Key"
+   DJANGO_SECRET_KEY='your-secret-key'
+   DJANGO_DEBUG=True
+   DJANGO_ALLOWED_HOSTS='127.0.0.1,localhost'
+   DJANGO_DB_ENGINE='django.db.backends.sqlite3'
+   DJANGO_DB_NAME='db.sqlite3'
+   ```
+- Replace 'your-secret-key' with a secret key for your Django application (you can generate one using Django’s django.core.management.utils.get_random_secret_key() function).And 
+
+5. **Run migrations:**
 
    ```bash
    python manage.py migrate
 
-5. **Run the development server:**
+6. **Run the development server:**
 
    ```bash
    python manage.py runserver
 
-6. **Access the application:**
+7. **Access the application:**
 
     Open your web browser and navigate to http://127.0.0.1:8000/.
 
