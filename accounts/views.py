@@ -199,8 +199,8 @@ def get_user_responses(user_answers, questions):
 
 def determine_career_paths(user_answers):
     print("User Answers:", user_answers)
-    suggested_paths = []
-
+    suggested_paths = set()  # Use a set to automatically handle duplicate suggestions
+    
     # Define career paths based on user inputs
     paths_mapping = {
         'Which subjects did you enjoy most in school?': {
@@ -327,19 +327,22 @@ def determine_career_paths(user_answers):
         },
     }
 
-    # Iterate through each field in the form and get the career path suggestions
+    # Function to map answers to career suggestions
+    def get_career_suggestion(question, response):
+        if question in paths_mapping and response != '--Select--':
+            return paths_mapping[question].get(response)
+
+    # Iterate through each user response to suggest career paths
     for question, response in user_answers.items():
-        if response != '--Select--' and question in paths_mapping:
-            career_suggestion = paths_mapping[question].get(response)
-            if career_suggestion:
-                suggested_paths.append(career_suggestion)
+        career_suggestion = get_career_suggestion(question, response)
+        if career_suggestion:
+            suggested_paths.add(career_suggestion)
 
-    # Remove duplicates and return the career suggestions
-    unique_suggested_paths = list(set(suggested_paths))
-    print("Suggested Career Paths:", unique_suggested_paths)
-
-    return unique_suggested_paths
-
+    # Convert set back to list, sort for readability
+    sorted_suggested_paths = sorted(list(suggested_paths))
+    
+    print("Suggested Career Paths:", sorted_suggested_paths)
+    return sorted_suggested_paths
 
 def register(request):
     if request.method == 'POST':
