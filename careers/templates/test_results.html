@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'media/favicon.png' %}">
     <title>Test Results</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <style>
         html, body {
             height: 100%;
@@ -66,26 +65,80 @@
             text-align: center;
             margin-bottom: 20px;
         }
+        /* Styling for the Suggested Career Options section */
         h2 {
-            color: #007bff;
+            color: #007bff; /* Blue color for headings */
+            font-size: 1.8em;
             margin-top: 30px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
+
+        /* Style for the career paths list */
         ul {
             list-style-type: none;
             padding: 0;
+            margin: 0;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
         }
+
+        /* Individual career path list items */
         li {
-            background: #f9f9f9;
-            margin: 10px 0;
+            background: #f8f9fa;
+            margin: 15px 0;
             padding: 15px;
-            border-radius: 5px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
         }
+
+        /* Hover effect for list items */
         li:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+            background-color: #f4c724;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
+
+        /* For an empty state (no career suggestions) */
+        li.no-suggestions {
+            background-color: #ffcccc;
+            color: #b33c3c;
+            font-size: 1.2em;
+            text-align: center;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: none;
+        }
+
+        /* Add a slight animation for the list items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        ul li {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+
         .logout-btn {
             background-color: #ff4d4d;
             color: #fff;
