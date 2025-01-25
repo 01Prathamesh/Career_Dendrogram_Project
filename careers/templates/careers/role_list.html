@@ -17,6 +17,11 @@
             padding: 0;
             background-color: #e3f2fd;
             color: #333;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark-mode {
+            background-color: #121212;
+            color: #e3f2fd;
         }
         header {
             background-color: #ff6f61;
@@ -26,6 +31,9 @@
             justify-content: space-between;
             align-items: center;
             border-bottom: 5px dashed #ffd54f;
+        }
+        body.dark-mode header {
+            background-color: #333;
         }
         .header-title {
             font-size: 28px;
@@ -47,9 +55,16 @@
             border: 2px solid transparent;
             transition: all 0.3s;
         }
+        body.dark-mode .navbar a {
+            color: #e3f2fd;
+        }
         .navbar a:hover {
             background-color: #ffd54f;
             border-radius: 5px;
+            color: #333;
+        }
+        body.dark-mode .navbar a:hover {
+            background-color: #ffd54f;
             color: #333;
         }
         main {
@@ -60,12 +75,19 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+        body.dark-mode main {
+            background-color: #424242;
         }
         h1 {
             margin-top: 0;
             font-size: 26px;
             text-align: center;
             color: #ff5722;
+        }
+        body.dark-mode h1 {
+            color: #ff9800;
         }
         table {
             width: 100%; /* Full width */
@@ -81,21 +103,37 @@
             background-color: #f4f4f4;
             color: #333;
         }
+        body.dark-mode table th {
+            background-color: #333;
+            color: #e3f2fd;
+        }
         tr:hover {
             background-color: #f1f1f1;
+        }
+        body.dark-mode tr:hover {
+            background-color: #555;
         }
         .actions a {
             color: #007bff;
             font-weight: bold;
             margin-right: 10px;
         }
+        body.dark-mode .actions a {
+            color: #aad8ff;
+        }
         .actions a:hover {
             color: #0056b3;
+        }
+        body.dark-mode .actions a:hover {
+            color: #ffffff;
         }
         .no-roles {
             text-align: center;
             padding: 20px;
             color: #666;
+        }
+        body.dark-mode .no-roles {
+            color: #bbb;
         }
         .button {
             display: inline-block;
@@ -110,8 +148,14 @@
             text-decoration: none;
             transition: background-color 0.3s;
         }
+        body.dark-mode .button {
+            background-color: #4caf50;
+        }
         .button:hover {
             background-color: #0056b3;
+        }
+        body.dark-mode .button:hover {
+            background-color: #388e3c;
         }
         footer {
             background-color: #ff6f61;
@@ -119,6 +163,22 @@
             text-align: center;
             padding: 10px 0;
             width: 100%;
+        }
+        body.dark-mode footer {
+            background-color: #333;
+        }
+        .dark-mode-toggle {
+            background-color: #ffd54f;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #333;
+            font-weight: bold;
+        }
+        body.dark-mode .dark-mode-toggle {
+            background-color: #ff9800;
+            color: #fff;
         }
     </style>
 </head>
@@ -173,6 +233,14 @@
     
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY - CaptainPrince). All rights reserved.</p>
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
     </footer>
+
+    <script>
+        // Dark Mode Toggle Function
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+    </script>
 </body>
 </html>
