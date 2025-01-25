@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="{% static 'media/favicon.png' %}">
     <title>Edit Career Path</title>
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <style>
-         body {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+        body {
+            font-family: 'Arial', sans-serif;
             background-color: #e3f2fd;
             margin: 0;
             padding: 0;
@@ -43,37 +43,17 @@
             background-color: #ffd54f;
         }
         main {
-            padding: 20px;
-            max-width: 800px;
-            margin: 20px auto;
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: 40px auto;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .user-info {
-            color: #fff;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        h1 {
-            margin-top: 0;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
         }
         .form-buttons {
-            margin-top: 20px;
             display: flex;
             justify-content: space-between;
-        }
-        button, .cancel-button {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
+            margin-top: 20px;
         }
         button {
             background-color: #28a745;
@@ -99,18 +79,43 @@
             width: 100%;
             bottom: 0;
         }
+
+        /* Dark Mode */
+        body.dark-mode {
+            background-color: #121212;
+            color: #e3f2fd;
+        }
+
+        body.dark-mode header, body.dark-mode footer {
+            background-color: #333;
+        }
+
+        body.dark-mode main {
+            background-color: #424242;
+        }
+
+        .dark-mode .navbar a {
+            color: #e3f2fd;
+        }
+
+        .dark-mode .navbar a:hover {
+            background-color: #ffd54f;
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="header-title">Edit Caareer List</div>
+        <div class="header-title">Edit Career Path</div>
         <nav class="navbar">
             <a href="{% url 'home' %}">Home</a>
             <a href="{% url 'career_list' %}">Career List</a>
             {% if user.is_authenticated %}
                 <a href="{% url 'profile' %}">Profile</a>
                 <span class="user-info">Welcome, {{ user.username }}!</span>
-                <button type="submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; cursor: pointer; font-size: 16px; font-weight: bold;">Logout</button>
+                <form method="post" action="{% url 'logout' %}" class="d-inline">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
             {% else %}
                 <a href="{% url 'login' %}">Login</a>
                 <a href="{% url 'register' %}">Register</a>
@@ -121,12 +126,12 @@
     <main>
         <section class="edit-career">
             <h1>Edit Career Path</h1>
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 {% csrf_token %}
                 {{ form.as_p }}
                 <div class="form-buttons">
-                    <button type="submit">Save changes</button>
-                    <a href="{% url 'career_list' %}" class="cancel-button">Cancel</a>
+                    <button type="submit" class="btn btn-success">Save Changes</button>
+                    <a href="{% url 'career_list' %}" class="cancel-button btn btn-danger">Cancel</a>
                 </div>
             </form>
         </section>
@@ -134,6 +139,31 @@
 
     <footer>
         <p>&copy; 2024 Career Dendrogram (HAPY -CaptainPrince). All rights reserved.</p>
+        <button onclick="toggleDarkMode()" class="btn btn-outline-light">Toggle Dark Mode</button>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Form Validation (Bootstrap)
+        (function () {
+            'use strict'
+            var forms = document.querySelectorAll('.needs-validation')
+            Array.prototype.slice.call(forms)
+                .forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+        })()
+    </script>
 </body>
 </html>
