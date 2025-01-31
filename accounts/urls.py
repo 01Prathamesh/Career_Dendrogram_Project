@@ -28,4 +28,5 @@ urlpatterns = [
     path('api/career_paths/', views.career_paths_data, name='career_paths_data'),
     path('declaration/', views.declaration, name='declaration'),
     path('dendrogram/<str:category>/', views.career_view, name='career_view'),
+    path('change-password/', views.change_password, name='change_password'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

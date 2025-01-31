@@ -125,3 +125,10 @@ class TestForm(forms.Form):
                 self.add_error(field, '*Please select an option.*')
 
         return cleaned_data
+
+from django.contrib.auth.forms import PasswordChangeForm
+    
+class CustomPasswordChangeForm(PasswordChangeForm):
+    old_password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control'}))

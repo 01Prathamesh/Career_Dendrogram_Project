@@ -425,3 +425,25 @@ def fetch_news():
         return data.get('articles', [])
     else:
         return []
+
+from django.shortcuts import render, redirect
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib import messages
+from .forms import CustomPasswordChangeForm
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = CustomPasswordChangeForm(request.user, data=request.POST)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)  # Keeps the user logged in after changing password
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('profile')  # Redirect back to the profile page
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        form = CustomPasswordChangeForm(request.user)
+    
+    return render(request, 'accounts/change_password.html', {'form': form})
