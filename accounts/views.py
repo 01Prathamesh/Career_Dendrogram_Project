@@ -439,11 +439,14 @@ def change_password(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)  # Keeps the user logged in after changing password
-            messages.success(request, 'Your password was successfully updated!')
+            messages.success(request, '🎉 Your password was successfully updated! Now you can continue exploring your account.')
             return redirect('profile')  # Redirect back to the profile page
         else:
-            messages.error(request, 'Please correct the error below.')
+            messages.error(request, '❌ Oops! Please correct the error(s) below to update your password.')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field.capitalize()}: {error}")
     else:
         form = CustomPasswordChangeForm(request.user)
-    
+
     return render(request, 'accounts/change_password.html', {'form': form})
