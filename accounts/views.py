@@ -450,3 +450,46 @@ def change_password(request):
         form = CustomPasswordChangeForm(request.user)
 
     return render(request, 'accounts/change_password.html', {'form': form})
+
+CAREER_PAGES = {
+    "art-teacher": "careers/options/art_teacher.html",
+    "artist": "careers/options/artist.html",
+    "arts": "careers/options/arts.html",
+    "author": "careers/options/author.html",
+    "chartered-accountant": "careers/options/ca.html",
+    "child-psychologist": "careers/options/child_psychologist.html",
+    "commerce": "careers/options/commerce.html",
+    "conservationist": "careers/options/conservationist.html",
+    "content-creator": "careers/options/content_creator.html",
+    "corporate-employee": "careers/options/corporate_employee.html",
+    "creative-director": "careers/options/creative_director.html",
+    "cybersecurity-analyst": "careers/options/cybersecurity_analyst.html",
+    "data-analyst": "careers/options/data_analyst.html",
+    "engineer": "careers/options/engineering.html",
+    "environmental-scientist": "careers/options/environmental_scientist.html",
+    "financial-analyst": "careers/options/financial_analyst.html",
+    "freelancer": "careers/options/freelancer.html",
+    "graphic-designer": "careers/options/graphic_designer.html",
+    "healthcare-professional": "careers/options/healthcare_professional.html",
+    "manager": "careers/options/manager.html",
+    "mechanic": "careers/options/mechanic.html",
+    "public-relations-specialist": "careers/options/PR_specialist.html",
+    "public-speaker": "careers/options/public_speaker.html",
+    "remote-worker": "careers/options/remote_worker.html",
+    "research-scientist": "careers/options/research_scientist.html",
+    "science": "careers/options/science.html",
+    "sports-coach": "careers/options/sports_coach.html",
+    "startup-founder": "careers/options/startup_founder.html",
+    "vocational-courses": "careers/options/vocational_courses.html",
+    "workshop-instructor": "careers/options/workshop_instructor.html",
+}
+
+def career_detail(request, career_name):
+    """ View function to serve the correct career page based on user input """
+    template = CAREER_PAGES.get(career_name.lower())
+
+    if template:
+        return render(request, template)
+    else:
+        return render(request, 'careers/options/career_not_found.html', {'career_name': career_name})
+
