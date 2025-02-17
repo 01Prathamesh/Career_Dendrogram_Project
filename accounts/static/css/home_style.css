@@ -296,6 +296,79 @@ footer {
     margin-right: 30px;
 }
 
+/* Full-Width Search Bar Styling */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #007BFF;
+    border-radius: 30px;
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    background-color: #f9f9f9;
+}
+
+.search-container input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 10px rgba(0, 91, 187, 0.5);
+    background-color: white;
+}
+
+/* Search Button Inside the Input */
+.search-container button {
+    position: absolute;
+    right: 2px;
+    background: #007BFF;
+    border: none;
+    color: white;
+    font-size: 22px;
+    padding: 12px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.search-container button:hover {
+    background: #0056b3;
+}
+
+/* Make sure input and button align properly */
+.search-container form {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-container {
+        padding: 0 5px;
+    }
+
+    .search-container input {
+        font-size: 16px;
+        padding: 12px 15px;
+    }
+
+    .search-container button {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+}
+
+
 /* News Section */
 .news-section {
     background-color: #ffffff; /* Brighter background to make it stand out */
