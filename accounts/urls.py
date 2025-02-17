@@ -29,4 +29,5 @@ urlpatterns = [
     path('declaration/', views.declaration, name='declaration'),
     path('dendrogram/<str:category>/', views.career_view, name='career_view'),
     path('change-password/', views.change_password, name='change_password'),
+    path('career/<str:career_name>/', views.career_detail, name='career_detail')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
