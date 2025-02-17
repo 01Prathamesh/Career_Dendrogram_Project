@@ -50,6 +50,42 @@
             {% endif %}
         </div>
 
+        <!-- Search Bar -->
+        <div class="search-container">
+            <form id="career-search-form" action="" method="get">
+                <input type="text" id="career-search" placeholder="Search for a career..." list="career-options">
+                <datalist id="career-options">
+                    <option value="Engineer"></option>
+                    <option value="Data Analyst"></option>
+                    <option value="Research Scientist"></option>
+                    <option value="Healthcare Professional"></option>
+                    <option value="Environmental Scientist"></option>
+                    <option value="Chartered Accountant"></option>
+                    <option value="Financial Analyst"></option>
+                    <option value="Manager"></option>
+                    <option value="Remote Worker"></option>
+                    <option value="Public Relations Specialist"></option>
+                    <option value="Author"></option>
+                    <option value="Graphic Designer"></option>
+                    <option value="Content Creator"></option>
+                    <option value="Art Teacher"></option>
+                    <option value="Artist"></option>
+                    <option value="Public Speaker"></option>
+                    <option value="Child Psychologist"></option>
+                    <option value="Mechanic"></option>
+                    <option value="Sports Coach"></option>
+                    <option value="Workshop Instructor"></option>
+                    <option value="Freelancer"></option>
+                    <option value="Startup Founder"></option>
+                    <option value="Creative Director"></option>
+                    <option value="Corporate Employee"></option>
+                    <option value="Conservationist"></option>
+                    <option value="Cybersecurity Analyst"></option>
+                </datalist>
+                <button type="submit">🔍 Search</button>
+            </form>
+        </div>
+
         <!-- Latest News Section -->
         <div class="news-section">
             <h3>🔔 Latest News</h3>
@@ -112,6 +148,17 @@
         scrollToTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Search Career
+        document.getElementById("career-search-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            let searchQuery = document.getElementById("career-search").value.trim();
+            if (searchQuery) {
+                let formattedQuery = searchQuery.toLowerCase().replace(/\\s+/g, '-'); // Convert to URL format
+                window.location.href = `/career/${formattedQuery}/`;
+            }
+        });
+
     </script>
 </body>
 </html>
